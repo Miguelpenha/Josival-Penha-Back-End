@@ -31,7 +31,6 @@ console.log(success('>> Cors being used'))
 app.use(helmet())
 console.log(success('>> Helmet being used'))
 
-app.use('/public', express.static(path.resolve(__dirname, '../public')))
 app.use('/', routes)
 
 app.listen(process.env.PORT, () => console.log(success('>> Server is running')))
