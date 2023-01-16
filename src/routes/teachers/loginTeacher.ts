@@ -18,36 +18,39 @@ async function loginTeacher(req: Request<ILoginTeacherParams, {}, ILoginTeacherB
     const { login, password, accessToken } = req.body
 
     const teachers = await teachersModel.find().select(['login', 'password'])
-    const teacher = teachers.filter(teacher => teacher.login === login)[0]
 
-    if (teacher) {
-        if (type === 'google') {
-            try {
-                const { data: user } = await axios.get('https://www.googleapis.com/userinfo/v2/me', {
-                    headers: {
-                        authorization: `Bearer ${accessToken}`
-                    }
-                })
-
-                if (user.email === teacher.login) {
-                    res.json({ authenticated: true, teacherID: teacher.id })
-                } else {
-                    res.json({ authenticated: false })
+    if (type === 'google') {
+        try {
+            const { data: user } = await axios.get('https://www.googleapis.com/userinfo/v2/me', {
+                headers: {
+                    authorization: `Bearer ${accessToken}`
                 }
-            } catch {
+            })
+
+            const teacher = teachers.filter(teacher => teacher.login === user.email)[0]
+
+            if (teacher) {
+                res.json({ authenticated: true, teacherID: teacher.id })
+            } else {
                 res.json({ authenticated: false })
             }
-        } else if (type === 'local') {
+        } catch {
+            res.json({ authenticated: false })
+        }
+    } else if (type === 'local') {
+        const teacher = teachers.filter(teacher => teacher.login === login)[0]
+        
+        if (teacher) {
             if (await compare(password, teacher.password)) {
                 res.json({ authenticated: true, teacherID: teacher.id })
             } else {
                 res.json({ authenticated: false })
             }
         } else {
-            res.json({ typeNotExists: true })
+            res.json({ authenticated: false })
         }
     } else {
-        res.json({ authenticated: false })
+        res.json({ typeNotExists: true })
     }
 }
 
