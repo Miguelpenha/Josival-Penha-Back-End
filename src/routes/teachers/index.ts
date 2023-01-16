@@ -12,7 +12,7 @@ teachersRouter.get('/', teachers)
 teachersRouter.get('/:id', teacher)
 teachersRouter.post('/', createTeacher)
 teachersRouter.patch('/:id', editTeacher)
-teachersRouter.post('/login', loginTeacher)
+teachersRouter.post('/login/:type', loginTeacher)
 teachersRouter.delete('/:id', deleteTeacher)
 
 export default teachersRouter
