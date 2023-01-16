@@ -35,7 +35,7 @@ async function loginTeacher(req: Request<ILoginTeacherParams, {}, ILoginTeacherB
                 user = decode(jwt)
             }
 
-            if (user.email_verified && user.hd === process.env.DOMAIN_EMAIL) {
+            if ((user.email_verified || user.verified_email) && user.hd === process.env.DOMAIN_EMAIL) {
                 const teacher = teachers.filter(teacher => teacher.login === user.email)[0]
 
                 if (teacher) {
