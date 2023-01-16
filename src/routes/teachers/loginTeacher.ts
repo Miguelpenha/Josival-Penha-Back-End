@@ -2,12 +2,14 @@ import { Request, Response } from 'express'
 import teachersModel from '../../models/teacher'
 import axios from 'axios'
 import { compare } from 'bcryptjs'
+import { decode } from 'jsonwebtoken'
 
 interface ILoginTeacherParams {
     type: 'local' | 'google'
 }
 
 interface ILoginTeacherBody {
+    jwt?: string
     login: string
     password?: string
     accessToken?: string
@@ -15,22 +17,32 @@ interface ILoginTeacherBody {
 
 async function loginTeacher(req: Request<ILoginTeacherParams, {}, ILoginTeacherBody>, res: Response) {
     const { type } = req.params
-    const { login, password, accessToken } = req.body
+    const { login, password, accessToken, jwt } = req.body
 
     const teachers = await teachersModel.find().select(['login', 'password'])
 
     if (type === 'google') {
         try {
-            const { data: user } = await axios.get('https://www.googleapis.com/userinfo/v2/me', {
-                headers: {
-                    authorization: `Bearer ${accessToken}`
+            let user = null
+
+            if (accessToken) {
+                user = (await axios.get('https://www.googleapis.com/userinfo/v2/me', {
+                    headers: {
+                        authorization: `Bearer ${accessToken}`
+                    }
+                })).data
+            } else if (jwt) {
+                user = decode(jwt)
+            }
+
+            if (user.email_verified && user.hd === process.env.DOMAIN_EMAIL) {
+                const teacher = teachers.filter(teacher => teacher.login === user.email)[0]
+
+                if (teacher) {
+                    res.json({ authenticated: true, teacherID: teacher.id })
+                } else {
+                    res.json({ authenticated: false })
                 }
-            })
-
-            const teacher = teachers.filter(teacher => teacher.login === user.email)[0]
-
-            if (teacher) {
-                res.json({ authenticated: true, teacherID: teacher.id })
             } else {
                 res.json({ authenticated: false })
             }
