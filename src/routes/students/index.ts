@@ -1,10 +1,10 @@
 import express from 'express'
 import students from './students'
+import exportStudents from './exportStudents'
 import student from './student'
 import createStudent from './createStudent'
 import editStudent from './editStudent'
 import deleteStudent from './deleteStudent'
-import exportStudents from './exportStudents'
 import studentsDocumentsRouter from './documents'
 
 const studentsRouter = express.Router()
