@@ -6,6 +6,7 @@ import morgan from 'morgan'
 import cors from 'cors'
 import helmet from 'helmet'
 import path from 'path'
+import jobs from './jobs'
 import routes from './routes'
 
 const app = express()
@@ -33,5 +34,7 @@ console.log(success('>> Helmet being used'))
 
 app.use('/public', express.static(path.resolve(__dirname, '..', 'public')))
 app.use('/', routes)
+
+jobs()
 
 app.listen(process.env.PORT, () => console.log(success('>> Server is running')))

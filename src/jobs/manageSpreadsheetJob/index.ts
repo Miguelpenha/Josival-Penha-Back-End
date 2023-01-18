@@ -1,0 +1,25 @@
+import { GoogleSpreadsheet } from 'google-spreadsheet'
+import studentsSheet from './makeSheet'
+import teachersModel from '../../models/teacher'
+import datasTeacher from '../../routes/teachers/exportTeachers/datas'
+import classesModel from '../../models/class'
+import datasClass from '../../routes/classes/exportClasses/datas'
+import studentsModel from '../../models/student'
+import datasStudent from '../../routes/students/exportStudents/datas'
+
+async function manageSpreadsheetJob() {
+    const doc = new GoogleSpreadsheet(process.env.GOOGLE_ID_SPREADSHEET)
+
+    await doc.useServiceAccountAuth({
+        client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+        private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n')
+    }, process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL_USE)
+
+    await doc.loadInfo()
+
+    await studentsSheet(doc, 'Professoras', await teachersModel.find(), datasTeacher)
+    await studentsSheet(doc, 'Turmas', await classesModel.find().populate('teacher'), datasClass)
+    await studentsSheet(doc, 'Alunos', await studentsModel.find().populate('class').select(['+address']), datasStudent)
+}
+
+export default manageSpreadsheetJob

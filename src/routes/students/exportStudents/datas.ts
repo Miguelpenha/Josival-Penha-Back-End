@@ -27,11 +27,11 @@ const datas: IData<IStudent>[] = [
         row: data => data.email
     },
     {
-        name: 'Repensável 1',
+        name: 'Responsável 1',
         row: data => data.responsible1
     },
     {
-        name: 'Repensável 2',
+        name: 'Responsável 2',
         row: data => data.responsible2
     },
     {
