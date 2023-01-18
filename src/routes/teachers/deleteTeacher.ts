@@ -1,6 +1,7 @@
 import { Request, Response } from 'express'
 import mongoose from 'mongoose'
 import teachersModel from '../../models/teacher'
+import { manageSpreadsheetJob } from '../../jobs'
 
 interface IDeleteTeacherParams {
     id: string
@@ -16,6 +17,8 @@ async function deleteTeacher(req: Request<IDeleteTeacherParams>, res: Response) 
             await teacherIsExists.remove()
 
             res.json({ deleted: true })
+
+            await manageSpreadsheetJob()
         } else {
             res.json({ exists: false })
         }

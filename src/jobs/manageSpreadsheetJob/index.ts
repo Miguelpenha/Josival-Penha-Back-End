@@ -1,4 +1,5 @@
 import { GoogleSpreadsheet } from 'google-spreadsheet'
+import { blueBright as info } from 'chalk'
 import studentsSheet from './makeSheet'
 import teachersModel from '../../models/teacher'
 import datasTeacher from '../../routes/teachers/exportTeachers/datas'
@@ -9,6 +10,8 @@ import datasStudent from '../../routes/students/exportStudents/datas'
 
 async function manageSpreadsheetJob() {
     const doc = new GoogleSpreadsheet(process.env.GOOGLE_ID_SPREADSHEET)
+
+    console.log(info('>> Job manageSpreadsheet is running'))
 
     await doc.useServiceAccountAuth({
         client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,

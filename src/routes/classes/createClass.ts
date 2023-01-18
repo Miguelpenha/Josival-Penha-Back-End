@@ -1,5 +1,6 @@
 import { Request, Response } from 'express'
 import classesModel from '../../models/class'
+import { manageSpreadsheetJob } from '../../jobs'
 
 interface ICreateClassBody {
     name: string
@@ -22,6 +23,8 @@ async function createClass(req: Request<{}, {}, ICreateClassBody>, res: Response
         })
         
         res.json({ created: true })
+
+        await manageSpreadsheetJob()
     } else {
         res.json({ exists: true })
     }

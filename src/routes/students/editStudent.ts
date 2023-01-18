@@ -2,6 +2,7 @@ import { Request, Response } from 'express'
 import { IStudent } from '../../types'
 import mongoose from 'mongoose'
 import studentsModel from '../../models/student'
+import { manageSpreadsheetJob } from '../../jobs'
 
 interface IEditStudentParams {
     id: string
@@ -32,6 +33,8 @@ async function editStudent(req: Request<IEditStudentParams, {}, IStudent>, res: 
             })
 
             res.json({ edited: true })
+
+            await manageSpreadsheetJob()
         } else {
             res.json({ exists: false })
         }

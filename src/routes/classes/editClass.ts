@@ -1,6 +1,7 @@
 import { Request, Response } from 'express'
 import mongoose from 'mongoose'
 import classesModel from '../../models/class'
+import { manageSpreadsheetJob } from '../../jobs'
 
 interface IEditClassParams {
     id: string
@@ -30,6 +31,8 @@ async function editClass(req: Request<IEditClassParams, {}, IEditClassBody>, res
             } as IEditClassBody)
 
             res.json({ edited: true })
+
+            await manageSpreadsheetJob()
         } else {
             res.json({ exists: false })
         }

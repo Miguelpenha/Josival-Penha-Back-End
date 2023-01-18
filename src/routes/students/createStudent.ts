@@ -1,6 +1,7 @@
 import { Request, Response } from 'express'
 import { IStudent } from '../../types'
 import studentsModel from '../../models/student'
+import { manageSpreadsheetJob } from '../../jobs'
 
 async function createStudent(req: Request<{}, {}, IStudent>, res: Response) {
     const { cpf, name, birth, email, class: classSelect, gender, telephone, situation, address, matters, responsible1, responsible2 } = req.body
@@ -24,6 +25,8 @@ async function createStudent(req: Request<{}, {}, IStudent>, res: Response) {
         })
         
         res.json({ created: true })
+
+        await manageSpreadsheetJob()
     } else {
         res.json({ exists: true })
     }

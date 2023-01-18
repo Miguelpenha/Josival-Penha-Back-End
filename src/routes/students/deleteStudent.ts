@@ -1,5 +1,6 @@
 import { Request, Response } from 'express'
 import studentsModel from '../../models/student'
+import { manageSpreadsheetJob } from '../../jobs'
 
 interface IDeleteStudentParams {
     id: string
@@ -12,6 +13,8 @@ async function deleteStudent(req: Request<IDeleteStudentParams>, res: Response) 
         await studentsModel.findByIdAndDelete(id)
 
         res.json({ deleted: true })
+
+        await manageSpreadsheetJob()
     } catch {
         res.json({ deleted: false })
     }

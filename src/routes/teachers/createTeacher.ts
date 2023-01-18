@@ -1,6 +1,7 @@
 import { Request, Response } from 'express'
 import teachersModel from '../../models/teacher'
 import { hash } from 'bcryptjs'
+import { manageSpreadsheetJob } from '../../jobs'
 
 interface ICreateTeacherBody {
     name: string
@@ -23,6 +24,8 @@ async function createTeacher(req: Request<{}, {}, ICreateTeacherBody>, res: Resp
         })
         
         res.json({ created: true })
+
+        await manageSpreadsheetJob()
     } else {
         res.json({ exists: true })
     }
