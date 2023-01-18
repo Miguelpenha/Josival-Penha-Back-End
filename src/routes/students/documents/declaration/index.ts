@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { IDeclarationBody } from './type'
+import { IDeclarationQuery } from './type'
 import mongoose from 'mongoose'
 import studentsModel from '../../../../models/student'
 import PDFKit from 'pdfkit'
@@ -10,7 +10,7 @@ interface IDeclarationParams {
     id: string
 }
 
-async function declaration(req: Request<IDeclarationParams, {}, IDeclarationBody>, res: Response) {
+async function declaration(req: Request<IDeclarationParams, {}, {}, IDeclarationQuery>, res: Response) {
     const { id } = req.params
 
     if (mongoose.isValidObjectId(id)) {
@@ -18,7 +18,7 @@ async function declaration(req: Request<IDeclarationParams, {}, IDeclarationBody
 
         if (student) {
             const pdf = new PDFKit(optionsPDF(student))
-            const declaration = makePDF(pdf, student, req.body)
+            const declaration = makePDF(pdf, student, req.query)
             const chunks: Uint8Array[] = []
 
             declaration.on('data', chunks.push.bind(chunks))

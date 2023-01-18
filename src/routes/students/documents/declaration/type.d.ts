@@ -1,5 +1,5 @@
-export interface IDeclarationBody {
+export interface IDeclarationQuery {
     schoolYear: string
-    frequencyPercentage: number
-    scholarshipStudent: boolean
+    scholarshipStudent: string
+    frequencyPercentage: string
 }

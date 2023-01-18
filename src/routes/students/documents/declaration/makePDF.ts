@@ -1,12 +1,12 @@
 import path from 'path'
 import { IStudent } from '../../../../types'
-import { IDeclarationBody } from './type'
+import { IDeclarationQuery } from './type'
 
 const pathLogoJP = path.resolve(__dirname, '..', '..', '..', '..', '..', 'public', 'logo-Josival-Penha.png')
 
-function makePDF(pdf: PDFKit.PDFDocument, student: IStudent, body: IDeclarationBody) {
+function makePDF(pdf: PDFKit.PDFDocument, student: IStudent, query: IDeclarationQuery) {
     const dateSplitted = new Date().toLocaleDateString('pt-br').split('/')
-    const { schoolYear, scholarshipStudent, frequencyPercentage } = body
+    const { schoolYear, scholarshipStudent, frequencyPercentage } = query
 
     pdf
     .opacity(0.15)
@@ -93,7 +93,7 @@ function makePDF(pdf: PDFKit.PDFDocument, student: IStudent, body: IDeclarationB
     })
     .moveDown(1.5)
     
-    if (scholarshipStudent) {
+    if (scholarshipStudent === 'true') {
         pdf
         .text(`Aluno(a) bolsista`)
         .moveDown(0.5)
