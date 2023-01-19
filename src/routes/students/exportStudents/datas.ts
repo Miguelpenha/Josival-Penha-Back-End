@@ -55,6 +55,10 @@ const datas: IData<IStudent>[] = [
         row: data => data.address && data.address.neighborhood
     },
     {
+        name: 'Professora',
+        row: data => data.teacher && data.teacher.name
+    },
+    {
         name: 'Turma',
         row: data => data.class && data.class.name
     },

@@ -29,6 +29,11 @@ const schema = new mongoose.Schema<IStudent>({
         select: false,
         ref: 'classes'
     },
+    teacher: {
+        type: String,
+        select: false,
+        ref: 'teachers'
+    },
     cpf: {
         type: String,
         set: encrypt,

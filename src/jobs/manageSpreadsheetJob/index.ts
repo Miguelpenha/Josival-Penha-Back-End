@@ -22,7 +22,7 @@ async function manageSpreadsheetJob() {
 
     await studentsSheet(doc, 'Professoras', await teachersModel.find(), datasTeacher)
     await studentsSheet(doc, 'Turmas', await classesModel.find().populate('teacher'), datasClass)
-    await studentsSheet(doc, 'Alunos', await studentsModel.find().populate('class').select(['+address']), datasStudent)
+    await studentsSheet(doc, 'Alunos', await studentsModel.find().populate(['class', 'teacher']).select(['+address']), datasStudent)
 }
 
 export default manageSpreadsheetJob

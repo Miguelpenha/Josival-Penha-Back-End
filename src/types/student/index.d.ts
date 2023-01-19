@@ -1,4 +1,5 @@
 import IClass from './class'
+import ITeacher from '../teacher'
 import IAddress from './address'
 import IMatters from './matters'
 import ICreated from './created'
@@ -10,6 +11,7 @@ interface IStudent {
     email: string
     class: IClass
     gender: string
+    teacher: ITeacher
     telephone: string
     situation: string
     address: IAddress

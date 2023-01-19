@@ -4,7 +4,7 @@ import generateSpreadsheetService from '../../../services/generateSpreadsheetSer
 import datas from './datas'
 
 async function exportStudents(req: Request, res: Response) {
-    const students = await studentsModel.find().populate('class').select(['+address'])
+    const students = await studentsModel.find().populate(['class', 'teacher']).select(['+address'])
 
     await generateSpreadsheetService('Planilha de alunos', datas, students, res)
 }

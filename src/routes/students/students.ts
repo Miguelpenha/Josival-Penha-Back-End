@@ -6,10 +6,11 @@ interface IStudentsQuery {
     class: (string | undefined)
     address: (string | undefined)
     matters: (string | undefined)
+    teacher: (string | undefined)
 }
 
 async function students(req: Request<{}, {}, {}, IStudentsQuery>, res: Response) {
-    const { count, class: classSelect, address, matters } = req.query
+    const { count, class: classSelect, teacher, address, matters } = req.query
 
     if (count !== 'false' && count) {
         const studentsCount = await studentsModel.estimatedDocumentCount()
@@ -20,6 +21,10 @@ async function students(req: Request<{}, {}, {}, IStudentsQuery>, res: Response)
 
         if (classSelect !== 'false' && classSelect) {
             students.populate('class')
+        }
+
+        if (teacher !== 'false' && teacher) {
+            students.populate('teacher')
         }
 
         const select: string[] = []
