@@ -1,5 +1,5 @@
 import { GoogleSpreadsheet } from 'google-spreadsheet'
-import { IData } from '../../services/generateSpreadsheetService'
+import { IData } from '../../services/generateSpreadsheetService/type'
 
 async function makeSheet(doc: GoogleSpreadsheet, name: string, values: object[], datas: IData[]) {
     const sheet = doc.sheetsByTitle[name]

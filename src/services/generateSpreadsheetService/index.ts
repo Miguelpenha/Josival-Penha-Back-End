@@ -1,38 +1,23 @@
+import { IData } from './type'
 import { Response } from 'express'
 import ExcelJS from 'exceljs'
+import makeSheet from './makeSheet'
 import exportSpreadsheet from './exportSpreadsheet'
 
-export interface IData<RowDataType=object> {
-    name: string
-    row: (data: RowDataType) => any
-}
-
-async function generateSpreadsheetService(name: string, datas: IData[], values: object[], res: Response) {
+async function generateSpreadsheetService(name: string | string[], datas: IData[] | (IData[])[], values: object[] | (object[])[], res: Response, nameFile?: string) {
     const spreadsheet = new ExcelJS.Workbook()
-    const sheet = spreadsheet.addWorksheet(name)
 
-    sheet.columns = datas.map((data, index) => {
-        const column = sheet.getColumn(index+1)
+    if (typeof name === 'string') {
+        await makeSheet(spreadsheet, name, (datas as IData[]), values)
 
-        sheet.getCell(`${column.letter}1`).font = {
-            bold: true
-        }
+        await exportSpreadsheet(nameFile || name, spreadsheet, res)
+    } else {
+        name.map(async (name, index) => (
+            await makeSheet(spreadsheet, name, (datas as (IData[])[])[index], (values as (object[])[])[index])
+        ))
 
-        return ({
-            header: data.name,
-            width: data.name.length+2
-        })
-    })
-
-    values.map(value => {
-        sheet.addRow(
-            datas.map(data => 
-                data.row(value) || ''
-            )
-        )
-    })
-    
-    await exportSpreadsheet(name, spreadsheet, res)
+        await exportSpreadsheet(nameFile, spreadsheet, res)
+    }
 }
 
 export default generateSpreadsheetService
