@@ -1,6 +1,7 @@
 import { Request, Response } from 'express'
 import { IStudent } from '../../types'
 import studentsModel from '../../models/student'
+import classesModel from '../../models/class'
 import { manageSpreadsheetJob } from '../../jobs'
 
 async function createStudent(req: Request<{}, {}, IStudent>, res: Response) {
@@ -9,6 +10,8 @@ async function createStudent(req: Request<{}, {}, IStudent>, res: Response) {
     const studentIsExists = await studentsModel.findOne({ name })
     
     if (!studentIsExists) {
+        const classSelectCompleted = await classesModel.findById(classSelect).select('teacher').populate('teacher')
+
         await studentsModel.create({
             cpf,
             name,
@@ -21,7 +24,8 @@ async function createStudent(req: Request<{}, {}, IStudent>, res: Response) {
             situation,
             responsible1,
             responsible2,
-            class: classSelect
+            class: classSelect,
+            teacher: (classSelectCompleted.teacher as any).id
         })
         
         res.json({ created: true })

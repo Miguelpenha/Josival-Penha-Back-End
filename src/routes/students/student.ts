@@ -10,6 +10,7 @@ interface IStudentQuery {
     class: (string | undefined)
     address: (string | undefined)
     matters: (string | undefined)
+    teacher: (string | undefined)
 }
 
 async function student(req: Request<IStudentParams, {}, {}, IStudentQuery>, res: Response) {
@@ -17,10 +18,14 @@ async function student(req: Request<IStudentParams, {}, {}, IStudentQuery>, res:
 
     if (mongoose.isValidObjectId(id)) {
         const studentSelect = studentsModel.findById(id)
-        const { class: classSelect, address, matters } = req.query
+        const { class: classSelect, teacher, address, matters } = req.query
         
         if (classSelect !== 'false' && classSelect) {
             studentSelect.populate('class')
+        }
+
+        if (teacher !== 'false' && teacher) {
+            studentSelect.populate('teacher')
         }
 
         const select: string[] = []

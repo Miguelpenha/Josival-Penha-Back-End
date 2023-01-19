@@ -10,6 +10,7 @@ const schema = new mongoose.Schema<IClass>({
     created: createdSchema,
     teacher: {
         type: String,
+        select: false,
         ref: 'teachers'
     }
 })
