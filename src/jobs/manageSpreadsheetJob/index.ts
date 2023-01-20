@@ -2,11 +2,11 @@ import { GoogleSpreadsheet } from 'google-spreadsheet'
 import { blueBright as info } from 'chalk'
 import studentsSheet from './makeSheet'
 import teachersModel from '../../models/teacher'
-import datasTeacher from '../../routes/teachers/exportTeachers/datas'
+import datasTeacher from '../../routes/exportGeneral/datasTeacher'
 import classesModel from '../../models/class'
-import datasClass from '../../routes/classes/exportClasses/datas'
+import datasClass from '../../routes/exportGeneral/datasClass'
 import studentsModel from '../../models/student'
-import datasStudent from '../../routes/students/exportStudents/datas'
+import datasStudent from '../../routes/exportGeneral/datasStudent'
 
 async function manageSpreadsheetJob() {
     const doc = new GoogleSpreadsheet(process.env.GOOGLE_ID_SPREADSHEET)

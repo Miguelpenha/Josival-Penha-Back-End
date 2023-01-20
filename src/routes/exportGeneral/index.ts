@@ -2,15 +2,15 @@ import { Request, Response } from 'express'
 import makeSpreadsheets from './makeSpreadsheets'
 import generateSpreadsheetService from '../../services/generateSpreadsheetService'
 
-interface IExportGeneralQuery {
+interface IExportGeneralParams {
     filters: string
 }
 
-async function exportGeneral(req: Request<{}, {}, {}, IExportGeneralQuery>, res: Response) {
-    const { filters } = req.query
-    const { names, datas, values } = await makeSpreadsheets(filters ? filters.split(',') : [])
+async function exportGeneral(req: Request<IExportGeneralParams>, res: Response) {
+    const { filters } = req.params
+    const { names, datas, values, namesFile } = await makeSpreadsheets(filters ? filters.split(',') : [])
 
-    await generateSpreadsheetService(names, datas, values, res, 'Planilha geral')
+    await generateSpreadsheetService(names, datas, values, res, filters.split(',').length === 1 ? namesFile[0] : 'Planilha geral')
 }
 
 export default exportGeneral

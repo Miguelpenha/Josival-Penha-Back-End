@@ -1,9 +1,9 @@
 import { ISpreadsheet } from './type'
-import datasTeacher from '../teachers/exportTeachers/datas'
+import datasTeacher from './datasTeacher'
 import teachersModel from '../../models/teacher'
-import datasClass from '../classes/exportClasses/datas'
+import datasClass from './datasClass'
 import classesModel from '../../models/class'
-import datasStudent from '../students/exportStudents/datas'
+import datasStudent from './datasStudent'
 import studentsModel from '../../models/student'
 
 async function makeSpreadsheets(filters: string[]) {
@@ -11,16 +11,19 @@ async function makeSpreadsheets(filters: string[]) {
         {
             name: 'Professoras',
             data: datasTeacher,
-            value: await teachersModel.find()
+            value: await teachersModel.find(),
+            nameFile: 'Planilha de professoras'
         },
         {
             name: 'Turmas',
             data: datasClass,
+            nameFile: 'Planilha de turmas',
             value: await classesModel.find().populate('teacher')
         },
         {
             name: 'Alunos',
             data: datasStudent,
+            nameFile: 'Planilha de alunos',
             value: await studentsModel.find().populate(['class', 'teacher']).select(['+address'])
         }
     ]
@@ -36,7 +39,8 @@ async function makeSpreadsheets(filters: string[]) {
     return {
         names: spreadsheets.map(spreadsheet => spreadsheet.name),
         datas: spreadsheets.map(spreadsheet => spreadsheet.data),
-        values: spreadsheets.map(spreadsheet => spreadsheet.value)
+        values: spreadsheets.map(spreadsheet => spreadsheet.value),
+        namesFile: spreadsheets.map(spreadsheet => spreadsheet.nameFile)
     }
 }
 

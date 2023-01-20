@@ -1,6 +1,5 @@
 import express from 'express'
 import students from './students'
-import exportStudents from './exportStudents'
 import student from './student'
 import createStudent from './createStudent'
 import editStudent from './editStudent'
@@ -32,7 +31,6 @@ studentsRouter.get('/asd', async (req, res) => {
 })
 
 studentsRouter.get('/', students)
-studentsRouter.get('/export', exportStudents)
 studentsRouter.get('/:id', student)
 studentsRouter.post('/', createStudent)
 studentsRouter.patch('/:id', editStudent)
