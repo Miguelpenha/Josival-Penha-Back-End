@@ -39,6 +39,10 @@ const datas: IData<IStudent>[] = [
         row: data => data.gender
     },
     {
+        name: 'CEP',
+        row: data => data.address && data.address.cep
+    },
+    {
         name: 'Cidade',
         row: data => data.address && data.address.city
     },
