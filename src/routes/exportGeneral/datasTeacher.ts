@@ -3,6 +3,10 @@ import { ITeacher } from '../../types'
 
 const datas: IData<ITeacher>[] = [
     {
+        name: 'ID',
+        row: data => data.id
+    },
+    {
         name: 'Nome',
         row: data => data.name
     },

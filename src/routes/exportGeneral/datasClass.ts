@@ -3,6 +3,10 @@ import { IClass } from '../../types'
 
 const datas: IData<IClass>[] = [
     {
+        name: 'ID',
+        row: data => data.id
+    },
+    {
         name: 'Nome',
         row: data => data.name
     },

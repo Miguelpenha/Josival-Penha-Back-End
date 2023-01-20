@@ -5,6 +5,7 @@ import IMatters from './matters'
 import ICreated from './created'
 
 interface IStudent {
+    id: string
     cpf: string
     name: string
     birth: string
