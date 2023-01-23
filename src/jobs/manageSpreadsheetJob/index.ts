@@ -7,6 +7,8 @@ import classesModel from '../../models/class'
 import datasClass from '../../routes/exportGeneral/datasClass'
 import studentsModel from '../../models/student'
 import datasStudent from '../../routes/exportGeneral/datasStudent'
+import incomesOrExpensesModel from '../../models/incomeOrExpense'
+import datasFinance from '../../routes/exportGeneral/datasFinance'
 
 async function manageSpreadsheetJob() {
     const doc = new GoogleSpreadsheet(process.env.GOOGLE_ID_SPREADSHEET)
@@ -23,6 +25,7 @@ async function manageSpreadsheetJob() {
     await studentsSheet(doc, 'Professoras', await teachersModel.find(), datasTeacher)
     await studentsSheet(doc, 'Turmas', await classesModel.find().populate('teacher'), datasClass)
     await studentsSheet(doc, 'Alunos', await studentsModel.find().populate(['class', 'teacher']).select(['+address']), datasStudent)
+    await studentsSheet(doc, 'Financeiro', await incomesOrExpensesModel.find(), datasFinance)
 }
 
 export default manageSpreadsheetJob

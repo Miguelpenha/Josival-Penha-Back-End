@@ -5,6 +5,8 @@ import datasClass from './datasClass'
 import classesModel from '../../models/class'
 import datasStudent from './datasStudent'
 import studentsModel from '../../models/student'
+import datasFinance from './datasFinance'
+import incomesOrExpensesModel from '../../models/incomeOrExpense'
 
 async function makeSpreadsheets(filters: string[]) {
     const spreadsheetsRaw: ISpreadsheet[] = [
@@ -25,6 +27,12 @@ async function makeSpreadsheets(filters: string[]) {
             data: datasStudent,
             nameFile: 'Planilha de alunos',
             value: await studentsModel.find().populate(['class', 'teacher']).select(['+address'])
+        },
+        {
+            name: 'Financeiro',
+            data: datasFinance,
+            nameFile: 'Planilha financeira',
+            value: await incomesOrExpensesModel.find()
         }
     ]
 

@@ -6,6 +6,7 @@ import classesRouter from './classes'
 import teachersRouter from './teachers'
 import studentsRouter from './students'
 import exportGeneral from './exportGeneral'
+import financeRouter from './finance'
 
 const router = express.Router()
 
@@ -16,6 +17,7 @@ router.use('/admin', adminRouter)
 router.use('/classes', classesRouter)
 router.use('/teachers', teachersRouter)
 router.use('/students', studentsRouter)
-router.use('/export/:filters', exportGeneral)
+router.get('/export/:filters', exportGeneral)
+router.use('/finance', financeRouter)
 
 export default router

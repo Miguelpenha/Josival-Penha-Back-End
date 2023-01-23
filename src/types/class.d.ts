@@ -8,7 +8,6 @@ interface IClass {
     shift: string
     teacher: ITeacher
     created: ICreated
-    // students: IStudent[]
 }
 
 export default IClass
