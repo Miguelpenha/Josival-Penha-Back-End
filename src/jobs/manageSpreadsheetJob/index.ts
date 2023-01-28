@@ -1,6 +1,6 @@
 import { GoogleSpreadsheet } from 'google-spreadsheet'
 import { blueBright as info } from 'chalk'
-import studentsSheet from './makeSheet'
+import makeSheet from './makeSheet'
 import teachersModel from '../../models/teacher'
 import datasTeacher from '../../routes/export/datasTeacher'
 import classesModel from '../../models/class'
@@ -22,10 +22,10 @@ async function manageSpreadsheetJob() {
 
     await doc.loadInfo()
 
-    await studentsSheet(doc, 'Professoras', await teachersModel.find(), datasTeacher)
-    await studentsSheet(doc, 'Turmas', await classesModel.find().populate('teacher'), datasClass)
-    await studentsSheet(doc, 'Alunos', await studentsModel.find().populate(['class', 'teacher']).select(['+address']), datasStudent)
-    await studentsSheet(doc, 'Financeiro', await incomesOrExpensesModel.find(), datasFinance)
+    await makeSheet(doc, 'Professoras', await teachersModel.find(), datasTeacher)
+    await makeSheet(doc, 'Turmas', await classesModel.find().populate('teacher'), datasClass)
+    await makeSheet(doc, 'Alunos', await studentsModel.find().populate(['class', 'teacher']).select(['+address']), datasStudent)
+    await makeSheet(doc, 'Financeiro', await incomesOrExpensesModel.find(), datasFinance)
 }
 
 export default manageSpreadsheetJob
