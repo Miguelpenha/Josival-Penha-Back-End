@@ -1,11 +1,11 @@
 import { ISpreadsheet } from './type'
-import datasTeacher from './datasTeacher'
+import datasTeacher from './datas/datasTeacher'
 import teachersModel from '../../models/teacher'
-import datasClass from './datasClass'
+import datasClass from './datas/datasClass'
 import classesModel from '../../models/class'
-import datasStudent from './datasStudent'
+import datasStudent from './datas/datasStudent'
 import studentsModel from '../../models/student'
-import datasFinance from './datasFinance'
+import datasFinance from './datas/datasFinance'
 import incomesOrExpensesModel from '../../models/incomeOrExpense'
 
 async function makeSpreadsheets(filters: string[]) {

@@ -1,5 +1,5 @@
-import { IData } from '../../services/generateSpreadsheetService/type'
-import { IIncomeOrExpense } from '../../types'
+import { IData } from '../../../services/generateSpreadsheetService/type'
+import { IIncomeOrExpense } from '../../../types'
 import dinero from 'dinero.js'
 
 const datas: IData<IIncomeOrExpense>[] = [

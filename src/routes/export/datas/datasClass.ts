@@ -1,5 +1,5 @@
-import { IData } from '../../services/generateSpreadsheetService/type'
-import { IClass } from '../../types'
+import { IData } from '../../../services/generateSpreadsheetService/type'
+import { IClass } from '../../../types'
 
 const datas: IData<IClass>[] = [
     {
