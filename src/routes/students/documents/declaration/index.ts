@@ -19,19 +19,13 @@ async function declaration(req: Request<IDeclarationParams, {}, {}, IDeclaration
         if (student) {
             const pdf = new PDFKit(optionsPDF(student))
             const declaration = makePDF(pdf, student, req.query)
-            const chunks: Uint8Array[] = []
 
-            declaration.on('data', chunks.push.bind(chunks))
-
-            declaration.on('end', () => {
-                res
-                .contentType('application/pdf')
-                .setHeader('Content-disposition', `attachment; filename=Declaração de frequência do aluno(a) ${student.name}.pdf`)
-                .setHeader('Content-Length', Buffer.byteLength(Buffer.concat(chunks)))
-                .end(Buffer.concat(chunks))
-            })
+            declaration.pipe(res)
 
             declaration.end()
+
+            res.contentType('application/pdf')
+            res.setHeader('Content-disposition', `attachment; filename=Declaração de frequência do aluno(a) ${student.name}.pdf`)
         } else {
             res.json({ exists: false })
         }
