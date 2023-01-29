@@ -6,7 +6,7 @@ const pathLogoJP = path.resolve(__dirname, '..', '..', '..', '..', '..', 'public
 
 function makePDF(pdf: PDFKit.PDFDocument, student: IStudent, query: IDeclarationQuery) {
     const dateSplitted = new Date().toLocaleDateString('pt-br').split('/')
-    const { schoolYear, scholarshipStudent, frequencyPercentage } = query
+    const { scholarshipStudent, frequencyPercentage } = query
 
     pdf
     .opacity(0.15)
@@ -88,7 +88,7 @@ function makePDF(pdf: PDFKit.PDFDocument, student: IStudent, query: IDeclaration
         align: 'left'
     })
     .font('Helvetica')
-    .text(`, matriculado(a) neste estabelecimento de Ensino no ${schoolYear} do Ensino Fundamental.`, {
+    .text(`, matriculado(a) neste estabelecimento de Ensino no ${student.class.grade} do Ensino Fundamental.`, {
         align: 'left'
     })
     .moveDown(1.5)

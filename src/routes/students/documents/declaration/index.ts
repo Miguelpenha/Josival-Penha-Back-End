@@ -14,7 +14,7 @@ async function declaration(req: Request<IDeclarationParams, {}, {}, IDeclaration
     const { id } = req.params
 
     if (mongoose.isValidObjectId(id)) {
-        const student = await studentsModel.findById(id)
+        const student = await studentsModel.findById(id).populate('class')
 
         if (student) {
             const pdf = new PDFKit(optionsPDF(student))
