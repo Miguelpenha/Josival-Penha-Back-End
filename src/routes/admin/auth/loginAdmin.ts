@@ -34,7 +34,7 @@ async function loginAdmin(req: Request<ILoginTeacherParams, {}, ILoginTeacherBod
             if ((user.email_verified || user.verified_email) && user.hd === process.env.DOMAIN_EMAIL) {
                 if (user.email === process.env.ADMIN_LOGIN) {
                     const token = sign({}, process.env.SECRET_JWT, {
-                        subject: 'true',
+                        subject: 'admin',
                         expiresIn: '20s'
                     })
 
@@ -51,7 +51,7 @@ async function loginAdmin(req: Request<ILoginTeacherParams, {}, ILoginTeacherBod
     } else if (type === 'local') {
         if (login === process.env.ADMIN_LOGIN && password === process.env.ADMIN_PASSWORD) {
             const token = sign({}, process.env.SECRET_JWT, {
-                subject: 'true',
+                subject: 'admin',
                 expiresIn: '20s'
             })
 

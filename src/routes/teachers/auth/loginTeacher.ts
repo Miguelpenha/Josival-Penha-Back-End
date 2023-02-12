@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import teachersModel from '../../models/teacher'
+import teachersModel from '../../../models/teacher'
 import axios from 'axios'
 import { compare } from 'bcryptjs'
 import { decode, sign } from 'jsonwebtoken'
@@ -40,7 +40,7 @@ async function loginTeacher(req: Request<ILoginTeacherParams, {}, ILoginTeacherB
 
                 if (teacher) {
                     const token = sign({}, process.env.SECRET_JWT, {
-                        subject: 'true',
+                        subject: 'teacher',
                         expiresIn: '20s'
                     })
 
@@ -60,7 +60,7 @@ async function loginTeacher(req: Request<ILoginTeacherParams, {}, ILoginTeacherB
         if (teacher) {
             if (await compare(password, teacher.password)) {
                 const token = sign({}, process.env.SECRET_JWT, {
-                    subject: 'true',
+                    subject: 'teacher',
                     expiresIn: '20s'
                 })
 

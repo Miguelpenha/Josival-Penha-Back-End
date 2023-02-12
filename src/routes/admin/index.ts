@@ -1,10 +1,8 @@
 import express from 'express'
-import loginAdmin from './loginAdmin'
-import verifyLoginAdmin from './verifyLoginAdmin'
+import authRouter from './auth'
 
 const adminRouter = express.Router()
 
-adminRouter.post('/login/:type', loginAdmin)
-adminRouter.post('/verify', verifyLoginAdmin)
+adminRouter.use('/auth', authRouter)
 
 export default adminRouter
