@@ -1,6 +1,5 @@
 import express from 'express'
 import middlewareAuth from '../utils/middlewareAuth'
-import login from './login'
 import adminRouter from './admin'
 import classesRouter from './classes'
 import financeRouter from './finance'
@@ -12,7 +11,6 @@ const router = express.Router()
 
 router.use(middlewareAuth)
 
-router.use('/login', login)
 router.use('/admin', adminRouter)
 router.use('/classes', classesRouter)
 router.use('/finance', financeRouter)

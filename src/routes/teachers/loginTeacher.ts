@@ -2,7 +2,7 @@ import { Request, Response } from 'express'
 import teachersModel from '../../models/teacher'
 import axios from 'axios'
 import { compare } from 'bcryptjs'
-import { decode } from 'jsonwebtoken'
+import { decode, sign } from 'jsonwebtoken'
 
 interface ILoginTeacherParams {
     type: 'local' | 'google'
@@ -39,7 +39,12 @@ async function loginTeacher(req: Request<ILoginTeacherParams, {}, ILoginTeacherB
                 const teacher = teachers.filter(teacher => teacher.login === user.email)[0]
 
                 if (teacher) {
-                    res.json({ authenticated: true, teacherID: teacher.id })
+                    const token = sign({}, process.env.SECRET_JWT, {
+                        subject: 'true',
+                        expiresIn: '20s'
+                    })
+
+                    res.json({ authenticated: true, teacherID: teacher.id, token })
                 } else {
                     res.json({ authenticated: false })
                 }
@@ -54,7 +59,12 @@ async function loginTeacher(req: Request<ILoginTeacherParams, {}, ILoginTeacherB
         
         if (teacher) {
             if (await compare(password, teacher.password)) {
-                res.json({ authenticated: true, teacherID: teacher.id })
+                const token = sign({}, process.env.SECRET_JWT, {
+                    subject: 'true',
+                    expiresIn: '20s'
+                })
+
+                res.json({ authenticated: true, teacherID: teacher.id, token })
             } else {
                 res.json({ authenticated: false })
             }

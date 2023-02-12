@@ -5,6 +5,7 @@ declare global {
         PORT: number
         DOMAIN: string
         MONGO_URL: string
+        SECRET_JWT: string
         ADMIN_LOGIN: string
         DOMAIN_EMAIL: string
         ADMIN_PASSWORD: string

@@ -1,7 +1,6 @@
 import { Request, Response } from 'express'
 import axios from 'axios'
-import { compare } from 'bcryptjs'
-import { decode } from 'jsonwebtoken'
+import { decode, sign } from 'jsonwebtoken'
 
 interface ILoginTeacherParams {
     type: 'local' | 'google'
@@ -34,7 +33,12 @@ async function loginAdmin(req: Request<ILoginTeacherParams, {}, ILoginTeacherBod
 
             if ((user.email_verified || user.verified_email) && user.hd === process.env.DOMAIN_EMAIL) {
                 if (user.email === process.env.ADMIN_LOGIN) {
-                    res.json({ authenticated: true })
+                    const token = sign({}, process.env.SECRET_JWT, {
+                        subject: 'true',
+                        expiresIn: '20s'
+                    })
+
+                    res.json({ authenticated: true, token })
                 } else {
                     res.json({ authenticated: false })
                 }
@@ -46,7 +50,12 @@ async function loginAdmin(req: Request<ILoginTeacherParams, {}, ILoginTeacherBod
         }
     } else if (type === 'local') {
         if (login === process.env.ADMIN_LOGIN && password === process.env.ADMIN_PASSWORD) {
-            res.json({ authenticated: true })
+            const token = sign({}, process.env.SECRET_JWT, {
+                subject: 'true',
+                expiresIn: '20s'
+            })
+
+            res.json({ authenticated: true, token })
         } else {
             res.json({ authenticated: false })
         }
