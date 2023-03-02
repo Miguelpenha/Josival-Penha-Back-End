@@ -1,12 +1,13 @@
 import { Request, Response } from 'express'
 import axios from 'axios'
-import { sign } from 'jsonwebtoken'
+import { decode, sign } from 'jsonwebtoken'
 
 interface ILoginTeacherParams {
     type: 'local' | 'google'
 }
 
 interface ILoginTeacherBody {
+    jwt?: string
     login: string
     password?: string
     accessToken?: string
@@ -14,7 +15,7 @@ interface ILoginTeacherBody {
 
 async function loginAdmin(req: Request<ILoginTeacherParams, {}, ILoginTeacherBody>, res: Response) {
     const { type } = req.params
-    const { login, password, accessToken } = req.body
+    const { login, password, accessToken, jwt } = req.body
 
     if (type === 'google') {
         try {
@@ -26,6 +27,8 @@ async function loginAdmin(req: Request<ILoginTeacherParams, {}, ILoginTeacherBod
                         authorization: `Bearer ${accessToken}`
                     }
                 })).data
+            } else if (jwt) {
+                user = decode(jwt)
             }
 
             if ((user.email_verified || user.verified_email) && user.hd === process.env.DOMAIN_EMAIL) {
