@@ -5,7 +5,7 @@ import { IDeclarationQuery } from './type'
 const pathLogoJP = path.resolve(__dirname, '..', '..', '..', '..', '..', 'public', 'logo-Josival-Penha.png')
 
 function makePDF(pdf: PDFKit.PDFDocument, student: IStudent, query: IDeclarationQuery) {
-    const dateSplitted = new Date().toLocaleDateString('pt-br').split('/')
+    const dateSplitted = new Date().toLocaleDateString('pt-br', { timeZone: 'UTC' }).split('/')
     const { scholarshipStudent, frequencyPercentage } = query
 
     pdf

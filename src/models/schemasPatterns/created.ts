@@ -5,11 +5,12 @@ const createdSchema = {
     },
     date: {
         type: String,
-        default: () => new Date().toLocaleDateString('pt-br')
+        default: () => new Date().toLocaleDateString('pt-br', { timeZone: 'UTC' })
     },
     hour: {
         type: String,
         default: () => new Date().toLocaleTimeString('pt-br', {
+            timeZone: 'UTC',
             timeStyle: 'short'
         })
     }

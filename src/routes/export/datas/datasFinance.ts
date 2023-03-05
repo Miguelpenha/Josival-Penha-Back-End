@@ -25,7 +25,7 @@ const datas: IData<IIncomeOrExpense>[] = [
     },
     {
         name: 'Data',
-        row: data => new Date(data.date).toLocaleDateString('pt-br')
+        row: data => new Date(data.date).toLocaleDateString('pt-br', { timeZone: 'UTC' })
     }
 ]
 

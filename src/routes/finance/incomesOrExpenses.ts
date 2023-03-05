@@ -27,7 +27,7 @@ async function incomesOrExpenses(req: Request<{}, {}, {}, IIncomesOrExpensesQuer
             const incomesOrExpensesSelected = []
 
             incomesOrExpenses.map(incomeOrExpense => {
-                const date = new Date(incomeOrExpense.date).toLocaleDateString('pt-br')
+                const date = new Date(incomeOrExpense.date).toLocaleDateString('pt-br', { timeZone: 'UTC' })
                 const monthSelected = date.split('/')[1]
                 
                 if (month == monthSelected) {
