@@ -4,7 +4,6 @@ import adminRouter from './admin'
 import notifyRouter from './notify'
 import classesRouter from './classes'
 import financeRouter from './finance'
-import whatsappRouter from './whatsapp'
 import teachersRouter from './teachers'
 import studentsRouter from './students'
 import exportGeneral from './export'
@@ -17,7 +16,6 @@ router.use('/admin', adminRouter)
 router.use('/notify', notifyRouter)
 router.use('/classes', classesRouter)
 router.use('/finance', financeRouter)
-router.use('/whatsapp', whatsappRouter)
 router.use('/teachers', teachersRouter)
 router.use('/students', studentsRouter)
 router.get('/export/:filters', exportGeneral)
