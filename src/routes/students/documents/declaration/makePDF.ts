@@ -5,7 +5,9 @@ import { IDeclarationQuery } from './type'
 const pathLogoJP = path.resolve(__dirname, '..', '..', '..', '..', '..', 'public', 'logo-Josival-Penha.png')
 
 function makePDF(pdf: PDFKit.PDFDocument, student: IStudent, query: IDeclarationQuery) {
-    const dateSplitted = new Date().toLocaleDateString('pt-br', { timeZone: 'UTC' }).split('/')
+    const date = new Date().toLocaleDateString('pt-br', {
+        dateStyle: 'long'
+    })
     const { scholarshipStudent, frequencyPercentage } = query
 
     pdf
@@ -44,7 +46,7 @@ function makePDF(pdf: PDFKit.PDFDocument, student: IStudent, query: IDeclaration
     .font('Helvetica')
     .fontSize(13)
     .moveDown(3)
-    .text(`Paulista, ${dateSplitted[2]} de ${dateSplitted[1]} de ${dateSplitted[0]}`, {
+    .text(`Paulista, ${date}`, {
         align: 'right'
     })
     .moveDown(2)
