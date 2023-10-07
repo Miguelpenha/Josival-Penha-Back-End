@@ -1,0 +1,43 @@
+_id: req_ee69339277624152b5767103a6d50371
+type: Request
+parentId: fld_d95fed0e83864e3884c0ce1a2867a710
+modified: 1679289905886
+created: 1673743984180
+url: "{{ _.url }}/students/63c43ef776812b27310f7a14"
+name: Student
+description: ""
+method: GET
+body: {}
+parameters:
+  - id: pair_b8348eddec3f4de9b427d6793d4dc0ff
+    name: class
+    value: "true"
+    description: ""
+    disabled: false
+  - id: pair_c4fe4fed9f284ac3a097cd24c483fc09
+    name: address
+    value: "true"
+    description: ""
+    disabled: false
+  - id: pair_ae2722cdf6a4413586fb5aeb9bc7fa80
+    name: matters
+    value: "true"
+    description: ""
+    disabled: false
+  - id: pair_cc02e9eebb1f4a0f8a9137721944f5d3
+    name: teacher
+    value: "true"
+    description: ""
+headers: []
+authentication:
+  type: bearer
+  token: "{{ _.key }}"
+  prefix: key
+metaSortKey: -1673556899837.125
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

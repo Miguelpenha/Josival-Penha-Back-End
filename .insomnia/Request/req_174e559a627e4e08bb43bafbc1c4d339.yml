@@ -1,0 +1,39 @@
+_id: req_174e559a627e4e08bb43bafbc1c4d339
+type: Request
+parentId: fld_034d11be03984c539ed1fc340e211995
+modified: 1674489384303
+created: 1674444265059
+url: "{{ _.url }}/finance"
+name: Create Income Or Expense
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"name": "Mensalidades",
+    	"type": "expense",
+    	"value": "R$ 200,00",
+    	"date": "23/01/2023"
+    }
+parameters:
+  - id: pair_ed06a83e59874a8ba157cae559837256
+    name: count
+    value: "true"
+    description: ""
+    disabled: true
+headers:
+  - name: Content-Type
+    value: application/json
+authentication:
+  type: bearer
+  token: "{{ _.key }}"
+  prefix: key
+metaSortKey: -1674332208686.1094
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

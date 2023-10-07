@@ -1,0 +1,29 @@
+_id: req_f6614d24e8c2467bbfbcd43f6f8be4a3
+type: Request
+parentId: fld_1902f28aac7942af99133e74a8cba02d
+modified: 1673902868124
+created: 1673728421219
+url: "{{ _.url }}/teachers"
+name: Teachers
+description: ""
+method: GET
+body: {}
+parameters:
+  - id: pair_4ad9d49f702c4c459f6e1169d2fb49dc
+    name: count
+    value: "true"
+    description: ""
+    disabled: true
+headers: []
+authentication:
+  type: bearer
+  token: "{{ _.key }}"
+  prefix: key
+metaSortKey: -1673728421219
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

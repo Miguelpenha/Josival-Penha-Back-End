@@ -1,0 +1,34 @@
+_id: req_0db4038558544387852338f1629cdfd2
+type: Request
+parentId: fld_bd159329edd64e939e63c7cd7b9ea0b5
+modified: 1674066321669
+created: 1673735240412
+url: "{{ _.url }}/classes"
+name: Classes
+description: ""
+method: GET
+body: {}
+parameters:
+  - id: pair_330146dd811d451ebcac751877c915d4
+    name: count
+    value: "true"
+    description: ""
+    disabled: true
+  - id: pair_0d3b893bef5145b5bb8f5a3f7c196ca5
+    name: teacher
+    value: "true"
+    description: ""
+    disabled: false
+headers: []
+authentication:
+  type: bearer
+  token: "{{ _.key }}"
+  prefix: key
+metaSortKey: -1673591204113.5
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

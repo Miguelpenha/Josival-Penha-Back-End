@@ -1,0 +1,34 @@
+_id: req_9ac85f2ee56c453b92e5e71b59e13ec6
+type: Request
+parentId: fld_1902f28aac7942af99133e74a8cba02d
+modified: 1674444282267
+created: 1673729988443
+url: "{{ _.url }}/teachers"
+name: Create Teacher
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"name": "teste",
+    	"password": "teste",
+    	"login": "teste@josivalpenha.com",
+    	"gender": "Feminino"
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+authentication:
+  type: bearer
+  token: "{{ _.key }}"
+  prefix: key
+metaSortKey: -1673282465607.375
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

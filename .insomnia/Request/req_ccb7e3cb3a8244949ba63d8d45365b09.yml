@@ -1,0 +1,32 @@
+_id: req_ccb7e3cb3a8244949ba63d8d45365b09
+type: Request
+parentId: fld_0061306bcf104681ac9ffac5d9e23a46
+modified: 1676213212674
+created: 1674010930473
+url: "{{ _.url }}/admin/auth/login/local"
+name: Login Local Admin
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"login": "secretaria@josivalpenha.com",
+    	"password": "JP2023"
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+authentication:
+  type: bearer
+  token: "{{ _.key }}"
+  prefix: key
+metaSortKey: -1673231009108.4375
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

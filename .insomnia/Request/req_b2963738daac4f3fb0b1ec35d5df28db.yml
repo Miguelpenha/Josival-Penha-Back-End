@@ -1,0 +1,29 @@
+_id: req_b2963738daac4f3fb0b1ec35d5df28db
+type: Request
+parentId: fld_034d11be03984c539ed1fc340e211995
+modified: 1674490331057
+created: 1674445196391
+url: "{{ _.url }}/finance/63ceade964c1da7d3e48bad5"
+name: Delete Income Or Expense
+description: ""
+method: DELETE
+body: {}
+parameters:
+  - id: pair_ed06a83e59874a8ba157cae559837256
+    name: count
+    value: "true"
+    description: ""
+    disabled: true
+headers: []
+authentication:
+  type: bearer
+  token: "{{ _.key }}"
+  prefix: key
+metaSortKey: -1674339862291.0117
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

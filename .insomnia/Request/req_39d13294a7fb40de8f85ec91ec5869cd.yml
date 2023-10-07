@@ -1,0 +1,32 @@
+_id: req_39d13294a7fb40de8f85ec91ec5869cd
+type: Request
+parentId: fld_044a3b0467564a38926caa36889ea68c
+modified: 1674983550962
+created: 1673959126813
+url: "{{ _.url }}/students/documents/declaration/63c43b5e76812b27310f6bd6"
+name: Declaration
+description: ""
+method: GET
+body: {}
+parameters:
+  - id: pair_2456c91f83474c568838aecba6354648
+    name: frequencyPercentage
+    value: "98"
+    description: ""
+  - id: pair_eba8c540dbbb46eb9c074c282454108b
+    name: scholarshipStudent
+    value: "true"
+    description: ""
+headers: []
+authentication:
+  type: bearer
+  token: "{{ _.key }}"
+  prefix: key
+metaSortKey: -1673959126813
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

@@ -1,0 +1,31 @@
+_id: req_53d9080417244af597793dea7620867b
+type: Request
+parentId: fld_d95fed0e83864e3884c0ce1a2867a710
+modified: 1680135694280
+created: 1673743427565
+url: "{{ _.url }}/students/63c43b5e76812b27310f6bd6"
+name: Edit Student
+description: ""
+method: PATCH
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"situation": "Ativo"
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+authentication:
+  type: bearer
+  token: "{{ _.key }}"
+  prefix: key
+metaSortKey: -1673471139146.1875
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

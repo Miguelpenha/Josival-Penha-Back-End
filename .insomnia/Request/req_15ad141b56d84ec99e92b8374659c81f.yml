@@ -1,0 +1,49 @@
+_id: req_15ad141b56d84ec99e92b8374659c81f
+type: Request
+parentId: fld_708b59d7b62447efbc99e09eae9cf36c
+modified: 1696715917506
+created: 1696715903870
+url: "{{ _.url }}/notify/whatsapp/"
+name: Whatsapp
+description: ""
+method: GET
+body: {}
+parameters:
+  - id: pair_330146dd811d451ebcac751877c915d4
+    name: count
+    value: "true"
+    description: ""
+    disabled: true
+  - id: pair_b8348eddec3f4de9b427d6793d4dc0ff
+    name: class
+    value: "true"
+    description: ""
+    disabled: true
+  - id: pair_c4fe4fed9f284ac3a097cd24c483fc09
+    name: address
+    value: "true"
+    description: ""
+    disabled: true
+  - id: pair_ae2722cdf6a4413586fb5aeb9bc7fa80
+    name: matters
+    value: "true"
+    description: ""
+    disabled: true
+  - id: pair_7aa1ceabd14a4e0d9ef9e09311685268
+    name: teacher
+    value: "true"
+    description: ""
+    disabled: true
+headers: []
+authentication:
+  type: bearer
+  token: "{{ _.key }}"
+  prefix: key
+metaSortKey: -1696715907961
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

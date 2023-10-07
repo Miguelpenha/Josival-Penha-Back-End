@@ -1,0 +1,31 @@
+_id: req_f99ddb031c984aadb76b8f71500b18b6
+type: Request
+parentId: fld_1902f28aac7942af99133e74a8cba02d
+modified: 1680617314529
+created: 1673731822740
+url: "{{ _.url }}/teachers/63c428da76812b27310f689c"
+name: Edit Teacher
+description: ""
+method: PATCH
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"name": "Valesca Penha"
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+authentication:
+  type: bearer
+  token: "{{ _.key }}"
+  prefix: key
+metaSortKey: -1673316769877.5
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

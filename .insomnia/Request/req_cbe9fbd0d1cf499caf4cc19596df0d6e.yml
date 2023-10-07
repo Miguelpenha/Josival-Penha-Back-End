@@ -1,0 +1,31 @@
+_id: req_cbe9fbd0d1cf499caf4cc19596df0d6e
+type: Request
+parentId: fld_68f8e484700f4659a4f566abd0d22a75
+modified: 1677906974534
+created: 1673864233682
+url: "{{ _.url }}/teachers/auth/login/google"
+name: Login Google Teacher
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: >-
+    {
+    	"jwt":"eyJhbGciOiJSUzI1NiIsImtpZCI6ImQyNWY4ZGJjZjk3ZGM3ZWM0MDFmMDE3MWZiNmU2YmRhOWVkOWU3OTIiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJuYmYiOjE2Nzc5MDY2NDIsImF1ZCI6Ijc5ODI1NTQ0MjEtc3ZxNWtwb292a3RjaGtmYmQxdXNrN3Bqazlqbm5raWEuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMDY3OTM4NDU4OTAwMTg1MzQwMzQiLCJoZCI6Impvc2l2YWxwZW5oYS5jb20iLCJlbWFpbCI6InNlY3JldGFyaWFAam9zaXZhbHBlbmhhLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJhenAiOiI3OTgyNTU0NDIxLXN2cTVrcG9vdmt0Y2hrZmJkMXVzazdwams5am5ua2lhLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwibmFtZSI6Ik5vcm1hIFBlbmhhIiwiZ2l2ZW5fbmFtZSI6Ik5vcm1hIiwiZmFtaWx5X25hbWUiOiJQZW5oYSIsImlhdCI6MTY3NzkwNjk0MiwiZXhwIjoxNjc3OTEwNTQyLCJqdGkiOiI5M2FjOGU4MDhlMjE2OTNiYjdiZTBjZGRiNTQ5MGU0NzNlNGZhZDU2In0.mYv9rECIhpC0OZk2-PW30C8W9btSrn3RR3mW3c9Nf3zVITyKfSxqEYK_D4nzrKP5omwWgg3ABSXrT44qEkVIQzHE_39vWqC-7onjbCno8OkLgBcJcLFG3b9Put7-pDN4sbrtwcNzhbZe841plMqzEhCfxhPuGYsCv0ldJgq3cbm3kS_gaQuTY-MGX9dC5wkqEnRTb7JqtrDLiBK6OHAil-CyfGLjef9OQves5EKbCytEdNUMddyt1SKV5andjesF_qOs9QZJLE7Ph2qM4CE3aHedncpoWN_WvkpGdopBfin4wgBGKzjnRFX24vDq6Xl9jymy6aDlFxRBmANWWXwgAw"
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+authentication:
+  type: bearer
+  token: "{{ _.key }}"
+  prefix: key
+metaSortKey: -1673213857042.125
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

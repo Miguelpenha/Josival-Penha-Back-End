@@ -1,0 +1,36 @@
+_id: req_d797840a9a37452fb76cec5682784ffb
+type: Request
+parentId: fld_034d11be03984c539ed1fc340e211995
+modified: 1674448479965
+created: 1674443426945
+url: "{{ _.url }}/finance/63ce02b58b2da0e32d29db4a"
+name: Edit Income Or Expense
+description: ""
+method: PATCH
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"value": "R$ 10,00"
+    }
+parameters:
+  - id: pair_ed06a83e59874a8ba157cae559837256
+    name: count
+    value: "true"
+    description: ""
+    disabled: true
+headers:
+  - name: Content-Type
+    value: application/json
+authentication:
+  type: bearer
+  token: "{{ _.key }}"
+  prefix: key
+metaSortKey: -1674347515895.914
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

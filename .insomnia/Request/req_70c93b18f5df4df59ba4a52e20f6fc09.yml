@@ -1,0 +1,24 @@
+_id: req_70c93b18f5df4df59ba4a52e20f6fc09
+type: Request
+parentId: fld_1902f28aac7942af99133e74a8cba02d
+modified: 1674084451829
+created: 1673733464091
+url: "{{ _.url }}/teachers/63c88021b4008b40bbb3b4f2"
+name: Delete Teacher
+description: ""
+method: DELETE
+body: {}
+parameters: []
+headers: []
+authentication:
+  type: bearer
+  token: "{{ _.key }}"
+  prefix: key
+metaSortKey: -1673248161337.25
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

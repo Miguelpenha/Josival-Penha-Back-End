@@ -1,0 +1,39 @@
+_id: req_568f31bfa4a54bffa41c6bb270580230
+type: Request
+parentId: fld_034d11be03984c539ed1fc340e211995
+modified: 1674448477467
+created: 1674441545899
+url: "{{ _.url }}/finance"
+name: Incomes Or Expenses
+description: ""
+method: GET
+body: {}
+parameters:
+  - id: pair_ed06a83e59874a8ba157cae559837256
+    name: count
+    value: "true"
+    description: ""
+    disabled: true
+  - id: pair_59fe6bb0e9da40d0a904099288940b60
+    name: type
+    value: income
+    description: ""
+    disabled: true
+  - id: pair_ec9e16eed09f4f9087f4b459efbbcaa9
+    name: month
+    value: "01"
+    description: ""
+    disabled: true
+headers: []
+authentication:
+  type: bearer
+  token: "{{ _.key }}"
+  prefix: key
+metaSortKey: -1674362823105.7188
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

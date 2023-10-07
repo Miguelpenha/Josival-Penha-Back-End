@@ -1,0 +1,24 @@
+_id: req_39109cfc03cf4539a49c17287061bc63
+type: Request
+parentId: wrk_45536bf8adb747aab46c7a44daa42c2a
+modified: 1679623819102
+created: 1679623806596
+url: "{{ _.url }}/check"
+name: Check
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication:
+  type: bearer
+  token: "{{ _.key }}"
+  prefix: key
+metaSortKey: -1673736203445.6406
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
