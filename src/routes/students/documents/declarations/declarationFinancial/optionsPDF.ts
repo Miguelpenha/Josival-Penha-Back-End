@@ -1,4 +1,4 @@
-import { IStudent } from '../../../../types'
+import { IStudent } from '../../../../../types'
 
 function optionsPDF(student: IStudent): PDFKit.PDFDocumentOptions {
     return {
@@ -12,7 +12,7 @@ function optionsPDF(student: IStudent): PDFKit.PDFDocumentOptions {
             Creator: 'Josival Penha',
             CreationDate: new Date(),
             Producer: 'Josival Penha',
-            Title: `Declaração de frequência do aluno(a) ${student.name}`,
+            Title: `Declaração financeira do aluno(a) ${student.name}`,
         }
     }
 }

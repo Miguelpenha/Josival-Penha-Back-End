@@ -1,4 +1,4 @@
-export interface IDeclarationQuery {
+export interface IDeclarationFrequencyQuery {
     scholarshipStudent: string
     frequencyPercentage: string
 }

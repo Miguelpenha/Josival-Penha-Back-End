@@ -1,16 +1,16 @@
 import { Request, Response } from 'express'
-import { IDeclarationQuery } from './type'
+import { IDeclarationFinancialQuery } from './type'
 import mongoose from 'mongoose'
-import studentsModel from '../../../../models/student'
+import studentsModel from '../../../../../models/student'
 import PDFKit from 'pdfkit'
 import optionsPDF from './optionsPDF'
 import makePDF from './makePDF'
 
-interface IDeclarationParams {
+interface IDeclarationFinancialParams {
     id: string
 }
 
-async function declaration(req: Request<IDeclarationParams, {}, {}, IDeclarationQuery>, res: Response) {
+async function declarationFinancial(req: Request<IDeclarationFinancialParams, {}, {}, IDeclarationFinancialQuery>, res: Response) {
     const { id } = req.params
 
     if (mongoose.isValidObjectId(id)) {
@@ -25,7 +25,7 @@ async function declaration(req: Request<IDeclarationParams, {}, {}, IDeclaration
             declaration.end()
 
             res.contentType('application/pdf')
-            res.setHeader('Content-disposition', `attachment; filename=Declaração de frequência do aluno(a) ${student.name}.pdf`)
+            res.setHeader('Content-disposition', `attachment; filename=Declaração financeira do aluno(a) ${student.name}.pdf`)
         } else {
             res.json({ exists: false })
         }
@@ -34,4 +34,4 @@ async function declaration(req: Request<IDeclarationParams, {}, {}, IDeclaration
     }
 }
 
-export default declaration
+export default declarationFinancial

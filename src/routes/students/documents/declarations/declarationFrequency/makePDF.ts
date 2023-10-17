@@ -1,10 +1,10 @@
 import path from 'path'
-import { IStudent } from '../../../../types'
-import { IDeclarationQuery } from './type'
+import { IStudent } from '../../../../../types'
+import { IDeclarationFrequencyQuery } from './type'
 
-const pathLogoJP = path.resolve(__dirname, '..', '..', '..', '..', '..', 'public', 'logo-Josival-Penha.png')
+const pathLogoJP = path.resolve(__dirname, '..', '..', '..', '..', '..', '..', 'public', 'logo-Josival-Penha.png')
 
-function makePDF(pdf: PDFKit.PDFDocument, student: IStudent, query: IDeclarationQuery) {
+function makePDF(pdf: PDFKit.PDFDocument, student: IStudent, query: IDeclarationFrequencyQuery) {
     const date = new Date().toLocaleDateString('pt-br', {
         dateStyle: 'long'
     })

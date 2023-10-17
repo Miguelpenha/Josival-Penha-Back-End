@@ -1,8 +1,8 @@
 import path from 'path'
-import { IStudent } from '../../../../types'
+import { IStudent } from '../../../../../types'
 import { IDeclarationFinancialQuery } from './type'
 
-const pathLogoJP = path.resolve(__dirname, '..', '..', '..', '..', '..', 'public', 'logo-Josival-Penha.png')
+const pathLogoJP = path.resolve(__dirname, '..', '..', '..', '..', '..', '..', 'public', 'logo-Josival-Penha.png')
 
 function makePDF(pdf: PDFKit.PDFDocument, student: IStudent, query: IDeclarationFinancialQuery) {
     const date = new Date().toLocaleDateString('pt-br', {
