@@ -8,6 +8,7 @@ declare global {
         SECRET_JWT: string
         ADMIN_LOGIN: string
         DOMAIN_EMAIL: string
+        RESEND_API_KEY: string
         ADMIN_PASSWORD: string
         URLS_AUTHORIZED: string
         SECRET_KEY_CRYPTO: string
@@ -15,6 +16,7 @@ declare global {
         GOOGLE_PRIVATE_KEY: string
         TWILIO_ACCOUNT_SID: string
         TWILIO_NUMBER_FROM: string
+        DOMAIN_ASSETS_EMAIL: string
         NUMBER_FROM_WHATSAPP: string
         GOOGLE_ID_SPREADSHEET: string
         GOOGLE_SERVICE_ACCOUNT_EMAIL: string
