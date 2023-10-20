@@ -6,6 +6,7 @@ declare global {
         DOMAIN: string
         MONGO_URL: string
         SECRET_JWT: string
+        EMAIL_FROM: string
         ADMIN_LOGIN: string
         DOMAIN_EMAIL: string
         RESEND_API_KEY: string

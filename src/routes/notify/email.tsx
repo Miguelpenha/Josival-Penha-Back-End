@@ -25,7 +25,7 @@ async function email(req: Request<IWhatsappParams, {}, IWhatsappBody>, res: Resp
             const { id } = await resend.emails.send({
                 to,
                 subject: title,
-                from: 'secretaria@josivalpenha.com',
+                from: process.env.EMAIL_FROM,
                 react: <Template text={text} title={title}/>
             })
 
