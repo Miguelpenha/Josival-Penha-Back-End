@@ -29,7 +29,11 @@ async function email(req: Request<IWhatsappParams, {}, IWhatsappBody>, res: Resp
                 react: <Template text={text} title={title}/>
             })
 
-            res.json({ id, send: true })
+            if (id) {
+                res.json({ id, send: true })
+            } else {
+                res.json({ send: false })
+            }
         } catch (error) {
             console.log(error)
 
