@@ -1,6 +1,6 @@
 import dinero from 'dinero.js'
 
-function formatIncomeOrExpense(value: string) {
+function formatIncome(value: string) {
     if (!value.includes(',')) {
         value = `${value},00`
     }
@@ -13,7 +13,7 @@ function formatIncomeOrExpense(value: string) {
         .trimStart()
     )
 
-    const valueFormatted = dinero({ amount: valueRaw, currency: 'BRL' }).toFormat().replace('R$', 'R$ ')
+    const valueFormatted = dinero({ amount: valueRaw, currency: 'BRL' }).setLocale('pt-br').toFormat()
 
     return {
         valueRaw,
@@ -21,4 +21,4 @@ function formatIncomeOrExpense(value: string) {
     }
 }
 
-export default formatIncomeOrExpense
+export default formatIncome

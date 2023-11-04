@@ -2,7 +2,13 @@ import { GoogleSpreadsheet } from 'google-spreadsheet'
 import { IData } from '../../services/generateSpreadsheetService/type'
 
 async function makeSheet(doc: GoogleSpreadsheet, name: string, values: object[], datas: IData[]) {
-    const sheet = doc.sheetsByTitle[name]
+    let sheet = doc.sheetsByTitle[name]
+
+    if (!sheet) {
+        sheet = await doc.addSheet({
+            title: name
+        })
+    }
 
     await sheet.clearRows()
 

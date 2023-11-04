@@ -10,7 +10,6 @@ const createdSchema = {
     hour: {
         type: String,
         default: () => new Date().toLocaleTimeString('pt-br', {
-            timeZone: 'UTC',
             timeStyle: 'short'
         })
     }
