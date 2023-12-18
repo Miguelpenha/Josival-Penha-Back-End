@@ -1,5 +1,7 @@
 import manageSpreadsheetJob from '../jobs/manageSpreadsheetJob'
 
-export {
-    manageSpreadsheetJob
+async function jobs() {
+    await manageSpreadsheetJob()
 }
+
+export default jobs
