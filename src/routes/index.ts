@@ -6,7 +6,7 @@ import classesRouter from './classes'
 import incomesRouter from './incomes'
 import teachersRouter from './teachers'
 import studentsRouter from './students'
-import exportGeneral from './export'
+import exportRouter from './export'
 
 const router = express.Router()
 
@@ -18,10 +18,6 @@ router.use('/classes', classesRouter)
 router.use('/incomes', incomesRouter)
 router.use('/teachers', teachersRouter)
 router.use('/students', studentsRouter)
-router.get('/export/:filters', exportGeneral)
-
-router.get('/check', (req, res) => (
-    res.json({ ok: true })
-))
+router.get('/export/:filters', exportRouter)
 
 export default router

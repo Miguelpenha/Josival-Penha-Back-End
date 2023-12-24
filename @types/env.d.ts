@@ -18,7 +18,6 @@ declare global {
         TWILIO_ACCOUNT_SID: string
         TWILIO_NUMBER_FROM: string
         DOMAIN_ASSETS_EMAIL: string
-        NUMBER_FROM_WHATSAPP: string
         GOOGLE_ID_SPREADSHEET: string
         GOOGLE_SERVICE_ACCOUNT_EMAIL: string
         GOOGLE_SERVICE_ACCOUNT_EMAIL_USE: string
