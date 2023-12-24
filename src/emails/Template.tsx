@@ -1,3 +1,7 @@
+import dotenv from 'dotenv'
+dotenv.config({
+    path: '../.env'
+})
 import React, { FC } from 'react'
 import { Html } from '@react-email/html'
 import { Container } from '@react-email/container'
@@ -14,13 +18,17 @@ import { Preview } from '@react-email/preview'
 interface IProps {
     text: string
     title: string
+    action: {
+        text: string
+        link: string
+    }
 }
 
-const Template: FC<IProps> = ({ title='', text='' }) => {
+const Template: FC<IProps> = ({ title='', text='', action={ link: '', text: '' } }) => {
     return (
         <Html lang="pt-br" dir="ltr">
             <Head>
-                <title>Aviso sobre...</title>
+                <title>{title}</title>
                 <Font
                     fontWeight={400}
                     fontStyle="normal"
@@ -46,8 +54,8 @@ const Template: FC<IProps> = ({ title='', text='' }) => {
                     })}
                 </Section>
                 <Section style={styles.sectionButton}>
-                    <Button pX={10} pY={10} style={styles.button} href="https://api.whatsapp.com/send?phone=558194997501">
-                        Fale comigo
+                    <Button pX={20} pY={15} style={styles.button} href={action.link}>
+                        {action.text}
                     </Button>
                 </Section>
             </Container>

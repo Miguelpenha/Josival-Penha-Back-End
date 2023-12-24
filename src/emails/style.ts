@@ -1,7 +1,6 @@
 import { CSSProperties } from 'react'
 
 export const container: CSSProperties = {
-    width: '100%',
     display: 'flex',
     backgroundColor: '#FFFFFF'
 }
@@ -23,11 +22,17 @@ export const title: CSSProperties = {
 }
 
 export const sectionTexts: CSSProperties = {
-    margin: '0 1em'
+    width: '90%',
+    padding: '0 1em',
+    backgroundColor: '#FFFFFF'
 }
 
 export const text: CSSProperties = {
-    color: '#0F0F0F'
+    margin: '0.8em',
+    color: '#0F0F0F',
+    fontSize: '1.2em',
+    minHeight: '10px',
+    lineHeight: '20px'
 }
 
 export const sectionButton: CSSProperties = {
@@ -37,8 +42,11 @@ export const sectionButton: CSSProperties = {
 export const button: CSSProperties = {
     margin: 'auto',
     color: '#f2f2f2',
+    marginTop: '2em',
+    fontSize: '1.5em',
+    fontWeight: 'bold',
     marginRight: 'auto',
     marginBottom: '2em',
-    borderRadius: '7px',
+    borderRadius: '15px',
     backgroundColor: '#00afef'
 }

@@ -1,32 +1,39 @@
 import { Request, Response } from 'express'
 import { Resend } from 'resend'
-import { render } from '@react-email/render'
 import React from 'react'
-import Template from '../../emails/Template'
+import Template from '../../../emails/Template'
 
-interface IWhatsappParams {
+interface ISendParams {
     to: string
 }
 
-interface IWhatsappBody {
+interface ISendBody {
     text: string
     title: string
+    action: {
+        text: string
+        link: string
+    }
 }
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
-async function email(req: Request<IWhatsappParams, {}, IWhatsappBody>, res: Response) {
+async function send(req: Request<ISendParams, {}, ISendBody>, res: Response) {
     const { to } = req.params
 
     if (to) {
-        const { title, text } = req.body
+        const { title, text, action } = req.body
 
         try {
             const { id } = await resend.emails.send({
                 to,
                 subject: title,
                 from: process.env.EMAIL_FROM,
-                react: <Template text={text} title={title}/>
+                react: <Template
+                            text={text}
+                            title={title}
+                            action={{ link: action.link, text: action.text }}
+                        />
             })
 
             if (id) {
@@ -44,4 +51,4 @@ async function email(req: Request<IWhatsappParams, {}, IWhatsappBody>, res: Resp
     }
 }
 
-export default email
+export default send
