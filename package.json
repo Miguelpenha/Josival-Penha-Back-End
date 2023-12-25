@@ -13,6 +13,7 @@
   "author": "Miguel Penha <miguel.penha1@gmail.com> (https://portfolio-miguelpenha.vercel.app)",
   "license": "MIT",
   "dependencies": {
+    "@react-email/body": "^0.0.7",
     "@react-email/button": "^0.0.10",
     "@react-email/container": "^0.0.8",
     "@react-email/font": "^0.0.3",

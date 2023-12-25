@@ -1,38 +1,43 @@
 import { CSSProperties } from 'react'
+import theme from './theme'
+
+export const body: CSSProperties = {
+    backgroundColor: theme.background
+}
 
 export const container: CSSProperties = {
     display: 'flex',
-    backgroundColor: '#FFFFFF'
+    backgroundColor: theme.background
 }
 
 export const header: CSSProperties = {
     padding: '1.5em',
-    backgroundColor: '#00afef'
+    backgroundColor: theme.primary
 }
 
 export const image: CSSProperties = {
-    width: '40%',
+    width: '60%',
     margin: 'auto'
 }
 
 export const title: CSSProperties = {
     margin: '1em',
-    color: '#0f0f0f',
+    color: theme.color,
     textAlign: 'center'
 }
 
 export const sectionTexts: CSSProperties = {
     width: '90%',
     padding: '0 1em',
-    backgroundColor: '#FFFFFF'
+    backgroundColor: theme.background
 }
 
 export const text: CSSProperties = {
     margin: '0.8em',
-    color: '#0F0F0F',
     fontSize: '1.2em',
     minHeight: '10px',
-    lineHeight: '20px'
+    lineHeight: '20px',
+    color: theme.color
 }
 
 export const sectionButton: CSSProperties = {
@@ -41,12 +46,12 @@ export const sectionButton: CSSProperties = {
 
 export const button: CSSProperties = {
     margin: 'auto',
-    color: '#f2f2f2',
     marginTop: '2em',
     fontSize: '1.5em',
     fontWeight: 'bold',
     marginRight: 'auto',
     marginBottom: '2em',
     borderRadius: '15px',
-    backgroundColor: '#00afef'
+    color: theme.secondary,
+    backgroundColor: theme.primary
 }
