@@ -1,7 +1,4 @@
 import { Request, Response } from 'express'
-import twilio from 'twilio'
-
-const clientTwilio = twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN)
 
 interface IWhatsappParams {
     to: string
@@ -17,22 +14,9 @@ async function whatsapp(req: Request<IWhatsappParams, {}, IWhatsappBody>, res: R
     if (to) {
         const { month } = req.body
 
-        try {
-            await clientTwilio
-            .messages
-            .create({
-                to,
-                from: process.env.TWILIO_NUMBER_FROM,
-                mediaUrl: ['https://josivalpenha.com/img/thumbnail.png'],
-                body: `Olá, pai/mãe!\n\nEstamos aqui para disponibilizar o boleto do mês ${month}, para o pagamento da mensalidade!\n\nEquipe Josival Penha 💙❤`
-            })
-
-            res.json({ send: true })
-        } catch (error) {
-            console.log(error)
-
-            res.json({ send: false })
-        }
+        res.json({ 
+            link: `https://api.whatsapp.com/send?phone=${to}&text=https://josivalpenha.com%0a%0aOlá, pai/mãe!%0aEstamos aqui para disponibilizar o boleto do mês ${month}, para o pagamento da mensalidade!%0a%0aEquipe Josival Penha 💙❤`
+        })
     } else {
         res.json({ message: 'Param "to" is required' })
     }

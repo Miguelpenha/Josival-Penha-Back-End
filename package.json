@@ -41,8 +41,7 @@
     "pdfkit": "^0.13.0",
     "react": "^18.2.0",
     "react-email": "^1.10.0",
-    "resend": "^1.1.0",
-    "twilio": "^4.20.0"
+    "resend": "^1.1.0"
   },
   "devDependencies": {
     "@types/axios": "^0.14.0",
@@ -61,7 +60,6 @@
     "@types/node": "^17.0.45",
     "@types/pdfkit": "^0.12.12",
     "@types/react": "^18.2.45",
-    "@types/twilio": "^3.19.3",
     "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
     "typescript": "^4.9.5"

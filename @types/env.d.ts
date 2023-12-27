@@ -13,10 +13,7 @@ declare global {
         ADMIN_PASSWORD: string
         URLS_AUTHORIZED: string
         SECRET_KEY_CRYPTO: string
-        TWILIO_AUTH_TOKEN: string
         GOOGLE_PRIVATE_KEY: string
-        TWILIO_ACCOUNT_SID: string
-        TWILIO_NUMBER_FROM: string
         DOMAIN_ASSETS_EMAIL: string
         GOOGLE_ID_SPREADSHEET: string
         GOOGLE_SERVICE_ACCOUNT_EMAIL: string
