@@ -1,3 +1,4 @@
+import { JWT } from 'google-auth-library'
 import { GoogleSpreadsheet } from 'google-spreadsheet'
 import { blueBright as info } from 'chalk'
 import makeSheet from './makeSheet'
@@ -11,14 +12,15 @@ import incomesModel from '../../models/income'
 import datasIncome from '../../routes/export/datas/datasIncome'
 
 async function manageSpreadsheetJob() {
-    const doc = new GoogleSpreadsheet(process.env.GOOGLE_ID_SPREADSHEET)
+    const serviceAccountAuth = new JWT({
+        scopes: process.env.GOOGLE_SCOPES.split(','),
+        email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+        subject: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+        key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n')
+    })
+    const doc = new GoogleSpreadsheet(process.env.GOOGLE_ID_SPREADSHEET, serviceAccountAuth)
 
     console.log(info('>> Job manageSpreadsheet is running'))
-
-    await doc.useServiceAccountAuth({
-        client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-        private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n')
-    }, process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL_USE)
 
     await doc.loadInfo()
 
