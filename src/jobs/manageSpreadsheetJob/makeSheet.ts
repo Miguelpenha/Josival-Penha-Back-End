@@ -10,6 +10,10 @@ async function makeSheet(doc: GoogleSpreadsheet, name: string, values: object[],
         })
     }
 
+    if (!sheet.headerValues || sheet.headerValues.length != datas.length) {
+        sheet.setHeaderRow(datas.map(data => data.name))
+    }
+
     await sheet.clearRows()
 
     await sheet.addRows(values.map(value => {
