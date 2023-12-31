@@ -4,7 +4,7 @@ async function databaseConfig() {
     try {
         mongoose.set('strictQuery', true)
 
-        await mongoose.connect('asd'+process.env.MONGO_URL)
+        await mongoose.connect(process.env.MONGO_URL)
 
         return { configured: true }
     } catch (error) {
