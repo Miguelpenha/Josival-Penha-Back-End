@@ -22,3 +22,9 @@ function config(app: Express) {
 }
 
 export default config
+
+export {
+    generalConfig,
+    databaseConfig,
+    protectionConfig
+}

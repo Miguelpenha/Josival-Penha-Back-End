@@ -4,12 +4,18 @@ import corsParams from '../utils/corsParams'
 import helmet from 'helmet'
 
 function protectionConfig(app: Express) {
-    app.set('trust proxy', 1)
-    app.disable('x-powered-by')
+    try {
+        app.set('trust proxy', 1)
+        app.disable('x-powered-by')
 
-    app.use(cors(corsParams))
-    
-    app.use(helmet())
+        app.use(cors(corsParams))
+        
+        app.use(helmet())
+
+        return { configured: true }
+    } catch (error) {
+        return { configured: false, error }
+    }
 }
 
 export default protectionConfig

@@ -3,10 +3,16 @@ import morgan from 'morgan'
 import express from 'express'
 
 function generalConfig(app: Express) {
-    app.use(morgan('dev'))
+    try {
+        app.use(morgan('dev'))
 
-    app.use(express.json())
-    app.use(express.urlencoded({ extended: true }))
+        app.use(express.json())
+        app.use(express.urlencoded({ extended: true }))
+
+        return { configured: true }
+    } catch (error) {
+        return { configured: false, error }
+    }
 }
 
 export default generalConfig
