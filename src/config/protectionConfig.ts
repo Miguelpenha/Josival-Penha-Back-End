@@ -11,10 +11,8 @@ function protectionConfig(app: Express) {
         app.use(cors(corsParams))
         
         app.use(helmet())
-
-        return { configured: true }
     } catch (error) {
-        return { configured: false, error }
+        throw new TypeError('Erro on protection configuration')
     }
 }
 

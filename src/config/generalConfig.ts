@@ -8,10 +8,8 @@ function generalConfig(app: Express) {
 
         app.use(express.json())
         app.use(express.urlencoded({ extended: true }))
-
-        return { configured: true }
     } catch (error) {
-        return { configured: false, error }
+        throw new Error(error)
     }
 }
 

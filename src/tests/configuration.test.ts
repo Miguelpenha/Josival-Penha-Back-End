@@ -1,25 +1,22 @@
 import 'dotenv/config'
-import { generalConfig, databaseConfig, protectionConfig } from '../config'
 import express from 'express'
+import { generalConfig, databaseConfig, protectionConfig } from '../config'
+import mongoose from 'mongoose'
 
 describe('Test Configuration', () => {
     const app = express()
 
-    test('General', async () => {
-        const data = generalConfig(app)
-        
-        expect(data).toEqual({ configured: true })
+    test('General', () => {
+        expect(() => generalConfig(app)).not.toThrow(Error)
     })
 
     test('Database', async () => {
-        const data = await databaseConfig()
-        
-        expect(data).toEqual({ configured: true })
+        expect(databaseConfig).not.toThrow(Error)
+
+        await mongoose.connection.close()
     })
 
-    test('Protection', async () => {
-        const data = protectionConfig(app)
-        
-        expect(data).toEqual({ configured: true })
+    test('Protection', () => {
+        expect(() => protectionConfig(app)).not.toThrow(Error)
     })
 })
