@@ -20,4 +20,8 @@ router.use('/teachers', teachersRouter)
 router.use('/students', studentsRouter)
 router.get('/export/:filters', exportRouter)
 
+router.post('/whatsapp', (req, res) => {
+    res.send(req.body)
+})
+
 export default router

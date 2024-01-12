@@ -13,6 +13,8 @@ function middlewareAuth(req: Request, res: Response, next: NextFunction) {
             res.status(401)
             res.json({ unauthorized: true })
         }
+    } else if (process.env.ROUTES_IGNORED.includes(req.url.substring(1))) {
+        next()
     } else {
         res.status(401)
         res.json({ unauthorized: true })

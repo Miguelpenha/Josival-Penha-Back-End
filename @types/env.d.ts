@@ -11,6 +11,7 @@ declare global {
         DOMAIN_EMAIL: string
         RESEND_API_KEY: string
         ADMIN_PASSWORD: string
+        ROUTES_IGNORED: string
         URLS_AUTHORIZED: string
         SECRET_KEY_CRYPTO: string
         GOOGLE_PRIVATE_KEY: string
