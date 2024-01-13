@@ -21,8 +21,6 @@ router.use('/students', studentsRouter)
 router.get('/export/:filters', exportRouter)
 
 router.post('/whatsapp', (req, res) => {
-    console.log(req.body)
-
     res.send(req.body)
 })
 
