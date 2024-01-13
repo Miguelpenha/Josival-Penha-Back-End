@@ -25,8 +25,7 @@ async function declarationProvisionalTransfer(req: Request<IDeclarationProvision
             declaration.end()
 
             res.contentType('application/pdf')
-            res.setHeader('Content-disposition', `attachment; filename=Declaração provisória de
-            transferência do aluno(a) ${student.name}.pdf`)
+            res.setHeader('Content-disposition', `attachment; filename=Declaração provisória de transferência do aluno(a) ${student.name}.pdf`)
         } else {
             res.json({ exists: false })
         }
