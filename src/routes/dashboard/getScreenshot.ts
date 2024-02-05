@@ -11,6 +11,8 @@ async function getScreenshot() {
         const page = await browser.newPage()
     
         await page.goto(process.env.BETA_DASHBOARD_URL, { waitUntil: 'networkidle0' })
+
+        await page.waitForSelector('.ng2-canvas-container')
     
         const screenshot = await page.screenshot(optionsScreenshot)
 
