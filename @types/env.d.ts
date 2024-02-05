@@ -15,6 +15,7 @@ declare global {
         URLS_AUTHORIZED: string
         SECRET_KEY_CRYPTO: string
         GOOGLE_PRIVATE_KEY: string
+        BETA_DASHBOARD_URL: string
         DOMAIN_ASSETS_EMAIL: string
         GOOGLE_ID_SPREADSHEET: string
         GOOGLE_SERVICE_ACCOUNT_EMAIL: string

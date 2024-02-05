@@ -7,6 +7,7 @@ import incomesRouter from './incomes'
 import teachersRouter from './teachers'
 import studentsRouter from './students'
 import exportRouter from './export'
+import dashboardRouter from './dashboard'
 
 const router = express.Router()
 
@@ -19,9 +20,11 @@ router.use('/incomes', incomesRouter)
 router.use('/teachers', teachersRouter)
 router.use('/students', studentsRouter)
 router.get('/export/:filters', exportRouter)
+router.use('/beta/dashboard', dashboardRouter)
 
 router.post('/whatsapp', (req, res) => {
     res.send(req.body)
 })
+
 
 export default router
