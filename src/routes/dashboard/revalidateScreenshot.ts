@@ -12,14 +12,10 @@ function revalidateScreenshot(revalidate: boolean): { getNewScreenshot: boolean 
     } else {
         const exists = fs.existsSync(pathScreenshot)
 
-        console.log(exists)
-
         if (exists) {
             const config: IConfig = JSON.parse(fs.readFileSync(pathScreenshotConfig).toString())
             const dateNow = new Date().toLocaleDateString('pt-br', { timeZone: 'UTC' })
             const dateLastScreenshot = new Date(config.last).toLocaleDateString('pt-br', { timeZone: 'UTC' })
-
-            console.log(dateNow, dateLastScreenshot)
 
             return { getNewScreenshot: dateNow != dateLastScreenshot }
         } else {

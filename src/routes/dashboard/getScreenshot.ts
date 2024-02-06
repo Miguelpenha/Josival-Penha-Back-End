@@ -24,6 +24,8 @@ async function getScreenshot() {
         
         return { screenshot, error: null }
     } catch (details) {
+        console.log(details)
+
         return {
             error: {
                 details,
