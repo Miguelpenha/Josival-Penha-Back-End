@@ -8,8 +8,8 @@
     "postinstall": "tsc",
     "start": "node dist/index.js",
     "test:watch": "jest --watchAll",
-    "heroku-postbuild": "bash postbuild.bash",
     "email": "email dev --dir=./src/emails --port=3003",
+    "heroku-postbuild": "mkdir ./.cache && mv /app/.cache/puppeteer ./.cache",
     "dev": "ts-node-dev --env-file=.env --respawn --ignore-watch node_modules src/index.ts"
   },
   "keywords": [],
