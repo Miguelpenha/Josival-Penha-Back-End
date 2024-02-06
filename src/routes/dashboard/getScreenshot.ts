@@ -16,7 +16,9 @@ async function getScreenshot() {
     
         const screenshot = await page.screenshot(optionsScreenshot)
 
-        fs.writeFileSync(pathScreenshotConfig, JSON.stringify({ last: new Date().toISOString() }, null, '   '))
+        fs.writeFileSync(pathScreenshotConfig, JSON.stringify({ last: new Date(
+            new Date().toLocaleDateString('pt-br', { timeZone: 'UTC' })
+        ).toLocaleString('pt-br') }, null, '   '))
     
         await browser.close()
         
