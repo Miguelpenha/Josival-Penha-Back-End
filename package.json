@@ -6,8 +6,9 @@
   "scripts": {
     "test": "jest",
     "postinstall": "tsc",
-    "test:watch": "jest --watchAll",
     "start": "node dist/index.js",
+    "test:watch": "jest --watchAll",
+    "heroku-postbuild": "bash postbuild.bash",
     "email": "email dev --dir=./src/emails --port=3003",
     "dev": "ts-node-dev --env-file=.env --respawn --ignore-watch node_modules src/index.ts"
   },
