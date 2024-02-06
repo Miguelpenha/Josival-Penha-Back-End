@@ -6,4 +6,4 @@ mv /app/.cache/puppeteer ./.cache
 
 echo -e "Install libnss3\n"
 
-sudo apt-get install libnss3-dev
+apt-get install libnss3-dev
