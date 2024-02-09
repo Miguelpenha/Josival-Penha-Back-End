@@ -20,7 +20,7 @@ async function getScreenshot() {
 
         fs.writeFileSync(pathScreenshotConfig, JSON.stringify({ last: new Date(
             new Date().toLocaleDateString('pt-br', { timeZone: 'UTC' })
-        ).toLocaleString('pt-br') }, null, '   '))
+        ).toISOString() }, null, '   '))
     
         await browser.close()
         
