@@ -17,10 +17,11 @@ async function getScreenshot() {
         await page.waitForFunction(() => setTimeout(() => true, 1000))
 
         const screenshot = await page.screenshot(optionsScreenshot)
+        
+        const date = new Date().toLocaleDateString('pt-br', { timeZone: 'UTC' })
+        const configJSON = JSON.stringify({ last: date }, null, '   ')
 
-        fs.writeFileSync(pathScreenshotConfig, JSON.stringify({ last: new Date(
-            new Date().toLocaleDateString('pt-br', { timeZone: 'UTC' })
-        ).toISOString() }, null, '   '))
+        fs.writeFileSync(pathScreenshotConfig, configJSON)
     
         await browser.close()
         
