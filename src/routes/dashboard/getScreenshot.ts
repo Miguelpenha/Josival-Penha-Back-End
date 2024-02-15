@@ -1,19 +1,18 @@
-import puppeteer from 'puppeteer'
+import puppeteer, { Browser } from 'puppeteer'
 import optionsBrowser from './optionsBrowser'
 import optionsScreenshot from './optionsScreenshot'
 import fs from 'fs'
 import pathScreenshotConfig from './pathScreenshotConfig'
 
 async function getScreenshot() {
+    let browser: Browser
+
     try {
-        const browser = await puppeteer.launch(optionsBrowser)
-    
+        browser = await puppeteer.launch(optionsBrowser)
         const page = await browser.newPage()
     
         await page.goto(process.env.BETA_DASHBOARD_URL, { waitUntil: 'networkidle0' })
-
         await page.waitForSelector('.ng2-canvas-container')
-
         await page.waitForFunction(() => setTimeout(() => true, 1000))
 
         const screenshot = await page.screenshot(optionsScreenshot)
@@ -35,6 +34,8 @@ async function getScreenshot() {
                 error: 'Error on get screenshot'
             }
         }
+    } finally {
+        await browser.close()
     }
 }
 
