@@ -22,7 +22,6 @@ router.use('/incomes', incomesRouter)
 router.use('/teachers', teachersRouter)
 router.use('/students', studentsRouter)
 router.get('/export/:filters', exportRouter)
-router.use('/beta/dashboard', dashboardRouter)
 
 router.post('/whatsapp', (req, res) => {
     res.send(req.body)
