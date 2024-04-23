@@ -1,6 +1,7 @@
 import express from 'express'
 import middlewareAuth from '../utils/middlewareAuth'
 import adminRouter from './admin'
+import videoRouter from './video'
 import notifyRouter from './notify'
 import classesRouter from './classes'
 import incomesRouter from './incomes'
@@ -14,6 +15,7 @@ const router = express.Router()
 router.use(middlewareAuth)
 
 router.use('/admin', adminRouter)
+router.use('/video', videoRouter)
 router.use('/notify', notifyRouter)
 router.use('/classes', classesRouter)
 router.use('/incomes', incomesRouter)
@@ -25,6 +27,5 @@ router.use('/beta/dashboard', dashboardRouter)
 router.post('/whatsapp', (req, res) => {
     res.send(req.body)
 })
-
 
 export default router
