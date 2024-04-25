@@ -33,7 +33,7 @@ videoRouter.get('/page/:page?', async (req, res) => {
 
         if (route) {
             const urlVideo = `${process.env.AWS_BASE_URL}/${company.folderURL}/${route.videoURL}`
-            const script = generateScript(urlVideo)
+            const script = generateScript(company.name, urlVideo, company.textAction, company.contactURL)
     
             res.contentType('application/javascript')
             res.send(script)
