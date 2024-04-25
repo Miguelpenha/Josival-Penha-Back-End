@@ -3,7 +3,7 @@ import ICompany from './company'
 const companies: ICompany[] = [
     {
         name: 'Josival Penha',
-        hostURL: 'http://localhost:3002',
+        hostURL: 'https://josivalpenha.com',
         folderURL: 'josival-penha-1515fae3-8ca1-46d0-922e-cdf47e8909ca',
         routes: [
             {
