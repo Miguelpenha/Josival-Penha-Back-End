@@ -48,6 +48,7 @@ function closeVideo() {
 
     gsap.to('#video-popup', {
         left: '1%',
+        top: '80vh',
         top: 'none',
         bottom: '1%',
         width: '112px',
