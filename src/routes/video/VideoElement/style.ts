@@ -60,7 +60,7 @@ export const IconClose = styled.svg`
 export const IconContact = styled.svg`
     right: 3%;
     bottom: 45%;
-    width: 2.5em;
+    width: 2.8em;
     display: none;
     z-index: 1002;
     border-radius: 50%;
@@ -71,8 +71,8 @@ export const IconContact = styled.svg`
 
 export const IconShare = styled.svg`
     right: 3%;
-    width: 2.5em;
     bottom: 30%;
+    width: 2.8em;
     fill: #ffffff;
     z-index: 1002;
     display: none;
