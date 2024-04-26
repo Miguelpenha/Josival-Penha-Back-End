@@ -4,7 +4,7 @@ const companies: ICompany[] = [
     {
         color: '#00afef',
         name: 'Josival Penha',
-        textAction: 'Saber mais 👆',
+        actionText: 'Saber mais 👆',
         hostURL: 'https://josivalpenha.com',
         contactURL: 'https://api.whatsapp.com/send?phone=558194997501',
         folderURL: 'josival-penha-1515fae3-8ca1-46d0-922e-cdf47e8909ca',
@@ -21,7 +21,7 @@ const companies: ICompany[] = [
     },
     {
         color: '#a9c16a',
-        textAction: 'Saber mais 👆',
+        actionText: 'Saber mais 👆',
         name: 'Hotel Pedra do Rodeadouro',
         hostURL: 'https://www.engenhopedrarodeadouro.com.br',
         contactURL: 'https://www.engenhopedrarodeadouro.com.br',

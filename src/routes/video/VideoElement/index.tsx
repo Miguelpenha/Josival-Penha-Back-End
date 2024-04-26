@@ -3,14 +3,14 @@ import { Container, Message, MessageText, ContainerVideo, IconClose, IconContact
 
 interface IProps {
     url: string
-    textAction: string
+    actionText: string
 }
 
-const VideoElement: FC<IProps> = ({ url, textAction }) => {
+const VideoElement: FC<IProps> = ({ url, actionText }) => {
     return (
         <Container id="video-popup">
             <Message className="message">
-                <MessageText className="text">{textAction}</MessageText>
+                <MessageText className="text">{actionText}</MessageText>
             </Message>
             <ContainerVideo className="container-video">
                 <IconClose id="icon-close" className="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">

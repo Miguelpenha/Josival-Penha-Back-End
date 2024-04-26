@@ -32,8 +32,8 @@ videoRouter.get('/page/:page?', async (req, res) => {
         const route = company.routes.find(route => route.url === ('/'+(routeURL || '')) && route)
 
         if (route) {
-            const urlVideo = `${process.env.AWS_BASE_URL}/${company.folderURL}/${route.videoURL}`
-            const script = generateScript(company.name, urlVideo, company.textAction, company.contactURL)
+            const urlVideo = `${process.env.AWS_BASE_URL}/videos/${company.folderURL}/${route.videoURL}`
+            const script = generateScript(company.name, urlVideo, company.actionText, company.contactURL)
     
             res.contentType('application/javascript')
             res.send(script)

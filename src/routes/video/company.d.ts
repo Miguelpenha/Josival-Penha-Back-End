@@ -9,7 +9,7 @@ interface ICompany {
     hostURL: string
     routes: IRoute[]
     folderURL: string
-    textAction: string
+    actionText: string
     contactURL: string
 }
 
