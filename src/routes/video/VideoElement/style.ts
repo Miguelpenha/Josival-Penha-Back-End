@@ -48,17 +48,19 @@ export const ContainerVideo = styled.div`
 export const IconClose = styled.svg`
     top: 2%;
     right: 3%;
-    width: 3em;
-    fill: #000000;
+    width: 2.5em;
+    fill: #FFFFFF;
     z-index: 1002;
     display: none;
+    border-radius: 50%;
     position: absolute;
+    background-color: rgba(0, 0, 0, 0.4);
 `
 
 export const IconContact = styled.svg`
     right: 3%;
-    width: 3em;
     bottom: 45%;
+    width: 2.5em;
     display: none;
     z-index: 1002;
     border-radius: 50%;
@@ -69,15 +71,15 @@ export const IconContact = styled.svg`
 
 export const IconShare = styled.svg`
     right: 3%;
-    width: 3em;
+    width: 2.5em;
     bottom: 30%;
-    fill: #000000;
+    fill: #ffffff;
     z-index: 1002;
     display: none;
     padding: 0.3em;
     border-radius: 50%;
     position: absolute;
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(0, 0, 0, 0.4);
 `
 
 export const Brand = styled.svg`
