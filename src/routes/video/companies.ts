@@ -20,6 +20,20 @@ const companies: ICompany[] = [
         ]
     },
     {
+        color: '#ed2c2c',
+        name: 'Sonetto Produções',
+        actionText: 'Veja mais 👆',
+        hostURL: 'https://sonettoproducoes.com',
+        folderURL: 'sonetto-producoes-87c2ed99-4b0c-4060-a57a-03796901c0f2',
+        contactURL: 'https://api.whatsapp.com/send?phone=5581991426351&text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20para%20o%20meu%20evento',
+        routes: [
+            {
+                url: '/',
+                videoURL: 'video-fdcc496c-876d-41f6-8201-91a0cc1a301c.mp4'
+            }
+        ]
+    },
+    {
         color: '#a9c16a',
         actionText: 'Saber mais 👆',
         name: 'Hotel Pedra do Rodeadouro',

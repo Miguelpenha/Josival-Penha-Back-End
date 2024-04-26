@@ -65,7 +65,7 @@ function openVideo() {
     })
 
     gsap.to('#nyxel>.container-video', {
-        top: '55%',
+        top: '50%',
         width: 'auto',
         borderRadius: '0'
     })
@@ -73,7 +73,7 @@ function openVideo() {
     gsap.to('#nyxel #video', {
         delay: 0.1,
         left: '50%',
-        height: '90%',
+        height: '100%',
         zIndex: '1001',
         borderRadius: '20px',
         onComplete() {
