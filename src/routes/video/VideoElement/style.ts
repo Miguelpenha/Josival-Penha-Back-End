@@ -84,9 +84,9 @@ export const IconShare = styled.svg`
 
 export const Brand = styled.svg`
     left: 3%;
+    width: 5em;
     bottom: 15%;
     opacity: 0.5;
-    width: 6.2em;
     z-index: 1002;
     display: none;
     position: absolute;
