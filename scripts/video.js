@@ -81,6 +81,11 @@ function openVideo() {
                 display: 'block',
                 transform: 'scale(1)'
             })
+
+            gsap.to('#video-popup #brand', {
+                opacity: 1,
+                display: 'block'
+            })
         }
     })
 }
@@ -99,6 +104,12 @@ function closeVideo() {
         duration: 0.2,
         display: 'none',
         transform: 'scale(0.8)'
+    })
+
+    gsap.to('#video-popup #brand', {
+        opacity: 0.5,
+        duration: 0.2,
+        display: 'none'
     })
 
     gsap.to('#video-popup>.container-video', {
@@ -142,7 +153,7 @@ function makeVideo() {
     const iconShare = document.querySelector('#video-popup #icon-share')
     const video = document.querySelector('#video-popup #video')
 
-    addEventListener('load', initialLoadVideo)
+    setTimeout(initialLoadVideo, 200)
 
     container.onclick = ev => {
         if (video.muted && (ev.target.id == 'video' || ev.target.className.includes('message') || ev.target.className.includes('text'))) {

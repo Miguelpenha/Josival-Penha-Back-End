@@ -49,7 +49,7 @@ export const IconClose = styled.svg`
     top: 2%;
     right: 3%;
     width: 3em;
-    fill: #ffffff;
+    fill: #000000;
     z-index: 1002;
     display: none;
     position: absolute;
@@ -58,24 +58,44 @@ export const IconClose = styled.svg`
 export const IconContact = styled.svg`
     right: 3%;
     width: 3em;
-    bottom: 50%;
+    bottom: 45%;
     display: none;
-    fill: #ffffff;
     z-index: 1002;
+    border-radius: 50%;
     position: absolute;
     transform: scale(0.8);
+    background-color: #73be62;
 `
 
 export const IconShare = styled.svg`
     right: 3%;
     width: 3em;
-    bottom: 20%;
-    fill: #ffffff;
+    bottom: 30%;
+    fill: #000000;
     z-index: 1002;
     display: none;
+    padding: 0.3em;
     border-radius: 50%;
     position: absolute;
     background-color: rgba(255, 255, 255, 0.6);
+`
+
+export const Brand = styled.svg`
+    left: 3%;
+    bottom: 15%;
+    opacity: 0.5;
+    width: 6.5em;
+    z-index: 1002;
+    display: none;
+    position: absolute;
+
+    .background {
+        fill: rgba(49, 49, 49, 0.2);
+    }
+
+    .text {
+        fill: #FFFFFF;
+    }
 `
 
 export const Video = styled.video`
