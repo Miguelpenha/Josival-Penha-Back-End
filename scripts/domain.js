@@ -21,7 +21,7 @@ addEventListener('DOMContentLoaded', () => {
 
             document.body.appendChild(scriptVideo)
 
-            window.document.getElementById('video-popup') && document.body.removeChild(window.document.getElementById('video-popup'))
+            window.document.getElementById('nyxel') && document.body.removeChild(window.document.getElementById('nyxel'))
 
             oldDomain = window.document.location.href
        }

@@ -84,13 +84,13 @@ export const Brand = styled.svg`
     left: 3%;
     bottom: 15%;
     opacity: 0.5;
-    width: 6.5em;
+    width: 6.2em;
     z-index: 1002;
     display: none;
     position: absolute;
 
     .background {
-        fill: rgba(49, 49, 49, 0.2);
+        fill: rgba(49, 49, 49, 0.3);
     }
 
     .text {
@@ -101,5 +101,5 @@ export const Brand = styled.svg`
 export const Video = styled.video`
     width: 100%;
     height: auto;
-    box-shadow: 0px 15px 50px 0px rgba(0, 0, 0, 0.5);
+    /* box-shadow: 0px 15px 50px 0px rgba(0, 0, 0, 0.5); */
 `

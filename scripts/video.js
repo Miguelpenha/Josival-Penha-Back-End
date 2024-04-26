@@ -14,21 +14,21 @@ if (scriptGsap) {
 }
 
 function initialLoadVideo() {
-    gsap.to('#video-popup>.container-video', {
+    gsap.to('#nyxel>.container-video', {
         width: '80%',
         height: '80%',
         duration: 0.5,
         onComplete() {
-            gsap.to('#video-popup>.message', {
+            gsap.to('#nyxel>.message', {
                 opacity: 1
             })
 
-            gsap.to('#video-popup>.message', {
+            gsap.to('#nyxel>.message', {
                 delay: 0.2,
                 duration: 0.8,
                 width: '7.5em',
                 onComplete() {
-                    gsap.to('#video-popup>.message>.text', {
+                    gsap.to('#nyxel>.message>.text', {
                         opacity: 1
                     })
                 }
@@ -42,19 +42,19 @@ function openVideo() {
     video.muted = false
 
     video.load()
-
-    gsap.to('#video-popup #video', {
+    
+    gsap.to('#nyxel #video', {
         width: 'auto'
     })
 
-    gsap.to('#video-popup>.message', {
+    gsap.to('#nyxel>.message', {
         opacity: 0
     })
 
-    gsap.to('#video-popup', {
+    gsap.to('#nyxel', {
         top: '0%',
         left: '0%',
-        delay: 0.2,
+        delay: 0.3,
         width: '100vw',
         height: '100vh',
         display: 'flex',
@@ -64,25 +64,25 @@ function openVideo() {
         backgroundColor: 'rgba(0, 0, 0, 0.5)'
     })
 
-    gsap.to('#video-popup>.container-video', {
+    gsap.to('#nyxel>.container-video', {
         top: '55%',
         width: 'auto',
         borderRadius: '0'
     })
 
-    gsap.to('#video-popup #video', {
+    gsap.to('#nyxel #video', {
         delay: 0.1,
         left: '50%',
         height: '90%',
         zIndex: '1001',
         borderRadius: '20px',
         onComplete() {
-            gsap.to('#video-popup .icon', {
+            gsap.to('#nyxel .icon', {
                 display: 'block',
                 transform: 'scale(1)'
             })
 
-            gsap.to('#video-popup #brand', {
+            gsap.to('#nyxel #brand', {
                 opacity: 1,
                 display: 'block'
             })
@@ -96,43 +96,43 @@ function closeVideo() {
     
     video.load()
 
-    gsap.to('#video-popup>.message', {
+    gsap.to('#nyxel>.message', {
         opacity: 1
     })
 
-    gsap.to('#video-popup .icon', {
-        duration: 0.2,
+    gsap.to('#nyxel .icon', {
+        duration: 0.1,
         display: 'none',
         transform: 'scale(0.8)'
     })
 
-    gsap.to('#video-popup #brand', {
+    gsap.to('#nyxel #brand', {
         opacity: 0.5,
-        duration: 0.2,
+        duration: 0.1,
         display: 'none'
     })
 
-    gsap.to('#video-popup>.container-video', {
+    gsap.to('#nyxel>.container-video', {
         top: '50%',
         width: '80%',
         duration: 0.5,
         borderRadius: '50%'
     })
 
-    gsap.to('#video-popup #video', {
+    gsap.to('#nyxel #video', {
         width: '100%',
         height: 'auto',
         zIndex: '1000',
         borderRadius: '0'
     })
 
-    gsap.to('#video-popup #video', {
+    gsap.to('#nyxel #video', {
         left: '0%',
         transform: 'none',
         position: 'block'
     })
 
-    gsap.to('#video-popup', {
+    gsap.to('#nyxel', {
         left: '2%',
         top: '78vh',
         bottom: '2%',
@@ -147,11 +147,11 @@ function makeVideo() {
     document.body.insertAdjacentHTML('beforeend', '{{styleElement}}')
     document.body.insertAdjacentHTML('beforeend', '{{videoElement}}')
 
-    const container = document.getElementById('video-popup')
-    const iconClose = document.querySelector('#video-popup #icon-close')
-    const iconContact = document.querySelector('#video-popup #icon-contact')
-    const iconShare = document.querySelector('#video-popup #icon-share')
-    const video = document.querySelector('#video-popup #video')
+    const container = document.getElementById('nyxel')
+    const iconClose = document.querySelector('#nyxel #icon-close')
+    const iconContact = document.querySelector('#nyxel #icon-contact')
+    const iconShare = document.querySelector('#nyxel #icon-share')
+    const video = document.querySelector('#nyxel #video')
 
     setTimeout(initialLoadVideo, 200)
 
@@ -159,7 +159,7 @@ function makeVideo() {
         if (video.muted && (ev.target.id == 'video' || ev.target.className.includes('message') || ev.target.className.includes('text'))) {
             openVideo()
         } else {
-            if (ev.target.id == 'video-popup') {
+            if (ev.target.id == 'nyxel') {
                 closeVideo()
             }
         }
