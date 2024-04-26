@@ -3,7 +3,7 @@ addEventListener('DOMContentLoaded', () => {
 
     scriptVideo.type = 'text/javascript'
     scriptVideo.crossOrigin = 'anonymous'
-    scriptVideo.src = `{{domain}}/video/page${window.location.pathname}`
+    scriptVideo.src = `{{domain}}/nyxel/video/page${window.location.pathname}`
 
     document.body.appendChild(scriptVideo)
 
@@ -17,7 +17,7 @@ addEventListener('DOMContentLoaded', () => {
 
             scriptVideo.type = 'text/javascript'
             scriptVideo.crossOrigin = 'anonymous'
-            scriptVideo.src = `{{domain}}/video/page${window.location.pathname}`
+            scriptVideo.src = `{{domain}}/nyxel/video/page${window.location.pathname}`
 
             document.body.appendChild(scriptVideo)
 
