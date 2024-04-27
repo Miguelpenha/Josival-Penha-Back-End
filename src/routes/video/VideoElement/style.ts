@@ -3,8 +3,8 @@ import styled from 'styled-components'
 export const Container = styled.div`
     left: 2%;
     bottom: 2%;
-    width: 7em;
-    height: 7em;
+    width: 6em;
+    height: 6em;
     z-index: 1000;
     position: fixed;
     cursor: pointer;
@@ -29,7 +29,7 @@ export const Message = styled.div`
 export const MessageText = styled.span`
     opacity: 0;
     color: #FFFFFF;
-    font-size: 1em;
+    font-size: 0.8em;
     font-weight: bold;
     white-space: nowrap;
 `
@@ -85,7 +85,7 @@ export const IconShare = styled.svg`
 export const Brand = styled.svg`
     left: 3%;
     width: 5em;
-    bottom: 15%;
+    bottom: 4%;
     opacity: 0.5;
     z-index: 1002;
     display: none;

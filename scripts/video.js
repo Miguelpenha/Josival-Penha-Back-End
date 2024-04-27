@@ -26,7 +26,7 @@ function initialLoadVideo() {
             gsap.to('#nyxel>.message', {
                 delay: 0.2,
                 duration: 0.8,
-                width: '7.5em',
+                width: '6.5em',
                 onComplete() {
                     gsap.to('#nyxel>.message>.text', {
                         opacity: 1
@@ -136,8 +136,8 @@ function closeVideo() {
         left: '2%',
         top: '78vh',
         bottom: '2%',
-        width: '112px',
-        height: '112px',
+        width: '96px',
+        height: '96px',
         borderRadius: '50%',
         backgroundColor: '{{color}}'
     })
