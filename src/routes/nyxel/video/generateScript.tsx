@@ -18,7 +18,7 @@ function generateScript(nameCompany: string, url: string, actionText: string, co
     )
     const styleElement = sheet.getStyleTags().replace(/\n/g, '')
 
-    const scriptPath = path.resolve(__dirname, '..', '..', '..', 'scripts', 'video.js')
+    const scriptPath = path.resolve(__dirname, '..', '..', '..', '..', 'scripts', 'video.js')
     const scriptRaw = fs.readFileSync(scriptPath).toString()
     const script = scriptRaw
     .replace('{{videoURL}}', url)
