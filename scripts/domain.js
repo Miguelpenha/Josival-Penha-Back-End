@@ -7,10 +7,10 @@ addEventListener('DOMContentLoaded', () => {
 
     document.body.appendChild(scriptVideo)
 
-    let oldDomain = window.document.location.href
+    let oldDomain = window.document.location.pathname
 
     setInterval(() => {
-        if (oldDomain != window.document.location.href) {
+        if (oldDomain != window.document.location.pathname) {
             document.body.removeChild(scriptVideo)
 
             scriptVideo = document.createElement('script')
@@ -23,7 +23,7 @@ addEventListener('DOMContentLoaded', () => {
 
             window.document.getElementById('nyxel') && document.body.removeChild(window.document.getElementById('nyxel'))
 
-            oldDomain = window.document.location.href
+            oldDomain = window.document.location.pathname
        }
     }, 100)
 })
