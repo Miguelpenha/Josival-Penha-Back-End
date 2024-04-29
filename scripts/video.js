@@ -67,6 +67,7 @@ function openVideo() {
     gsap.to('#nyxel>.container-video', {
         top: '50%',
         width: 'auto',
+        height: '95%',
         borderRadius: '0'
     })
 
