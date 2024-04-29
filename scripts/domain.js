@@ -1,5 +1,4 @@
 setTimeout(() => {
-    console.log('>> pegou', window.location.pathname)
     let scriptVideo = document.createElement('script')
 
     scriptVideo.type = 'text/javascript'
@@ -27,4 +26,4 @@ setTimeout(() => {
             oldDomain = window.document.location.pathname
        }
     }, 100)
-}, 1000)
+}, 500)
