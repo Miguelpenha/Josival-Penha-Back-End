@@ -15,8 +15,8 @@ if (scriptGsap) {
 
 function initialLoadVideo() {
     gsap.to('#nyxel>.container-video', {
-        width: '80%',
-        height: '80%',
+        width: '90%',
+        height: '90%',
         duration: 0.5,
         onComplete() {
             gsap.to('#nyxel>.message', {
