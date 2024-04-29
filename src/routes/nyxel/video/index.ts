@@ -18,7 +18,7 @@ videoRouter.get('/', (req, res) => {
         res.contentType('application/javascript')
         res.send(script)
     } else {
-        res.status(404)
+        res.status(200)
         res.json({ message: 'Company not found' })
     }
 })
