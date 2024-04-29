@@ -9,7 +9,7 @@ const videoRouter = express.Router()
 
 videoRouter.get('/', (req, res) => {
     const hostURL = req.get('Origin') || req.get('Referer')
-    const company = companies.find(company => company.hostURL === hostURL && company)
+    const company = companies.find(company => company.hostURL.includes(hostURL) && company)
 
     if (company) {
         const scriptPath = path.resolve(__dirname, '..', '..', '..', '..', 'scripts', 'domain.js')
@@ -25,9 +25,7 @@ videoRouter.get('/', (req, res) => {
 
 videoRouter.get('/page/:page?', async (req, res) => {
     const hostURL = req.get('Origin') || req.get('Referer')
-    const company = companies.find(company => company.hostURL === hostURL && company)
-
-    console.log(hostURL)
+    const company = companies.find(company => company.hostURL.includes(hostURL) && company)
     
     if (company) {
         const { page: routeURL } = req.params
