@@ -2,17 +2,15 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
     left: 2%;
-    bottom: 2%;
     width: 6em;
+    bottom: 15%;
     height: 6em;
     z-index: 1000;
     position: fixed;
     cursor: pointer;
-    object-fit: cover;
-    overflow-x: hidden;
     border-radius: 50%;
     background-color: ${props => props.theme.color};
-    box-shadow: 15px 15px 25px 5px rgba(0, 0, 0, 0.4);
+    box-shadow: 5px 8px 15px 2px rgba(0, 0, 0, 0.4);
 `
 
 export const Message = styled.div`

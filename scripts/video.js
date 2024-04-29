@@ -63,7 +63,6 @@ function openVideo() {
         height: '100vh',
         display: 'flex',
         borderRadius: '0',
-        overflowY: 'scroll',
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: 'rgba(0, 0, 0, 0.5)'
@@ -145,7 +144,7 @@ function closeVideo() {
 
     gsap.to('#nyxel', {
         left: '2%',
-        top: '78vh',
+        top: '65vh',
         bottom: '2%',
         width: '96px',
         height: '96px',
