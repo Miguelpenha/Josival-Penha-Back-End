@@ -5,10 +5,10 @@ export const Container = styled.div`
     width: 6em;
     bottom: 25%;
     height: 6em;
-    z-index: 999999;
     position: fixed;
     cursor: pointer;
     border-radius: 50%;
+    z-index: 9999999999 !important;
     background-color: ${props => props.theme.color};
     box-shadow: 5px 8px 15px 2px rgba(0, 0, 0, 0.4);
 `
@@ -50,9 +50,9 @@ export const IconClose = styled.svg`
     width: 2.5em;
     fill: #FFFFFF;
     display: none;
-    z-index: 1000001;
     border-radius: 50%;
     position: absolute;
+    z-index: 1000000001 !important;
     background-color: rgba(0, 0, 0, 0.4);
 `
 
@@ -61,11 +61,11 @@ export const IconContact = styled.svg`
     bottom: 45%;
     width: 2.8em;
     display: none;
-    z-index: 1000001;
     border-radius: 50%;
     position: absolute;
     transform: scale(0.8);
     background-color: #73be62;
+    z-index: 1000000001 !important;
 `
 
 export const IconShare = styled.svg`
@@ -75,9 +75,9 @@ export const IconShare = styled.svg`
     fill: #ffffff;
     display: none;
     padding: 0.3em;
-    z-index: 1000001;
     border-radius: 50%;
     position: absolute;
+    z-index: 1000000001 !important;
     background-color: rgba(0, 0, 0, 0.4);
 `
 
@@ -87,8 +87,8 @@ export const Brand = styled.svg`
     bottom: 4%;
     opacity: 0.5;
     display: none;
-    z-index: 1000001;
     position: absolute;
+    z-index: 1000000001 !important;
 
     .background {
         fill: rgba(49, 49, 49, 0.3);
