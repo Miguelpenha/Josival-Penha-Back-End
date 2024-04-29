@@ -1,4 +1,4 @@
-setInterval(() => {
+setTimeout(() => {
     console.log('>> pegou', window.location.pathname)
     let scriptVideo = document.createElement('script')
 
@@ -27,4 +27,4 @@ setInterval(() => {
             oldDomain = window.document.location.pathname
        }
     }, 100)
-}, 500)
+}, 1000)
