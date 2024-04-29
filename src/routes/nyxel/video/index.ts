@@ -18,7 +18,7 @@ videoRouter.get('/', (req, res) => {
         res.contentType('application/javascript')
         res.send(script)
     } else {
-        res.status(200)
+        res.status(404)
         res.json({ message: 'Company not found' })
     }
 })
@@ -38,7 +38,7 @@ videoRouter.get('/page/:page?', async (req, res) => {
             res.contentType('application/javascript')
             res.send(script)
         } else {
-            res.status(404)
+            res.status(200)
             res.json({ message: 'Page not found' })
         }
     } else {
