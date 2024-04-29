@@ -24,7 +24,7 @@ videoRouter.get('/', (req, res) => {
 })
 
 videoRouter.get('/page/:page?', async (req, res) => {
-    const hostURL = req.get('Origin')
+    const hostURL = req.get('Origin') || req.get('Referer')
     const company = companies.find(company => company.hostURL === hostURL && company)
     
     if (company) {
