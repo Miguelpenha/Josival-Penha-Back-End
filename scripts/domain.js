@@ -1,4 +1,4 @@
-addEventListener('DOMContentLoaded', () => {
+addEventListener('loadstart', () => {
     console.log('>> pegou', window.location.pathname)
     let scriptVideo = document.createElement('script')
 
