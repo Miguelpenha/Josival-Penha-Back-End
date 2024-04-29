@@ -18,7 +18,7 @@ const VideoElement: FC<IProps> = ({ url, actionText }) => {
                     <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
                 </IconClose>
                 <IconContact id="icon-contact" className="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                    <g >
+                    <g>
                         <rect width="512" height="512" rx="15%" fill="#73be62"></rect>
                         <path fill="#73be62" stroke="#ffffff" strokeWidth="26" d="M123 393l14-65a138 138 0 1150 47z"/>
                         <path fill="#ffffff" d="M308 273c-3-2-6-3-9 1l-12 16c-3 2-5 3-9 1-15-8-36-17-54-47-1-4 1-6 3-8l9-14c2-2 1-4 0-6l-12-29c-3-8-6-7-9-7h-8c-2 0-6 1-10 5-22 22-13 53 3 73 3 4 23 40 66 59 32 14 39 12 48 10 11-1 22-10 27-19 1-3 6-16 2-18"/>
@@ -43,7 +43,9 @@ const VideoElement: FC<IProps> = ({ url, actionText }) => {
                         </clipPath>
                     </defs>
                 </Brand>
-                <Video src={url} id="video" loop muted autoPlay playsInline/>
+                <Video id="video" loop muted autoPlay playsInline preload="metadata">
+                    <source src={url+'#t=0.1'} type="video/mp4"/>
+                </Video>
             </ContainerVideo>
         </Container>
     )

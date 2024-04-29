@@ -4,13 +4,24 @@ if (!scriptGsap) {
     scriptGsap = document.createElement('script')
 
     scriptGsap.src = 'https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js'
+
     document.body.appendChild(scriptGsap)
 } else {
     scriptGsap = scriptGsap
 }
 
-if (scriptGsap) {
-    makeVideo()
+intervalGSAP = setInterval(verifyGSAP, 100)
+
+function verifyGSAP() {
+    try {
+        if (scriptGsap && gsap) {
+            clearInterval(intervalGSAP)
+
+            makeVideo()
+        }
+    } catch {
+        
+    }
 }
 
 function initialLoadVideo() {
