@@ -1,4 +1,4 @@
-addEventListener('loadstart', () => {
+setInterval(() => {
     console.log('>> pegou', window.location.pathname)
     let scriptVideo = document.createElement('script')
 
@@ -27,4 +27,4 @@ addEventListener('loadstart', () => {
             oldDomain = window.document.location.pathname
        }
     }, 100)
-})
+}, 500)
