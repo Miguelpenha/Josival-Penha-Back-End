@@ -123,8 +123,8 @@ function closeVideo() {
 
     gsap.to('#nyxel>.container-video', {
         top: '50%',
-        width: '80%',
-        height: '80%',
+        width: '90%',
+        height: '90%',
         duration: 0.5,
         borderRadius: '50%'
     })
