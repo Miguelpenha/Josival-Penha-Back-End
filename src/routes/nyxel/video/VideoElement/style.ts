@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const Container = styled.div`
     left: 2%;
     width: 6em;
-    bottom: 15%;
+    bottom: 25%;
     height: 6em;
     z-index: 1000;
     position: fixed;

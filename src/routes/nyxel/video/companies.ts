@@ -38,8 +38,8 @@ const companies: ICompany[] = [
         actionText: 'Saber mais 👆',
         name: 'Hotel Pedra do Rodeadouro',
         hostURL: 'https://www.engenhopedrarodeadouro.com.br/',
-        contactURL: 'https://www.engenhopedrarodeadouro.com.br/',
         folderURL: 'hotel-pedra-do-rodeadouro-46ce45ae-275b-4f82-a02b-0544b2daecc2',
+        contactURL: 'https://wa.me/5581997253131?text=Ol%C3%A1%2C+vi+o+v%C3%ADdeo+no+site+e+gostaria+de+mais+informa%C3%A7%C3%B5es+sobre+o+hotel',
         routes: [
             {
                 url: '/',
