@@ -10,7 +10,9 @@ function protectionConfig(app: Express) {
 
         app.use(cors(corsParams))
         
-        app.use(helmet())
+        app.use(helmet({
+            crossOriginResourcePolicy: false
+        }))
     } catch (error) {
         throw new TypeError('Erro on protection configuration')
     }
