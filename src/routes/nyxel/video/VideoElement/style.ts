@@ -5,7 +5,7 @@ export const Container = styled.div`
     width: 6em;
     bottom: 25%;
     height: 6em;
-    z-index: 9999;
+    z-index: 999999;
     position: fixed;
     cursor: pointer;
     border-radius: 50%;
@@ -50,7 +50,7 @@ export const IconClose = styled.svg`
     width: 2.5em;
     fill: #FFFFFF;
     display: none;
-    z-index: 10001;
+    z-index: 1000001;
     border-radius: 50%;
     position: absolute;
     background-color: rgba(0, 0, 0, 0.4);
@@ -61,7 +61,7 @@ export const IconContact = styled.svg`
     bottom: 45%;
     width: 2.8em;
     display: none;
-    z-index: 10001;
+    z-index: 1000001;
     border-radius: 50%;
     position: absolute;
     transform: scale(0.8);
@@ -74,8 +74,8 @@ export const IconShare = styled.svg`
     width: 2.8em;
     fill: #ffffff;
     display: none;
-    z-index: 10001;
     padding: 0.3em;
+    z-index: 1000001;
     border-radius: 50%;
     position: absolute;
     background-color: rgba(0, 0, 0, 0.4);
@@ -87,7 +87,7 @@ export const Brand = styled.svg`
     bottom: 4%;
     opacity: 0.5;
     display: none;
-    z-index: 10001;
+    z-index: 1000001;
     position: absolute;
 
     .background {

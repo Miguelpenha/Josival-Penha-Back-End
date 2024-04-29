@@ -5,7 +5,7 @@ const companies: ICompany[] = [
         color: '#00afef',
         name: 'Josival Penha',
         actionText: 'Saber mais 👆',
-        hostURL: 'https://josivalpenha.com',
+        hostURL: 'http://localhost:3002',
         contactURL: 'https://api.whatsapp.com/send?phone=558194997501',
         folderURL: 'josival-penha-1515fae3-8ca1-46d0-922e-cdf47e8909ca',
         routes: [
