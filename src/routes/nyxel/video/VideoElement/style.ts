@@ -18,7 +18,7 @@ export const Message = styled.div`
     width: 0;
     left: 95%;
     opacity: 0;
-    padding: 0.3em;
+    padding: 0.2em;
     position: absolute;
     transform: translateY(-50%);
     border-radius: 0 20px 20px 0;
