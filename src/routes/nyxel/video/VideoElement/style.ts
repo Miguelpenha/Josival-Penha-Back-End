@@ -9,6 +9,7 @@ export const Container = styled.div`
     position: fixed;
     cursor: pointer;
     object-fit: cover;
+    overflow-x: hidden;
     border-radius: 50%;
     background-color: ${props => props.theme.color};
     box-shadow: 15px 15px 25px 5px rgba(0, 0, 0, 0.4);

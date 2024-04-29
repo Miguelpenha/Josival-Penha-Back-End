@@ -63,6 +63,7 @@ function openVideo() {
         height: '100vh',
         display: 'flex',
         borderRadius: '0',
+        overflowY: 'scroll',
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: 'rgba(0, 0, 0, 0.5)'
