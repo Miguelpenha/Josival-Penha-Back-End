@@ -79,7 +79,7 @@ function openVideo() {
         delay: 0.1,
         left: '50%',
         height: '100%',
-        zIndex: '1001',
+        zIndex: '10001',
         borderRadius: '20px',
         onComplete() {
             gsap.to('#nyxel .icon', {
@@ -132,7 +132,7 @@ function closeVideo() {
     gsap.to('#nyxel #video', {
         width: '100%',
         height: 'auto',
-        zIndex: '1000',
+        zIndex: '9999',
         borderRadius: '0'
     })
 
