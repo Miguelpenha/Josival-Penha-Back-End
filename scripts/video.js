@@ -51,6 +51,10 @@ function openVideo() {
         opacity: 0
     })
 
+    gsap.to('body', {
+        overflow: 'hidden'
+    })
+
     gsap.to('#nyxel', {
         top: '0%',
         left: '0%',
@@ -67,7 +71,7 @@ function openVideo() {
     gsap.to('#nyxel>.container-video', {
         top: '50%',
         width: 'auto',
-        height: '90%',
+        height: '85%',
         borderRadius: '0'
     })
 
@@ -97,6 +101,10 @@ function closeVideo() {
     
     video.load()
 
+    gsap.to('body', {
+        overflow: 'auto'
+    })
+
     gsap.to('#nyxel>.message', {
         opacity: 1
     })
@@ -116,6 +124,7 @@ function closeVideo() {
     gsap.to('#nyxel>.container-video', {
         top: '50%',
         width: '80%',
+        height: '80%',
         duration: 0.5,
         borderRadius: '50%'
     })
