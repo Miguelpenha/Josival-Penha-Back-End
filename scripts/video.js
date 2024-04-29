@@ -144,7 +144,7 @@ function closeVideo() {
 
     gsap.to('#nyxel', {
         left: '2%',
-        top: '60vh',
+        top: '38vh',
         bottom: '2%',
         width: '96px',
         height: '96px',
