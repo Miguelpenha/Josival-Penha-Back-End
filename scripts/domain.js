@@ -1,4 +1,5 @@
 addEventListener('DOMContentLoaded', () => {
+    console.log('>> pegou', window.location.pathname)
     let scriptVideo = document.createElement('script')
 
     scriptVideo.type = 'text/javascript'
