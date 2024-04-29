@@ -34,7 +34,7 @@ const companies: ICompany[] = [
         ]
     },
     {
-        color: '#a9c16a',
+        color: '#000000',
         actionText: 'Saber mais 👆',
         name: 'Hotel Pedra do Rodeadouro',
         hostURL: 'https://www.engenhopedrarodeadouro.com.br/',
