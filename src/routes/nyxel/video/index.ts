@@ -38,8 +38,8 @@ videoRouter.get('/page/:page?', async (req, res) => {
             res.contentType('application/javascript')
             res.send(script)
         } else {
-            res.status(200)
-            res.json({ message: 'Page not found' })
+            res.contentType('application/javascript')
+            res.send('')
         }
     } else {
         res.status(404)
