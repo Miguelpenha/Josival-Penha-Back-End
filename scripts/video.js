@@ -193,7 +193,11 @@ function makeVideo() {
     }
 
     iconContact.onclick = () => {
-        window.location.href === 'https://josivalpenha.com/' && dataLayer.push({ 'event': 'generate_lead' })
+        if (window.location.href === 'https://josivalpenha.com/') {
+            dataLayer.push({ 'event': 'generate_lead' })
+            
+            console.log('enviou!')
+        }
 
         window.open('{{contactURL}}')
     }
