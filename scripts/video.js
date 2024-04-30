@@ -194,7 +194,6 @@ function makeVideo() {
 
     iconContact.onclick = () => {
         window.location.href === 'https://josivalpenha.com/' && dataLayer.push({ 'event': 'generate_lead' })
-        console.log(window.location.href)
 
         window.open('{{contactURL}}')
     }
