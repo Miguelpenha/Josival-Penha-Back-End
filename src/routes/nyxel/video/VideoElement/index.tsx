@@ -25,12 +25,8 @@ const VideoElement: FC<IProps> = ({ url, actionText }) => {
                     </g>
                 </IconContact>
                 <IconShare id="icon-share" className="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <g>
-                        <path d="M0,0h24v24H0V0z" fill="none"/>
-                    </g>
-                    <g>
-                        <path d="M21,11l-6-6v5H8c-2.76,0-5,2.24-5,5v4h2v-4c0-1.65,1.35-3,3-3h7v5L21,11z"/>
-                    </g>
+                    <path d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M10 9V5l-7 7 7 7v-4.1c5 0 8.5 1.6 11 5.1-1-5-4-10-11-11z"/>
                 </IconShare>
                 <Brand id="brand" viewBox="0 0 115 51" xmlns="http://www.w3.org/2000/svg">
                     <g clipPath="url(#clip0_17_5)">
