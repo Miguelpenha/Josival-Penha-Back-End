@@ -178,6 +178,8 @@ function makeVideo() {
 
     container.onclick = ev => {
         if (video.muted && (ev.target.id == 'video' || ev.target.className.includes('message') || ev.target.className.includes('text'))) {
+            dataLayer.push({ 'event': 'open_video' })
+
             openVideo()
         } else {
             if (ev.target.id == 'nyxel') {
@@ -193,11 +195,7 @@ function makeVideo() {
     }
 
     iconContact.onclick = () => {
-        if (window.location.href.includes('https://josivalpenha.com')) {
-            dataLayer.push({ 'event': 'generate_lead' })
-            
-            console.log('enviou!')
-        }
+        dataLayer.push({ 'event': 'generate_lead' })
 
         window.open('{{contactURL}}')
     }
