@@ -39,7 +39,7 @@ const VideoElement: FC<IProps> = ({ url, actionText }) => {
                         </clipPath>
                     </defs>
                 </Brand>
-                <Video id="video" loop muted autoPlay playsInline preload="metadata">
+                <Video id="video" loop muted autoPlay playsInline disablePictureInPicture preload="metadata">
                     <source src={url+'#t=0.1'} type="video/mp4"/>
                 </Video>
             </ContainerVideo>
