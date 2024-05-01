@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { Container, Message, MessageText, ContainerVideo, IconClose, IconContact, IconShare, Brand, Video } from './style'
+import { Container, Message, MessageText, ContainerVideo, IconClose, ContainerIconContact, IconContact, IconShare, Brand, Video } from './style'
 
 interface IProps {
     url: string
@@ -12,18 +12,20 @@ const VideoElement: FC<IProps> = ({ url, actionText }) => {
             <Message className="message">
                 <MessageText className="text">{actionText}</MessageText>
             </Message>
-            <ContainerVideo className="container-video">
+            <ContainerVideo name="form-video" id="form-video" className="container-video">
                 <IconClose id="icon-close" className="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <path d="M0 0h24v24H0z" fill="none"/>
                     <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
                 </IconClose>
-                <IconContact id="icon-contact" className="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                    <g>
-                        <rect width="512" height="512" rx="15%" fill="#73be62"></rect>
-                        <path fill="#73be62" stroke="#ffffff" strokeWidth="26" d="M123 393l14-65a138 138 0 1150 47z"/>
-                        <path fill="#ffffff" d="M308 273c-3-2-6-3-9 1l-12 16c-3 2-5 3-9 1-15-8-36-17-54-47-1-4 1-6 3-8l9-14c2-2 1-4 0-6l-12-29c-3-8-6-7-9-7h-8c-2 0-6 1-10 5-22 22-13 53 3 73 3 4 23 40 66 59 32 14 39 12 48 10 11-1 22-10 27-19 1-3 6-16 2-18"/>
-                    </g>
-                </IconContact>
+                <ContainerIconContact id="icon-contact" className="icon" type="submit">
+                    <IconContact xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <g>
+                            <rect width="512" height="512" rx="15%" fill="#73be62"></rect>
+                            <path fill="#73be62" stroke="#ffffff" strokeWidth="26" d="M123 393l14-65a138 138 0 1150 47z"/>
+                            <path fill="#ffffff" d="M308 273c-3-2-6-3-9 1l-12 16c-3 2-5 3-9 1-15-8-36-17-54-47-1-4 1-6 3-8l9-14c2-2 1-4 0-6l-12-29c-3-8-6-7-9-7h-8c-2 0-6 1-10 5-22 22-13 53 3 73 3 4 23 40 66 59 32 14 39 12 48 10 11-1 22-10 27-19 1-3 6-16 2-18"/>
+                        </g>
+                    </IconContact>
+                </ContainerIconContact>
                 <IconShare id="icon-share" className="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <path d="M0 0h24v24H0z" fill="none"/>
                     <path d="M10 9V5l-7 7 7 7v-4.1c5 0 8.5 1.6 11 5.1-1-5-4-10-11-11z"/>
