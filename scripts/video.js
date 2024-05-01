@@ -178,7 +178,7 @@ function makeVideo() {
 
     container.onclick = ev => {
         if (video.muted && (ev.target.id == 'video' || ev.target.className.includes('message') || ev.target.className.includes('text'))) {
-            dataLayer.push({ 'event': 'open_video' })
+            dataLayer.push({ event: 'video_start' })
 
             openVideo()
         } else {
@@ -195,7 +195,7 @@ function makeVideo() {
     }
 
     iconContact.onclick = () => {
-        dataLayer.push({ 'event': 'generate_lead' })
+        dataLayer.push({ event: 'form_submit' })
 
         window.open('{{contactURL}}')
     }
