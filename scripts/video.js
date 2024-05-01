@@ -195,7 +195,7 @@ function makeVideo() {
     }
 
     iconContact.onclick = () => {
-        dataLayer.push({ event: 'form_submit' })
+        dataLayer.push({ event: 'form_submit', form_id: 'video', form_name: 'nyxel'  })
 
         window.open('{{contactURL}}')
     }
