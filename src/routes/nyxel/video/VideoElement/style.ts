@@ -33,7 +33,7 @@ export const MessageText = styled.span`
     white-space: nowrap;
 `
 
-export const ContainerVideo = styled.form`
+export const ContainerVideo = styled.div`
     top: 50%;
     left: 50%;
     width: 100%;
@@ -56,24 +56,16 @@ export const IconClose = styled.svg`
     background-color: rgba(0, 0, 0, 0.4);
 `
 
-export const ContainerIconContact = styled.button`
+export const IconContact = styled.svg`
     right: 3%;
     bottom: 45%;
-    width: 3.2em;
-    border: none;
+    width: 2.8em;
     display: none;
-    height: 3.2em;
-    overflow: hidden;
     border-radius: 50%;
     position: absolute;
     transform: scale(0.8);
     background-color: #73be62;
     z-index: 1000000001 !important;
-`
-
-export const IconContact = styled.svg`
-    width: 100%;
-    height: 100%;
 `
 
 export const IconShare = styled.svg`

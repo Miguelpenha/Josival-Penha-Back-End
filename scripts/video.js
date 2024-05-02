@@ -170,7 +170,7 @@ function makeVideo() {
 
     const container = document.getElementById('nyxel')
     const iconClose = document.querySelector('#nyxel #icon-close')
-    const formVideo = document.querySelector('#nyxel #form-video')
+    const iconContact = document.querySelector('#nyxel #icon-contact')
     const iconShare = document.querySelector('#nyxel #icon-share')
     const video = document.querySelector('#nyxel #video')
 
@@ -194,13 +194,13 @@ function makeVideo() {
         closeVideo()
     }
 
-    formVideo.onsubmit = ev => {
-        ev.preventDefault()
-
+    iconContact.onclick = () => {
         dataLayer.push({
-            form_id: 'form-video',
-            form_name: 'form-video',
-            event: 'form_submit'
+            event: 'form_start',
+            eventModel: {
+                form_id: 'video',
+                form_name: 'nyxel'
+            }
         })
 
         window.open('{{contactURL}}')
