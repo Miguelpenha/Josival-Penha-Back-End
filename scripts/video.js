@@ -48,13 +48,13 @@ function initialLoadVideo() {
     })
 }
 
-function addParameterToURL(parameter) {
-    const SearchURL = window.location.search
+function addParameterToURL(key, value) {
+    const url = new URL(window.location.href)
 
-    if (!SearchURL.includes(parameter)) {
-        const newURL = `${SearchURL}${SearchURL ? '&' : '?'}${parameter}`
+    if (!url.searchParams.has(key)) {
+        url.searchParams.append(key, value)
 
-        history.pushState(null, null, newURL)
+        history.pushState(null, null, url.href)
     }
 }
 
@@ -188,7 +188,7 @@ function makeVideo() {
 
     container.onclick = ev => {
         if (video.muted && (ev.target.id == 'video' || ev.target.className.includes('message') || ev.target.className.includes('text'))) {
-            addParameterToURL('video_view=true')
+            addParameterToURL('video_view', 'true')
 
             openVideo()
         } else {
@@ -205,7 +205,7 @@ function makeVideo() {
     }
 
     iconContact.onclick = () => {
-        addParameterToURL('contact_click=true')
+        addParameterToURL('contact_click', 'true')
 
         window.open('{{contactURL}}')
     }
