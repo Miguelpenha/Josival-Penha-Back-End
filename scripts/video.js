@@ -195,13 +195,7 @@ function makeVideo() {
     }
 
     iconContact.onclick = () => {
-        dataLayer.push({
-            event: 'form_start',
-            eventModel: {
-                form_id: 'video',
-                form_name: 'nyxel'
-            }
-        })
+        history.pushState(null, null, '?whatsapp_click=true')
 
         window.open('{{contactURL}}')
     }
