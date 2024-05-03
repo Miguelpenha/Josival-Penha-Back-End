@@ -218,6 +218,7 @@ function makeVideo() {
     const container = document.getElementById('nyxel')
     const iconClose = document.querySelector('#nyxel #icon-close')
     const iconShare = document.querySelector('#nyxel #icon-share')
+    const buttonCTA = document.querySelector('#nyxel #cta')
     const video = document.querySelector('#nyxel #video')
 
     setTimeout(initialLoadVideo, 200)
@@ -243,6 +244,14 @@ function makeVideo() {
     iconShare.onclick = () => navigator.share({
         url: window.location.href
     })
+
+    buttonCTA.onclick = ev => {
+        ev.preventDefault()
+
+        addParameterToURL('contact_click', 'true')
+
+        window.open('{{contactURL}}')
+    }
 
     video.onclick = () => {
         if (video.paused) {

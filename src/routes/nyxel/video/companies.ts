@@ -6,7 +6,6 @@ const companies: ICompany[] = [
         name: 'Josival Penha',
         actionText: 'Saber mais 👆',
         hostURL: 'https://josivalpenha.com',
-        caption: 'A sua escola em Mirueira',
         contactURL: 'https://api.whatsapp.com/send?phone=558194997501',
         folderURL: 'josival-penha-1515fae3-8ca1-46d0-922e-cdf47e8909ca',
         routes: [
@@ -25,7 +24,6 @@ const companies: ICompany[] = [
         name: 'Sonetto Produções',
         actionText: 'Veja mais 👆',
         hostURL: 'https://sonettoproducoes.com',
-        caption: 'Contrate os melhores de Recife',
         folderURL: 'sonetto-producoes-87c2ed99-4b0c-4060-a57a-03796901c0f2',
         contactURL: 'https://api.whatsapp.com/send?phone=5581991426351&text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20para%20o%20meu%20evento',
         routes: [
@@ -39,7 +37,6 @@ const companies: ICompany[] = [
         color: '#000000',
         actionText: 'Saber mais 👆',
         name: 'Hotel Pedra do Rodeadouro',
-        caption: 'O melhor Hotel fazenda de Bonito-PE',
         hostURL: 'https://www.engenhopedrarodeadouro.com.br/',
         folderURL: 'hotel-pedra-do-rodeadouro-46ce45ae-275b-4f82-a02b-0544b2daecc2',
         contactURL: 'https://wa.me/5581997253131?text=Ol%C3%A1%2C+vi+o+v%C3%ADdeo+no+site+e+gostaria+de+mais+informa%C3%A7%C3%B5es+sobre+o+hotel',

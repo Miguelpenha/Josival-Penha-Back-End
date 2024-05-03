@@ -34,7 +34,7 @@ const VideoElement: FC<IProps> = ({ urlVideo, actionText, urlContact, caption })
                     </svg>
                     <span className="text">Fale agora</span>
                 </ButtonCTA>
-                <Caption id="caption">{caption}</Caption>
+                {caption && <Caption id="caption">{caption}</Caption>}
                 <Gradient id="gradient"/>
                 <Video id="video" loop muted autoPlay playsInline disablePictureInPicture preload="metadata">
                     <source src={urlVideo+'#t=0.1'} type="video/mp4"/>
