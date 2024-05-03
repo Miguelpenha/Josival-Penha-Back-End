@@ -120,7 +120,7 @@ export const Caption = styled.div`
     left: 3%;
     opacity: 0;
     bottom: 5%;
-    width: 10em;
+    width: 11em;
     height: 2.8em;
     display: none;
     color: #FFFFFF;
