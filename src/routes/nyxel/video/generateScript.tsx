@@ -6,13 +6,13 @@ import VideoElement from './VideoElement'
 import fs from 'fs'
 import path from 'path'
 
-function generateScript(nameCompany: string, url: string, actionText: string, contactURL: string) {
+function generateScript(nameCompany: string, url: string, actionText: string, contactURL: string, caption: string) {
     const sheet = new ServerStyleSheet()
     const theme = useTheme(nameCompany)
     const videoElementRendered = renderToString(
         sheet.collectStyles(
             <ThemeProvider theme={theme}>
-                <VideoElement url={url} actionText={actionText}/>
+                <VideoElement caption={caption} urlVideo={url} actionText={actionText} urlContact={contactURL}/>
             </ThemeProvider>
         )
     )

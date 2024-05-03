@@ -37,7 +37,7 @@ function initialLoadVideo() {
             gsap.to('#nyxel>.message', {
                 delay: 0.2,
                 duration: 0.8,
-                width: '6.5em',
+                width: '7em',
                 onComplete() {
                     gsap.to('#nyxel>.message>.text', {
                         opacity: 1
@@ -103,14 +103,35 @@ function openVideo() {
         borderRadius: '20px',
         zIndex: '1000000001 !important',
         onComplete() {
+            gsap.to('#nyxel #brand', {
+                opacity: 1,
+                display: 'block'
+            })
+
             gsap.to('#nyxel .icon', {
                 display: 'block',
                 transform: 'scale(1)'
             })
 
-            gsap.to('#nyxel #brand', {
+            gsap.to('#nyxel #cta', {
+                delay: 3,
                 opacity: 1,
-                display: 'block'
+                duration: 1.5,
+                display: 'flex',
+                transform: 'translateY(0px)'
+            })
+
+            gsap.to('#nyxel #caption', {
+                delay: 3,
+                opacity: 1,
+                duration: 1,
+                display: 'flex'
+            })
+
+            gsap.to('#nyxel #gradient', {
+                delay: 3,
+                duration: 1,
+                background: 'linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%)'
             })
         }
     })
@@ -130,15 +151,27 @@ function closeVideo() {
         opacity: 1
     })
 
+    gsap.to('#nyxel #brand', {
+        opacity: 0.5,
+        duration: 0.1,
+        display: 'none'
+    })
+
     gsap.to('#nyxel .icon', {
         duration: 0.1,
         display: 'none',
         transform: 'scale(0.8)'
     })
 
-    gsap.to('#nyxel #brand', {
-        opacity: 0.5,
+    gsap.to('#nyxel #cta', {
+        opacity: 0,
         duration: 0.1,
+        display: 'none',
+        transform: 'translateY(50px)'
+    })
+
+    gsap.to('#nyxel #caption', {
+        opacity: 0,
         display: 'none'
     })
 
@@ -155,6 +188,10 @@ function closeVideo() {
         height: 'auto',
         borderRadius: '0',
         zIndex: '1000000001 !important'
+    })
+
+    gsap.to('#nyxel #gradient', {
+        background: 'none'
     })
 
     gsap.to('#nyxel #video', {
@@ -180,7 +217,6 @@ function makeVideo() {
 
     const container = document.getElementById('nyxel')
     const iconClose = document.querySelector('#nyxel #icon-close')
-    const iconContact = document.querySelector('#nyxel #icon-contact')
     const iconShare = document.querySelector('#nyxel #icon-share')
     const video = document.querySelector('#nyxel #video')
 
@@ -202,12 +238,6 @@ function makeVideo() {
         ev.stopPropagation()
 
         closeVideo()
-    }
-
-    iconContact.onclick = () => {
-        addParameterToURL('contact_click', 'true')
-
-        window.open('{{contactURL}}')
     }
 
     iconShare.onclick = () => navigator.share({

@@ -6,6 +6,7 @@ interface IRoute {
 interface ICompany {
     name: string
     color: string
+    caption: string
     hostURL: string
     routes: IRoute[]
     folderURL: string
