@@ -1,4 +1,4 @@
-import companies from './companies'
+import companies from '../companies'
 import ITheme from './theme'
 
 function useTheme(companyName: string) {

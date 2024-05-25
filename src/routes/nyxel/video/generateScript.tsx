@@ -1,7 +1,7 @@
 import { ServerStyleSheet, ThemeProvider } from 'styled-components'
 import { renderToString } from 'react-dom/server'
 import React from 'react'
-import useTheme from './useTheme'
+import useTheme from './VideoElement/useTheme'
 import VideoElement from './VideoElement'
 import fs from 'fs'
 import path from 'path'

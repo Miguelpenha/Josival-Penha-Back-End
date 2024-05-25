@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import BrandRaw from './Brand'
 
 export const Container = styled.div`
     left: 2%;
@@ -44,10 +45,10 @@ export const ContainerVideo = styled.div`
     transform: translate(-50%, -50%);
 `
 
-export const Brand = styled.svg`
+export const Brand = styled(BrandRaw)`
     top: 5%;
     left: 3%;
-    width: 5.2em;
+    width: 4.2em;
     display: none;
     position: absolute;
     z-index: 1000000001 !important;
