@@ -16,6 +16,10 @@ const companies: ICompany[] = [
             {
                 url: '/blog',
                 videoURL: 'video-blog-d6659ecc-8dcb-4e4b-a6a9-df965ce55352.mp4'
+            },
+            {
+                url: '/blog/como-escolher-a-escola-ideal-para-o-seu-filho-em-paulista',
+                videoURL: 'video-blog-como-escolher-a-escola-ideal-para-o-seu-filho-em-paulista-28716a61-0f7c-4b1d-adf8-95d75644ce76.mp4'
             }
         ]
     },
