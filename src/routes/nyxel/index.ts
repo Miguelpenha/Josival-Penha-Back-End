@@ -3,15 +3,15 @@ import videoRouter from './video'
 import companies from './video/companies'
 import ICompany from './video/company'
 
-const routerNyxel = express.Router()
+const nyxelRouter = express.Router()
 
-routerNyxel.use('/video', videoRouter)
+nyxelRouter.use('/video', videoRouter)
 
-routerNyxel.get('/companies', async (req, res) => {
+nyxelRouter.get('/companies', async (req, res) => {
     res.json(companies)
 })
 
-routerNyxel.get('/companies/:companyFolderURL', async (req, res) => {
+nyxelRouter.get('/companies/:companyFolderURL', async (req, res) => {
     const { companyFolderURL } = req.params
 
     let company = null as any as ICompany
@@ -25,4 +25,4 @@ routerNyxel.get('/companies/:companyFolderURL', async (req, res) => {
     res.json(company)
 })
 
-export default routerNyxel
+export default nyxelRouter
