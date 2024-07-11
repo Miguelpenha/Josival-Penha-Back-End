@@ -3,12 +3,12 @@ import axios from 'axios'
 import fs from 'fs'
 import { Leopard } from '@picovoice/leopard-node'
 
-const WHATSAPP_VERSION = process.env.WHATSAPP_VERSION || 'v17.0'
-const WHATSAPP_TOKEN = process.env.WHATSAPP_TOKEN
+const WHATSAPP_VERSION = process.env.VOICE_FLOW_WHATSAPP_VERSION || 'v17.0'
+const WHATSAPP_TOKEN = process.env.VOICE_FLOW_WHATSAPP_TOKEN
 
-const VF_API_KEY = process.env.VF_API_KEY
-const VF_VERSION_ID = process.env.VF_VERSION_ID || 'development'
-const VF_PROJECT_ID = process.env.VF_PROJECT_ID || null
+const VF_API_KEY = process.env.VOICE_FLOW_API_KEY
+const VF_VERSION_ID = process.env.VOICE_FLOW_VERSION_ID || 'development'
+const VF_PROJECT_ID = process.env.VOICE_FLOW_PROJECT_ID || null
 
 const PICOVOICE_API_KEY = process.env.PICOVOICE_API_KEY || null
 
@@ -19,7 +19,7 @@ const VF_TRANSCRIPT_ICON =
   'https://s3.amazonaws.com/com.voiceflow.studio/share/200x200/200x200.png'
 
 const VF_DM_URL =
-  process.env.VF_DM_URL || 'https://general-runtime.voiceflow.com'
+  process.env.VOICE_FLOW_DM_URL || 'https://general-runtime.voiceflow.com'
 
 const DMconfig = {
   tts: false,
@@ -180,7 +180,7 @@ voiceFlowRouter.get('/webhook', (req, res) => {
   if (mode && token) {
     // Check the mode and token sent are correct
     if (
-      (mode === 'subscribe' && token === process.env.VERIFY_TOKEN) ||
+      (mode === 'subscribe' && token === process.env.VOICE_FLOW_VERIFY_TOKEN) ||
       'voiceflow'
     ) {
       // Respond with 200 OK and challenge token from the request
@@ -556,7 +556,7 @@ async function saveTranscript(username) {
         },
       },
       headers: {
-        Authorization: process.env.VF_API_KEY,
+        Authorization: process.env.VOICE_FLOW_API_KEY,
       },
     })
       .then(function(response) {
