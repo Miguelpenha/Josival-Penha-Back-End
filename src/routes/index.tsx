@@ -24,4 +24,14 @@ router.use('/students', studentsRouter)
 router.use('/voiceflow', voiceFlowRouter)
 router.get('/export/:filters', exportRouter)
 
+router.all('/kommo', (req, res) => {
+    const { leads } = req.body
+
+    leads.status.map(lead => {
+        console.log(lead)
+    })
+
+    res.json(req.body)
+})
+
 export default router
