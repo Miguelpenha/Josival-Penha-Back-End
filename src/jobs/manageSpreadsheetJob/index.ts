@@ -24,6 +24,8 @@ async function manageSpreadsheetJob() {
 
     await doc.loadInfo()
 
+    console.log(await incomesModel.find().populate('student'))
+
     await makeSheet(doc, 'Professoras', await teachersModel.find(), datasTeacher)
     await makeSheet(doc, 'Turmas', await classesModel.find().populate('teacher'), datasClass)
     await makeSheet(doc, 'Alunos', await studentsModel.find().populate(['class', 'teacher']).select(['+address']), datasStudent)

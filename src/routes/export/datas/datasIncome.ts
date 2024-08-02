@@ -32,11 +32,7 @@ const datas: IData<IIncome>[] = [
     },
     {
         name: 'ID do Aluno',
-        row: data => {
-            console.log(data.student)
-
-            return data.student.id
-        }
+        row: data => data.student.id
     },
     {
         name: 'Aluno',
