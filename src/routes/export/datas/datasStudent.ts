@@ -4,7 +4,7 @@ import { IStudent } from '../../../types'
 const datas: IData<IStudent>[] = [
     {
         name: 'ID',
-        row: data => data.id || (data as any)._id
+        row: data => data.id
     },
     {
         name: 'Nome',
