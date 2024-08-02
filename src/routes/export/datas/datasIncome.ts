@@ -33,9 +33,7 @@ const datas: IData<IIncome>[] = [
     {
         name: 'ID do Aluno',
         row: data => {
-            if (!data.student.id) {
-                console.log(data.student)
-            }
+            console.log(data.student)
 
             return data.student.id
         }
