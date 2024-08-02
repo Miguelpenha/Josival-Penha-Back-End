@@ -42,7 +42,7 @@ async function sendToMeta(user: IUser) {
 
     await axios.post(URLGraphAPI, {
       data: [data],
-      // test_event_code: process.env.TEST_EVENT_CODE_GRAPH_API
+      test_event_code: process.env.TEST_EVENT_CODE_GRAPH_API
     })
 }
 
