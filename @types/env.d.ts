@@ -21,7 +21,7 @@ declare global {
         GOOGLE_ID_SPREADSHEET: string
         GOOGLE_SERVICE_ACCOUNT_EMAIL: string
         GOOGLE_SERVICE_ACCOUNT_EMAIL_USE: string
-        // voiceflow
+        // Voiceflow
         VOICE_FLOW_DM_URL: string
         VOICE_FLOW_API_KEY: string
         VOICE_FLOW_VERSION_ID: string
@@ -30,6 +30,15 @@ declare global {
         VOICE_FLOW_WHATSAPP_TOKEN: string
         VOICE_FLOW_TRANSCRIPT_ICON: string
         VOICE_FLOW_WHATSAPP_VERSION: string
+        // Kommo
+        URL_BOLD_API: string
+        URL_GRAPH_API: string
+        VERSION_BOLD_API: string
+        ACCOUNT_BOLD_API: string
+        VERSION_GRAPH_AP: string
+        DATASET_ID_GRAPH_API: string
+        ACCESS_TOKEN_GRAPH_API: string
+        TEST_EVENT_CODE_GRAPH_API: string
       }
     }
 }
