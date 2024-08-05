@@ -6,7 +6,7 @@ async function BoldAPI(lead: IKommoAPI['leads']['status'][0]) {
     const leadIsCached = cache.get(lead)
 
     if (!leadIsCached) {
-        requestAPI(lead)
+        return requestAPI(lead)
     } else {
         return leadIsCached
     }

@@ -14,5 +14,50 @@
         "Lead": "1"
       }
     }
+  },
+  {
+    "name": "Lead #13102263",
+    "tags": [
+      "Satisfeito"
+    ],
+    "contact": {
+      "name": "Manuela",
+      "fields": {
+        "Phone": "+558199542006",
+        "Preferência por profissional": "Com preferência",
+        "Lead": "1",
+        "Cliente": "1"
+      }
+    }
+  },
+  {
+    "name": "Lead #13102263",
+    "tags": [
+      "Satisfeito"
+    ],
+    "contact": {
+      "name": "Manuela",
+      "fields": {
+        "Phone": "+558199542006",
+        "Preferência por profissional": "Com preferência",
+        "Lead": "1",
+        "Cliente": "1"
+      }
+    }
+  },
+  {
+    "name": "Autolead: Lead #13102263",
+    "tags": [
+      "Satisfeito"
+    ],
+    "contact": {
+      "name": "Manuela",
+      "fields": {
+        "Phone": "+558199542006",
+        "Preferência por profissional": "Com preferência",
+        "Lead": "1",
+        "Cliente": "1"
+      }
+    }
   }
 ]
