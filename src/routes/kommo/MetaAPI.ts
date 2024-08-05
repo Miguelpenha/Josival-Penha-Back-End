@@ -12,6 +12,7 @@ async function sendToMeta(user: IUser) {
         event_time: time,
         action_source: 'offline',
         user_data: {
+            country: toHash('br'),
             ph: toHash(user.phone)
         }
     }
@@ -36,10 +37,12 @@ async function sendToMeta(user: IUser) {
         }
     }
 
-    await axios.post(URLGraphAPI, {
+    const asd = await axios.post(URLGraphAPI, {
       data: [data],
       // test_event_code: process.env.TEST_EVENT_CODE_GRAPH_API
     })
+
+    console.log(asd)
 }
 
 export default sendToMeta

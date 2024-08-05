@@ -16,6 +16,7 @@ type actionSource = 'website' | 'offline'
 
 interface IUserData {
     ph: string
+    country: string
 }
 
 interface IMetaAPI {
