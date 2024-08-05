@@ -1,5 +1,6 @@
 interface ILead {
     id: string
+    name: string
     price: string
     status_id: string
 }

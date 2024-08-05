@@ -1,16 +1,9 @@
-import { IKommoAPI } from './types'
+import { IKommoAPI } from '../types'
+import IBoldAPI from './type'
 import axios from 'axios'
+import cache from './cache'
 
-interface IBoldAPI {
-    contact: {
-        name: string
-        fields: {
-            Phone: string
-        }
-    }
-}
-
-async function BoldAPI(lead: IKommoAPI['leads']['status'][0]) {
+async function requestAPI(lead: IKommoAPI['leads']['status'][0]) {
     const URLBoldAPI = `${process.env.URL_BOLD_API}/${process.env.VERSION_BOLD_API}/leads?include=contact`
 
     const requestBody = {
@@ -27,9 +20,14 @@ async function BoldAPI(lead: IKommoAPI['leads']['status'][0]) {
     }
 
     const { data }: { data: IBoldAPI[] } = (await axios.post(URLBoldAPI, requestBody)).data
+
     const dataBoldAPI = data[0]
+
+    console.log('Usou')
+
+    cache.create(dataBoldAPI)
 
     return dataBoldAPI
 }
 
-export default BoldAPI
+export default requestAPI
