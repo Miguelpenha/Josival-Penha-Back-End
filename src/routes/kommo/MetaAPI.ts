@@ -37,12 +37,10 @@ async function sendToMeta(user: IUser) {
         }
     }
 
-    const asd = await axios.post(URLGraphAPI, {
+    await axios.post(URLGraphAPI, {
       data: [data],
       // test_event_code: process.env.TEST_EVENT_CODE_GRAPH_API
     })
-
-    console.log(asd)
 }
 
 export default sendToMeta
