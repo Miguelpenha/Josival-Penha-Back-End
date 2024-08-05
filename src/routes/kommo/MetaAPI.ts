@@ -10,7 +10,7 @@ async function sendToMeta(user: IUser) {
 
     let data: IMetaAPI = {
         event_time: time,
-        action_source: 'offline',
+        action_source: 'physical_store',
         user_data: {
             country: toHash('br'),
             ph: toHash(user.phone)
