@@ -12,7 +12,7 @@ interface ICustomData {
 }
 
 type eventName = 'Purchase' | 'Lead' | 'Other'
-type actionSource = 'website'
+type actionSource = 'website' | 'offline'
 
 interface IUserData {
     ph: string

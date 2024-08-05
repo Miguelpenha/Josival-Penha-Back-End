@@ -1,5 +1,6 @@
-import { IUser, IMetaAPI, StatusIDs } from './types'
+import { IUser, IMetaAPI } from './types'
 import toHash from './utils/toHash'
+import statusIDs from './statusIDs'
 import axios from 'axios'
 
 async function sendToMeta(user: IUser) {
@@ -9,18 +10,18 @@ async function sendToMeta(user: IUser) {
 
     let data: IMetaAPI = {
         event_time: time,
-        action_source: 'website',
+        action_source: 'offline',
         user_data: {
             ph: toHash(user.phone)
         }
     }
 
-    if (user.statusID == StatusIDs.Lead) {
+    if (user.statusID == statusIDs.Lead) {
         data = {
             ...data,
             event_name: 'Lead'
         }
-    } else if (user.statusID == StatusIDs.Purchase) {
+    } else if (user.statusID == statusIDs.Purchase) {
         data = {
             ...data,
             event_name: 'Purchase',
@@ -32,11 +33,6 @@ async function sendToMeta(user: IUser) {
                     id: 'product123'
                 }]
             }
-        }
-    } else {
-        data = {
-            ...data,
-            event_name: 'Other'
         }
     }
 
