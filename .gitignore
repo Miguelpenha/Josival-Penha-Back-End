@@ -3,4 +3,3 @@ dist
 node_modules
 .react-email
 src/tests/.coverage
-src/routes/kommo/BoldAPI/cache/BoldAPICache.json
