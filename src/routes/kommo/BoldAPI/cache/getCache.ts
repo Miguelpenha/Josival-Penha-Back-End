@@ -2,6 +2,7 @@ import { IKommoAPI } from '../../types'
 import IBoldAPI from '../type'
 import fs from 'fs'
 import pathCache from './pathCache'
+import { blueBright as info } from 'chalk'
 
 function getCache(lead: IKommoAPI['leads']['status'][0]) {
     const cache: IBoldAPI[] = JSON.parse(fs.readFileSync(pathCache).toString('utf-8'))
@@ -12,7 +13,7 @@ function getCache(lead: IKommoAPI['leads']['status'][0]) {
         }
     })[0]
 
-    console.log(`Leads Cached: ${cache.length}`)
+    console.log(info(`>> Leads Cached: ${cache.length}`))
 
     if (!leadIsCached) {
         return false
