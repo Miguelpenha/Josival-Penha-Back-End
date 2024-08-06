@@ -12,7 +12,7 @@ function getCache(lead: IKommoAPI['leads']['status'][0]) {
         }
     })[0]
 
-    console.log(cache)
+    console.log(`Leads Cached: ${cache.length}`)
 
     if (!leadIsCached) {
         return false
