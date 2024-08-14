@@ -20,7 +20,15 @@ async function sendToMeta(user: IUser) {
     if (user.statusID == statusIDs.Lead) {
         data = {
             ...data,
-            event_name: 'Lead'
+            event_name: 'Lead',
+            custom_data: {
+                currency: 'brl',
+                value: user.price,
+                contents: user.services.map(service => ({
+                    quantity: 1,
+                    id: service
+                }))
+            }
         }
     } else if (user.statusID == statusIDs.Purchase) {
         data = {
@@ -29,13 +37,15 @@ async function sendToMeta(user: IUser) {
             custom_data: {
                 currency: 'brl',
                 value: user.price,
-                contents: [{
+                contents: user.services.map(service => ({
                     quantity: 1,
-                    id: 'product123'
-                }]
+                    id: service
+                }))
             }
         }
     }
+
+    console.log(data.custom_data)
 
     await axios.post(URLGraphAPI, {
       data: [data],

@@ -17,11 +17,17 @@ kommoRouter.post('/', async (req: Request<{}, {}, IKommoAPI>, res) => {
   if (statusID) {
     const dataBoldAPI = await BoldAPI(lead)
 
-    const user: IUser = {
+    let user: IUser = {
       statusID: lead.status_id,
       price: Number(lead.price),
       phone: dataBoldAPI.contact.fields.Phone
     }
+
+    lead.custom_fields.map(field => {
+      if (field.id == '1405744' && field.values[0]) {
+        user.services = field.values.map(item => item.value)
+      }
+    })
 
     await sendToMeta(user)
   }
