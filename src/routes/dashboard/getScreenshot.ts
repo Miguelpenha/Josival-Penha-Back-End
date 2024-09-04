@@ -11,7 +11,7 @@ async function getScreenshot() {
         browser = await puppeteer.launch(optionsBrowser)
         const page = await browser.newPage()
     
-        await page.goto(process.env.BETA_DASHBOARD_URL, { waitUntil: 'networkidle0' })
+        await page.goto(process.env.BETA_DASHBOARD_URL)
         await page.waitForSelector('.ng2-canvas-container')
         await page.waitForFunction(() => setTimeout(() => true, 3000))
 
