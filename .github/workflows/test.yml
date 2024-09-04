@@ -35,6 +35,8 @@ jobs:
       
       - name: Install dependencies
         run: npm ci
+        env:
+          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: true
 
       - name: Create .env File
         run: |
