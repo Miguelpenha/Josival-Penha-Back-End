@@ -32,14 +32,6 @@ jobs:
           path: ${{ steps.npm-cache-dir.outputs.dir }}
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: ${{ runner.os }}-node-
-
-      - name: Install chrome
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y google-chrome-stable
-      
-      - name: Verify Chrome Installation
-        run: google-chrome --version
       
       - name: Install dependencies
         run: PUPPETEER_SKIP_DOWNLOAD=true npm ci
