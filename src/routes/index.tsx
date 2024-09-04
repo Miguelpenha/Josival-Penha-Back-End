@@ -9,6 +9,7 @@ import incomesRouter from './incomes'
 import teachersRouter from './teachers'
 import studentsRouter from './students'
 import voiceFlowRouter from './voiceflow'
+import dashboardRouter from './dashboard'
 import exportRouter from './export'
 
 const router = express.Router()
