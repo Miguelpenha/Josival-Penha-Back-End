@@ -17,12 +17,16 @@ dashboardRouter.get('/', async (req: Request<{}, {}, {}, IQuery>, res) => {
     let screenshot: Buffer
     
     if (getNewScreenshot) {
-        const { error, screenshot: screenshotNew } = await getScreenshot()
+        try {
+            const { error, screenshot: screenshotNew } = await getScreenshot()
 
-        screenshot = screenshotNew
+            screenshot = screenshotNew
 
-        if (!screenshot) {
-            return res.status(500).json(error)
+            if (!screenshot) {
+                return res.status(500).json(error)
+            }
+        } catch {
+            return res.status(500)
         }
     } else {
         screenshot = fs.readFileSync(pathScreenshot)
