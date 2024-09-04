@@ -42,7 +42,7 @@ jobs:
         run: google-chrome --version
       
       - name: Install dependencies
-        run: UPPETEER_SKIP_DOWNLOAD=true npm ci
+        run: PUPPETEER_SKIP_DOWNLOAD=true npm ci
 
       - name: Create .env File
         run: |
