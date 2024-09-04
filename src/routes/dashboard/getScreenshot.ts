@@ -13,7 +13,7 @@ async function getScreenshot() {
     
         await page.goto(process.env.BETA_DASHBOARD_URL)
         await page.waitForSelector('.ng2-canvas-container')
-        await page.waitForFunction(() => setTimeout(() => true, 4000))
+        await page.waitForFunction(() => setTimeout(() => true, 10*1000 /*10 seconds*/))
 
         const screenshot = await page.screenshot(optionsScreenshot)
         
