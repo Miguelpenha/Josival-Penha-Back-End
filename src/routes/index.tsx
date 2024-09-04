@@ -9,7 +9,7 @@ import incomesRouter from './incomes'
 import teachersRouter from './teachers'
 import studentsRouter from './students'
 import voiceFlowRouter from './voiceflow'
-// import dashboardRouter from './dashboard'
+import dashboardRouter from './dashboard'
 import exportRouter from './export'
 
 const router = express.Router()
@@ -26,6 +26,6 @@ router.use('/teachers', teachersRouter)
 router.use('/students', studentsRouter)
 router.use('/voiceflow', voiceFlowRouter)
 router.get('/export/:filters', exportRouter)
-// router.use('/beta/dashboard', dashboardRouter)
+router.use('/beta/dashboard', dashboardRouter)
 
 export default router
