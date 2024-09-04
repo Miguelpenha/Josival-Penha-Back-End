@@ -33,18 +33,11 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: ${{ runner.os }}-node-
       
-      - name: Check Puppeteer Env
-        run: echo "PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=$PUPPETEER_SKIP_CHROMIUM_DOWNLOAD"
-        env:
-          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: true
-      
       - name: Install dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y google-chrome-stable
           npm ci
-        env:
-          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: true
 
       - name: Create .env File
         run: |

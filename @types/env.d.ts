@@ -19,7 +19,9 @@ declare global {
         BETA_DASHBOARD_URL: string
         DOMAIN_ASSETS_EMAIL: string
         GOOGLE_ID_SPREADSHEET: string
+        PUPPETEER_EXECUTABLE_PATH: string
         GOOGLE_SERVICE_ACCOUNT_EMAIL: string
+        PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: string
         GOOGLE_SERVICE_ACCOUNT_EMAIL_USE: string
         // Voiceflow
         VOICE_FLOW_DM_URL: string
