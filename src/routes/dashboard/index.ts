@@ -32,10 +32,4 @@ dashboardRouter.get('/', async (req: Request<{}, {}, {}, IQuery>, res) => {
     res.send(screenshot)
 })
 
-dashboardRouter.get('/revalidate', async (req: Request<{}, {}, {}, IQuery>, res) => {
-    res.json({ revalidating: true })
-
-    await getScreenshot()
-})
-
 export default dashboardRouter
