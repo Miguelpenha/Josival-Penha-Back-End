@@ -25,5 +25,6 @@ router.use('/teachers', teachersRouter)
 router.use('/students', studentsRouter)
 router.use('/voiceflow', voiceFlowRouter)
 router.get('/export/:filters', exportRouter)
+router.use('/beta/dashboard', dashboardRouter)
 
 export default router
