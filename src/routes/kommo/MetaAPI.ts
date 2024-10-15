@@ -45,7 +45,9 @@ async function sendToMeta(user: IUser) {
         }
     }
 
-    console.log(data)
+    console.log(data.custom_data)
+
+    console.log(user)
 
     await axios.post(URLGraphAPI, {
       data: [data],
