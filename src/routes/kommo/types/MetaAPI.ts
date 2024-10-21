@@ -11,8 +11,8 @@ interface ICustomData {
     contents: IContent[]
 }
 
-type eventName = 'Purchase' | 'Lead' | 'Other'
 type actionSource = 'website' | 'physical_store'
+type eventName = 'AddToCart' | 'Purchase' | 'Lead' | 'Other'
 
 interface IUserData {
     ph: string

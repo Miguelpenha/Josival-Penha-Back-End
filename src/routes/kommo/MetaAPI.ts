@@ -1,6 +1,7 @@
 import { IUser, IMetaAPI } from './types'
 import toHash from './utils/toHash'
 import statusIDs from './statusIDs'
+import { blueBright as info } from 'chalk'
 import axios from 'axios'
 
 async function sendToMeta(user: IUser) {
@@ -17,10 +18,10 @@ async function sendToMeta(user: IUser) {
         }
     }
 
-    if (user.statusID == statusIDs.Lead) {
+    if (user.statusID == statusIDs.AddToCart) {
         data = {
             ...data,
-            event_name: 'Lead',
+            event_name: 'AddToCart',
             custom_data: {
                 currency: 'brl',
                 value: user.price,
@@ -45,9 +46,8 @@ async function sendToMeta(user: IUser) {
         }
     }
 
-    console.log(data.custom_data)
-
-    console.log(user)
+    console.log(info(`>> ${data.event_name}`))
+    console.log(info(`  >> ${user.phone}`))
 
     await axios.post(URLGraphAPI, {
       data: [data],
