@@ -8,7 +8,7 @@ type currency = 'brl'
 interface ICustomData {
     value: number
     currency: currency
-    contents: IContent[]
+    contents?: IContent[]
 }
 
 type actionSource = 'website' | 'physical_store'

@@ -36,9 +36,7 @@ declare global {
         VERSION_BOLD_API: string
         ACCOUNT_BOLD_API: string
         VERSION_GRAPH_AP: string
-        DATASET_ID_GRAPH_API: string
-        ACCESS_TOKEN_GRAPH_API: string
-        TEST_EVENT_CODE_GRAPH_API: string
+        ACCOUNTS_BOLD_API: string
       }
     }
 }

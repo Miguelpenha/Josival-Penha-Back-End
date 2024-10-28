@@ -1,11 +1,10 @@
-import { IUser, IMetaAPI } from './types'
+import { ICompany, IUser, IMetaAPI } from './types'
 import toHash from './utils/toHash'
-import statusIDs from './statusIDs'
 import { blueBright as info } from 'chalk'
 import axios from 'axios'
 
-async function sendToMeta(user: IUser) {
-    const URLGraphAPI = `${process.env.URL_GRAPH_API}/${process.env.VERSION_GRAPH_API}/${process.env.DATASET_ID_GRAPH_API}/events?access_token=${process.env.ACCESS_TOKEN_GRAPH_API}`
+async function sendToMeta(company: ICompany, user: IUser) {
+    const URLGraphAPI = `${process.env.URL_GRAPH_API}/${process.env.VERSION_GRAPH_API}/${company.datasetID}/events?access_token=${company.accessToken}`
     
     const time = Math.floor(new Date().getTime()/1000)
 
@@ -18,30 +17,22 @@ async function sendToMeta(user: IUser) {
         }
     }
 
-    if (user.statusID == statusIDs.AddToCart) {
+    if (user.statusID == company.statusIDs.AddToCart) {
         data = {
             ...data,
             event_name: 'AddToCart',
             custom_data: {
                 currency: 'brl',
-                value: user.price,
-                contents: user.services.map(service => ({
-                    quantity: 1,
-                    id: service
-                }))
+                value: user.price
             }
         }
-    } else if (user.statusID == statusIDs.Purchase) {
+    } else if (user.statusID == company.statusIDs.Purchase) {
         data = {
             ...data,
             event_name: 'Purchase',
             custom_data: {
                 currency: 'brl',
-                value: user.price,
-                contents: user.services.map(service => ({
-                    quantity: 1,
-                    id: service
-                }))
+                value: user.price
             }
         }
     }
@@ -50,8 +41,7 @@ async function sendToMeta(user: IUser) {
     console.log(info(`  >> ${user.phone}`))
 
     await axios.post(URLGraphAPI, {
-      data: [data],
-      // test_event_code: process.env.TEST_EVENT_CODE_GRAPH_API
+      data: [data]
     })
 }
 

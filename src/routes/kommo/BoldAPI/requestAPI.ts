@@ -3,12 +3,12 @@ import IBoldAPI from './type'
 import axios from 'axios'
 import cache from './cache'
 
-async function requestAPI(lead: IKommoAPI['leads']['status'][0]) {
+async function requestAPI(companyID: string, lead: IKommoAPI['leads']['status'][0]) {
     const URLBoldAPI = `${process.env.URL_BOLD_API}/${process.env.VERSION_BOLD_API}/leads?include=contact`
 
     const requestBody = {
         account: {
-            subdomain: process.env.ACCOUNT_BOLD_API
+            subdomain: companyID
         },
         leads: {
             add: [
