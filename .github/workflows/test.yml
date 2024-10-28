@@ -34,7 +34,7 @@ jobs:
           restore-keys: ${{ runner.os }}-node-
       
       - name: Install dependencies
-        run: PUPPETEER_SKIP_DOWNLOAD=true npm ci
+        run: npm ci
 
       - name: Create .env File
         run: |

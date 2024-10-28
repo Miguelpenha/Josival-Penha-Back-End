@@ -3,5 +3,3 @@ dist
 node_modules
 .react-email
 src/tests/.coverage
-public/screenshot.jpeg
-public/screenshot.json
