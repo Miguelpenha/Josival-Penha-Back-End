@@ -17,6 +17,8 @@ kommoRouter.post('/:companyID', async (req: Request<{ companyID: string }, {}, I
 
 	res.sendStatus(200)
 
+	console.log(statusID)
+
 	if (statusID) {
 		const dataBoldAPI = await BoldAPI(company.id, lead)
 
