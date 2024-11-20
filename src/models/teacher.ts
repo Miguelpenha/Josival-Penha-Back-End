@@ -23,11 +23,11 @@ const schema = new mongoose.Schema<ITeacher>({
     }
 })
 
-schema.post('remove', async teacher => {
+schema.post('deleteOne', async teacher => {
     const classesDelete = await classesModel.find({ teacher: teacher._id }).select('+id')
 
     classesDelete.map(async classDelete => (
-        await classDelete.remove()
+        await classDelete.deleteOne()
     ))
 })
 

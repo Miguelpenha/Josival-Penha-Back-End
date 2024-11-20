@@ -14,7 +14,7 @@ async function deleteClass(req: Request<IDeleteClassParams>, res: Response) {
         const classIsExists = await classesModel.findById(id).select('+id')
 
         if (classIsExists) {
-            await classIsExists.remove()
+            await classIsExists.deleteOne()
 
             res.json({ deleted: true })
 

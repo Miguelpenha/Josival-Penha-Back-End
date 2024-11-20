@@ -15,11 +15,11 @@ const schema = new mongoose.Schema<IClass>({
     }
 })
 
-schema.post('remove', async classDeleted => {
+schema.post('deleteOne', async classDeleted => {
     const studentsDelete = await studentsModel.find({ class: classDeleted._id }).select('+id')
 
     studentsDelete.map(async student => (
-        await student.remove()
+        await student.deleteOne()
     ))
 })
 

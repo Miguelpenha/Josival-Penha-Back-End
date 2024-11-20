@@ -14,7 +14,7 @@ async function deleteTeacher(req: Request<IDeleteTeacherParams>, res: Response) 
         const teacherIsExists= await teachersModel.findById(id).select('+id')
         
         if (teacherIsExists) {
-            await teacherIsExists.remove()
+            await teacherIsExists.deleteOne()
 
             res.json({ deleted: true })
 

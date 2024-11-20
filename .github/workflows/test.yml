@@ -6,16 +6,17 @@ jobs:
     name: Testing aplication
     runs-on: ubuntu-latest
     steps:
-      - name: Check for ENV_FILE
-        run: |
-          if [ -z "${{ secrets.ENV_FILE }}" ]; then
-            echo "ENV_FILE is missing"
-            exit 1
-          fi
-
       - name: Checkout repository
         uses: actions/checkout@v4
       
+      - name: Check for ENV_FILE
+        run: |
+          if [ -z "${{ secrets.ENV_FILE }}" ]; then
+            echo "❌ ENV_FILE is missing"
+            exit 1
+          fi
+          echo "✅ ENV_FILE exists"
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
@@ -42,4 +43,7 @@ jobs:
           echo "${{ secrets.ENV_FILE}}" >> .env
       
       - name: Testing
-        run: npm test
+        run: |
+          echo "🚀 Starting tests..."
+          npm test || exit 1
+          echo "✅ Tests completed successfully"

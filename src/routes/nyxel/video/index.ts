@@ -1,7 +1,6 @@
 import express from 'express'
 import generateScript from './generateScript'
 import companies from './companies'
-// import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3'
 import path from 'path'
 import fs from 'fs'
 
