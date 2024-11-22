@@ -12,22 +12,28 @@ kommoRouter.post('/:companyID', async (req: Request<{ companyID: string }, {}, I
 	const { leads } = req.body
 	const lead = leads.status[0]
 	
-	const company = companies.filter(company => companyID.toUpperCase() === company.id)[0]
-	const statusID = Object.values(company.statusIDs).map(ID => lead.status_id == ID && ID).filter(value => value)[0]
+	try {
+		const company = companies.filter(company => companyID.toUpperCase() === company.id)[0]
+		const statusID = Object.values(company.statusIDs).map(ID => lead.status_id == ID && ID).filter(value => value)[0]
 
-	res.sendStatus(200)
+		res.sendStatus(200)
 
-	if (statusID) {
-		const dataBoldAPI = await BoldAPI(company.id, lead)
+		if (statusID) {
+			const dataBoldAPI = await BoldAPI(company.id, lead)
 
-		let user: IUser = {
-			statusID: lead.status_id,
-			price: Number(lead.price),
-			phone: formatPhone(dataBoldAPI.contact.fields.Phone)
+			let user: IUser = {
+				statusID: lead.status_id,
+				price: Number(lead.price),
+				phone: formatPhone(dataBoldAPI.contact.fields.Phone)
+			}
+
+			await sendToMeta(company, user)
 		}
+	} catch (error) {
+		console.log(error)
 
-		await sendToMeta(company, user)
-  	}
+		res.sendStatus(500)
+	}
 })
 
 export default kommoRouter
