@@ -1,4 +1,4 @@
-import { ICompany, IUser, IMetaAPI } from './types'
+import { ICompany, IUser, IMetaAPI } from './kommo/types'
 import toHash from './utils/toHash'
 import { blueBright as info } from 'chalk'
 import axios from 'axios'
@@ -17,7 +17,7 @@ async function sendToMeta(company: ICompany, user: IUser) {
         }
     }
 
-    if (user.statusID == company.statusIDs.AddToCart) {
+    if (user.status == 'AddToCart') {
         data = {
             ...data,
             event_name: 'AddToCart',
@@ -26,7 +26,7 @@ async function sendToMeta(company: ICompany, user: IUser) {
                 value: user.price
             }
         }
-    } else if (user.statusID == company.statusIDs.Purchase) {
+    } else if (user.status == 'Purchase') {
         data = {
             ...data,
             event_name: 'Purchase',
