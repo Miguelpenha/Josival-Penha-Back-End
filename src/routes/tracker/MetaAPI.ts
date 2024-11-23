@@ -22,24 +22,29 @@ async function sendToMeta(config: IConfig, user: IUser) {
         }
     }
 
-    if (user.status == 'AddToCart') {
-        data = {
-            ...data,
-            event_name: 'AddToCart',
-            custom_data: {
-                currency: 'brl',
-                value: user.price
+    switch (user.status) {
+        case 'AddToCart': 
+            data = {
+                ...data,
+                event_name: 'AddToCart',
+                custom_data: {
+                    currency: 'brl',
+                    value: user.price
+                }
             }
-        }
-    } else if (user.status == 'Purchase') {
-        data = {
-            ...data,
-            event_name: 'Purchase',
-            custom_data: {
-                currency: 'brl',
-                value: user.price
+
+            break
+        case 'Purchase': 
+            data = {
+                ...data,
+                event_name: 'Purchase',
+                custom_data: {
+                    currency: 'brl',
+                    value: user.price
+                }
             }
-        }
+
+            break
     }
     
     console.log(info(`  >> Event: ${data.event_name}`))
