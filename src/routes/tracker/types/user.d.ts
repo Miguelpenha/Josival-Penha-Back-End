@@ -1,9 +1,9 @@
-import { ICompany } from '../kommo/types'
+import { eventName } from './MetaAPI'
 
 interface IUser {
     price: number
     phone: string
-    status: keyof ICompany['statusIDs']
+    status: eventName
 }
 
 export default IUser

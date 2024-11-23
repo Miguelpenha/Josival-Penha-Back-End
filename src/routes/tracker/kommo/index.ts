@@ -1,8 +1,11 @@
 import express, { Request } from 'express'
-import { ICompany, IKommoAPI, IUser } from './types'
+import { IKommoAPI } from './types'
 import companies from './companies'
+import getStatus from './getStatus'
 import BoldAPI from './BoldAPI'
+import { IUser } from '../types'
 import formatPhone from '../utils/formatPhone'
+import { blueBright as info } from 'chalk'
 import sendToMeta from '../MetaAPI'
 
 const kommoRouter = express.Router()
@@ -14,8 +17,7 @@ kommoRouter.post('/:companyID', async (req: Request<{ companyID: string }, {}, I
 	
 	try {
 		const company = companies.filter(company => companyID.toUpperCase() === company.id)[0]
-		const IDstatusID = Object.values(company.statusIDs).findIndex(ID => ID == lead.status_id)
-		const status = IDstatusID >= 0 ? Object.keys(company.statusIDs)[IDstatusID] as keyof ICompany['statusIDs'] : false
+		const status = getStatus(company, lead)
 
 		res.sendStatus(200)
 
@@ -27,6 +29,8 @@ kommoRouter.post('/:companyID', async (req: Request<{ companyID: string }, {}, I
 				price: Number(lead.price),
 				phone: formatPhone(dataBoldAPI.contact.fields.Phone)
 			}
+
+			console.log(info('>> Kommo'))
 
 			await sendToMeta(company, user)
 		}

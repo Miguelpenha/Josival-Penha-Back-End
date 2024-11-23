@@ -1,10 +1,15 @@
-import { ICompany, IUser, IMetaAPI } from './kommo/types'
+import { IUser, IMetaAPI } from './types'
 import toHash from './utils/toHash'
 import { blueBright as info } from 'chalk'
 import axios from 'axios'
 
-async function sendToMeta(company: ICompany, user: IUser) {
-    const URLGraphAPI = `${process.env.URL_GRAPH_API}/${process.env.VERSION_GRAPH_API}/${company.datasetID}/events?access_token=${company.accessToken}`
+interface IConfig {
+    datasetID: string
+    accessToken: string
+}
+
+async function sendToMeta(config: IConfig, user: IUser) {
+    const URLGraphAPI = `${process.env.URL_GRAPH_API}/${process.env.VERSION_GRAPH_API}/${config.datasetID}/events?access_token=${config.accessToken}`
     
     const time = Math.floor(new Date().getTime()/1000)
 
@@ -36,9 +41,10 @@ async function sendToMeta(company: ICompany, user: IUser) {
             }
         }
     }
-
-    console.log(info(`>> ${data.event_name}`))
-    console.log(info(`  >> ${user.phone}`))
+    
+    console.log(info(`  >> Event: ${data.event_name}`))
+    console.log(info(`  >> Phone: ${user.phone}`))
+    console.log(info(`  >> Price: ${user.price}`))
 
     await axios.post(URLGraphAPI, {
       data: [data]

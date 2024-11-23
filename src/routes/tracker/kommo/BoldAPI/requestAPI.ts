@@ -23,8 +23,6 @@ async function requestAPI(companyID: string, lead: IKommoAPI['leads']['status'][
 
     const dataBoldAPI = data[0]
 
-    console.log('Usou')
-
     cache.create(dataBoldAPI)
 
     return dataBoldAPI

@@ -12,7 +12,7 @@ interface ICustomData {
 }
 
 type actionSource = 'website' | 'physical_store'
-type eventName = 'AddToCart' | 'Purchase' | 'Lead' | 'Other'
+export type eventName = 'AddToCart' | 'Purchase' | 'Lead' | 'Other'
 
 interface IUserData {
     ph: string

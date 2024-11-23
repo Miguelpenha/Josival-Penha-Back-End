@@ -27,12 +27,13 @@ declare global {
         GOOGLE_ID_SPREADSHEET: string
         GOOGLE_SERVICE_ACCOUNT_EMAIL: string
         GOOGLE_SERVICE_ACCOUNT_EMAIL_USE: string
-        // # Kommo
+        // # Tracker
         URL_BOLD_API: string
         URL_GRAPH_API: string
         VERSION_BOLD_API: string
         ACCOUNTS_BOLD_API: string
         VERSION_GRAPH_API: string
+        ACCOUNTS_RDSTATION: string
         GRAPH_API_DATASET_ID_: string
         GRAPH_API_STATUS_IDS_: string
         GRAPH_API_ACCESS_TOKEN_: string
