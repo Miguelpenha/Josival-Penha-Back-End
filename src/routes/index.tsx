@@ -23,6 +23,6 @@ router.use('/incomes', incomesRouter)
 router.use('/teachers', teachersRouter)
 router.use('/students', studentsRouter)
 router.get('/export/:filters', exportRouter)
-router.use('/RDStationRouter', RDStationRouter)
+router.use('/rdstation', RDStationRouter)
 
 export default router

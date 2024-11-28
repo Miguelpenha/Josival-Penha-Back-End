@@ -8,7 +8,8 @@ import sendToMeta from '../MetaAPI'
 
 const RDStationRouter = express.Router()
 
-RDStationRouter.post('/:companyID', async (req: Request<{ companyID: string }, {}, IRDStationAPI>, res) => {
+RDStationRouter.all('/:companyID', async (req: Request<{ companyID: string }, {}, IRDStationAPI>, res) => {
+	/*
 	const { companyID } = req.params
 	const { contact } = req.body
 
@@ -25,6 +26,11 @@ RDStationRouter.post('/:companyID', async (req: Request<{ companyID: string }, {
 	console.log(info('>> RDStation'))
 
 	await sendToMeta(company, user)
+	*/
+
+	console.log(req.body)
+
+	res.json({ ok: true })
 })
 
 export default RDStationRouter
