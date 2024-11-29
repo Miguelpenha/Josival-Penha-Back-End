@@ -18,7 +18,8 @@ async function sendToMeta(config: IConfig, user: IUser) {
         action_source: 'physical_store',
         user_data: {
             country: toHash('br'),
-            ph: toHash(user.phone)
+            ph: toHash(user.phone),
+            em: user.email && toHash(user.email)
         }
     }
 

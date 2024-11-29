@@ -16,6 +16,7 @@ export type eventName = 'AddToCart' | 'Purchase' | 'Lead' | 'Other'
 
 interface IUserData {
     ph: string
+    em: string
     country: string
 }
 
