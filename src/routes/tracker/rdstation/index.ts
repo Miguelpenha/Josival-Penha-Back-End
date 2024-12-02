@@ -1,6 +1,6 @@
 import express, { Request } from 'express'
 import { IRDStationAPI } from './types'
-import companies from '../kommo/companies'
+import companies from './companies'
 import { IUser } from '../types'
 import formatPhone from '../utils/formatPhone'
 import { blueBright as info } from 'chalk'
@@ -8,7 +8,7 @@ import sendToMeta from '../MetaAPI'
 
 const RDStationRouter = express.Router()
 
-RDStationRouter.all('/:companyID', async (req: Request<{ companyID: string }, {}, IRDStationAPI>, res) => {
+RDStationRouter.post('/:companyID', async (req: Request<{ companyID: string }, {}, IRDStationAPI>, res) => {
 	const { companyID } = req.params
 	const { leads } = req.body
 	const lead = leads[0]
