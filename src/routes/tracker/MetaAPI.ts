@@ -52,9 +52,12 @@ async function sendToMeta(config: IConfig, user: IUser) {
     console.log(info(`  >> Phone: ${user.phone}`))
     console.log(info(`  >> Price: ${user.price}`))
 
-    await axios.post(URLGraphAPI, {
+    const { data: dataMeta } = await axios.post(URLGraphAPI, {
       data: [data]
     })
+
+    console.log(data)
+    console.log(dataMeta)
 }
 
 export default sendToMeta
