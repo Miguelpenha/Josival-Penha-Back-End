@@ -8,7 +8,7 @@ interface IConfig {
     accessToken: string
 }
 
-async function sendToMeta(config: IConfig, user: IUser) {
+async function sendToMeta(config: IConfig, user: IUser, log: boolean=false) {
     const URLGraphAPI = `${process.env.URL_GRAPH_API}/${process.env.VERSION_GRAPH_API}/${config.datasetID}/events?access_token=${config.accessToken}`
     
     const time = Math.floor(new Date().getTime()/1000)
@@ -56,8 +56,11 @@ async function sendToMeta(config: IConfig, user: IUser) {
       data: [data]
     })
 
-    console.log(data)
-    console.log(dataMeta)
+    if (log) {
+        console.log(user)
+        console.log(data)
+        console.log(dataMeta)
+    }
 }
 
 export default sendToMeta

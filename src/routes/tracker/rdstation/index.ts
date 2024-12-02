@@ -27,7 +27,7 @@ RDStationRouter.post('/:companyID', async (req: Request<{ companyID: string }, {
 
 		console.log(info('>> RDStation'))
 
-		await sendToMeta(company, user)
+		await sendToMeta(company, user, true)
 	} catch (error) {
 		console.log(error)
 
