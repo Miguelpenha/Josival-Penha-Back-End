@@ -13,6 +13,8 @@ RDStationRouter.post('/:companyID', async (req: Request<{ companyID: string }, {
 	const { leads } = req.body
 	const lead = leads[0]
 
+	console.log(lead)
+
 	try {
 		const company = companies.filter(company => companyID.toUpperCase() === company.id)[0]
 	
