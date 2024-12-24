@@ -23,6 +23,7 @@ declare global {
         RESEND_API_KEY: string
         // # Google
         GOOGLE_SCOPES: string
+        GEMINI_API_KEY: string
         GOOGLE_PRIVATE_KEY: string
         GOOGLE_ID_SPREADSHEET: string
         GOOGLE_SERVICE_ACCOUNT_EMAIL: string
