@@ -21,6 +21,7 @@ declare global {
         MONGO_URL: string
         AWS_BASE_URL: string
         RESEND_API_KEY: string
+        API_SEARCH_URL: string
         // # Google
         GOOGLE_SCOPES: string
         GEMINI_API_KEY: string
