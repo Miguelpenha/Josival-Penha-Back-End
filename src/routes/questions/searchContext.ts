@@ -1,12 +1,16 @@
 import WikiJS from 'wikijs'
 
 async function searchContext(subject: string) {
-    const wiki = WikiJS({ apiUrl: process.env.API_SEARCH_URL })
+    try {
+        const wiki = WikiJS({ apiUrl: process.env.API_SEARCH_URL })
 
-    const page = await wiki.page(subject)
-    const summary = await page.summary()
+        const page = await wiki.page(subject)
+        const summary = await page.summary()
 
-    return summary
+        return summary
+    } catch {
+        return ''
+    }
 }
 
 export default searchContext
