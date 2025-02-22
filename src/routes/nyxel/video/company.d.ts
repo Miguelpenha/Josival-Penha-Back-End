@@ -8,6 +8,7 @@ type ICTAType = 'whatsapp' | 'reservation'
 interface ICompany {
     name: string
     color: string
+    scale?: number
     hostURL: string
     caption?: string
     routes: IRoute[]

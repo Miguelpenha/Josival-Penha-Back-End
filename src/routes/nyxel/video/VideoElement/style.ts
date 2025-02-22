@@ -1,7 +1,11 @@
 import styled from 'styled-components'
 import BrandRaw from './Brand'
 
-export const Container = styled.div`
+interface IContainer {
+    scale: number
+}
+
+export const Container = styled.div<IContainer>`
     left: 2%;
     width: 6em;
     bottom: 45%;
@@ -10,6 +14,7 @@ export const Container = styled.div`
     cursor: pointer;
     border-radius: 50%;
     z-index: 9999999999 !important;
+    transform: scale(${props => props.scale});
     background-color: ${props => props.theme.color};
     box-shadow: 5px 8px 15px 2px rgba(0, 0, 0, 0.4);
 `

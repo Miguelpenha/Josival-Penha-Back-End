@@ -60,6 +60,7 @@ const companies: ICompany[] = [
         ]
     },
     {
+        scale: 0.8,
         color: '#000000',
         name: 'Fity Hotel',
         actionText: 'Saber mais 👆',
