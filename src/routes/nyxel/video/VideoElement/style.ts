@@ -13,7 +13,9 @@ export const Container = styled.div<IContainer>`
     position: fixed;
     cursor: pointer;
     border-radius: 50%;
+    transition-duration: 0.1s;
     z-index: 9999999999 !important;
+    transition-timing-function: linear;
     transform: scale(${props => props.$scale});
     background-color: ${props => props.theme.color};
     box-shadow: 5px 8px 15px 2px rgba(0, 0, 0, 0.4);
