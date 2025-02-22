@@ -72,7 +72,7 @@ function openVideo() {
         opacity: 0
     })
 
-    gsap.to('body', {
+    gsap.to('html, body', {
         overflow: 'hidden'
     })
 
@@ -144,7 +144,7 @@ function closeVideo() {
     
     video.load()
 
-    gsap.to('body', {
+    gsap.to('html, body', {
         overflow: 'auto'
     })
 
