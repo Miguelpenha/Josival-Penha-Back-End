@@ -64,7 +64,7 @@ const companies: ICompany[] = [
         name: 'Fity Hotel',
         actionText: 'Saber mais 👆',
         hostURL: 'https://blog.fityhotel.com.br/',
-        folderURL: 'hotel-pedra-do-rodeadouro-46ce45ae-275b-4f82-a02b-0544b2daecc2',
+        folderURL: 'fity-hotel-64e5e779-47b8-4d3f-90d1-6d04bdb5da47',
         cta: {
             type: 'reservation',
             text: 'Reserve agora',
@@ -73,7 +73,7 @@ const companies: ICompany[] = [
         routes: [
             {
                 url: '/',
-                videoURL: 'video-ec6cc474-d5ff-4641-b8b3-081d170dc141.mp4'
+                videoURL: 'video-ac3485c7-9fee-4389-be69-59bfe5504330.mp4'
             }
         ]
     }
