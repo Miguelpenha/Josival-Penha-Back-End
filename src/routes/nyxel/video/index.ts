@@ -25,8 +25,6 @@ videoRouter.get('/', (req, res) => {
 videoRouter.get('/page/:page?', async (req, res) => {
     const hostURL = req.get('Origin') || req.get('Referer')
     const company = companies.find(company => company.hostURL.includes(hostURL) && company)
-
-    console.log(company)
     
     if (company) {
         const { page: routeURL } = req.params
@@ -35,6 +33,8 @@ videoRouter.get('/page/:page?', async (req, res) => {
         if (route) {
             const urlVideo = `${process.env.AWS_BASE_URL}/videos/${company.folderURL}/${route.videoURL}`
             const script = generateScript(company, urlVideo)
+
+            console.log(urlVideo)
     
             res.contentType('application/javascript')
             res.send(script)
