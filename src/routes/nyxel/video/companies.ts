@@ -63,7 +63,7 @@ const companies: ICompany[] = [
         color: '#000000',
         name: 'Fity Hotel',
         actionText: 'Saber mais 👆',
-        hostURL: 'https://www.fityhotel.com.br/',
+        hostURL: 'https://blog.fityhotel.com.br/',
         folderURL: 'hotel-pedra-do-rodeadouro-46ce45ae-275b-4f82-a02b-0544b2daecc2',
         cta: {
             type: 'reservation',
