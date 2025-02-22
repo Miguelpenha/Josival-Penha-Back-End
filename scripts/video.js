@@ -72,6 +72,10 @@ function openVideo() {
         opacity: 0
     })
     
+    gsap.to('html, body', {
+        overflow: 'hidden'
+    })
+    
     gsap.to('#nyxel', {
         scale: 1,
         top: '0%',
@@ -139,6 +143,10 @@ function closeVideo() {
     video.muted = true
     
     video.load()
+
+    gsap.to('html, body', {
+        overflow: 'auto'
+    })
 
     gsap.to('#nyxel #cta', {
         opacity: 0,
