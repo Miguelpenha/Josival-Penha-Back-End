@@ -12,10 +12,10 @@ export const Button = styled.a`
     border-radius: 10px;
     flex-direction: row;
     align-items: center;
-    text-decoration: none;
     background-color: #0AD08C;
     transform: translateY(50px);
     z-index: 1000000002 !important;
+    text-decoration: none !important;
 
     .icon {
         width: 1.5em;
