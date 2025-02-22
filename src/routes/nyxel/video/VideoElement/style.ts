@@ -87,36 +87,6 @@ export const IconShare = styled.svg`
     background-color: rgba(0, 0, 0, 0.4);
 `
 
-export const ButtonCTA = styled.a`
-    left: 3%;
-    opacity: 0;
-    bottom: 20%;
-    width: 11em;
-    height: 2.8em;
-    display: none;
-    padding: 0.5em;
-    position: absolute;
-    border-radius: 10px;
-    flex-direction: row;
-    align-items: center;
-    text-decoration: none;
-    background-color: #0AD08C;
-    transform: translateY(50px);
-    z-index: 1000000002 !important;
-
-    .icon {
-        width: 1.5em;
-        fill: #FFFFFF;
-        margin-left: 0.5em;
-    }
-
-    .text {
-        color: #FFFFFF;
-        margin-left: 1em;
-        font-weight: bold;
-    }
-`
-
 export const Caption = styled.div`
     left: 3%;
     opacity: 0;
