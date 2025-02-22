@@ -148,6 +148,13 @@ function closeVideo() {
         overflow: 'auto'
     })
 
+    gsap.to('#nyxel #cta', {
+        opacity: 0,
+        duration: 0.1,
+        display: 'none',
+        transform: 'translateY(50px)',
+    })
+
     gsap.to('#nyxel>.message', {
         opacity: 1
     })
@@ -162,14 +169,6 @@ function closeVideo() {
         duration: 0.1,
         display: 'none',
         transform: 'scale(0.8)'
-    })
-
-    gsap.to('#nyxel #cta', {
-        delay: 1,
-        opacity: 0,
-        duration: 0.1,
-        display: 'none',
-        transform: 'translateY(50px)',
     })
 
     gsap.to('#nyxel #caption', {
