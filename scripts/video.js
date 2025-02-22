@@ -71,19 +71,15 @@ function openVideo() {
     gsap.to('#nyxel>.message', {
         opacity: 0
     })
-
-    gsap.to('html, body', {
-        overflow: 'hidden'
-    })
-
+    
     gsap.to('#nyxel', {
         scale: 1,
         top: '0%',
         left: '0%',
         delay: 0.3,
-        width: '100vw',
-        height: '100vh',
         display: 'flex',
+        width: '100dvw',
+        height: '100dvh',
         borderRadius: '0',
         alignItems: 'center',
         justifyContent: 'center',
@@ -144,10 +140,6 @@ function closeVideo() {
     
     video.load()
 
-    gsap.to('html, body', {
-        overflow: 'auto'
-    })
-
     gsap.to('#nyxel #cta', {
         opacity: 0,
         duration: 0.1,
@@ -203,7 +195,7 @@ function closeVideo() {
 
     gsap.to('#nyxel', {
         left: '2%',
-        top: '38vh',
+        top: '38dvh',
         bottom: '2%',
         width: '96px',
         height: '96px',

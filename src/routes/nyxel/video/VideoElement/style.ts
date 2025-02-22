@@ -12,7 +12,6 @@ export const Container = styled.div<IContainer>`
     height: 6em;
     position: fixed;
     cursor: pointer;
-    overflow: scroll;
     border-radius: 50%;
     z-index: 9999999999 !important;
     transform: scale(${props => props.$scale});
