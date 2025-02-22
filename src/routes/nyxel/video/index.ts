@@ -10,6 +10,7 @@ videoRouter.get('/', (req, res) => {
     const hostURL = req.get('Origin') || req.get('Referer')
     const company = companies.find(company => company.hostURL.includes(hostURL) && company)
 
+    console.log(hostURL)
     if (company) {
         const scriptPath = path.resolve(__dirname, '..', '..', '..', '..', 'scripts', 'domain.js')
         const script = fs.readFileSync(scriptPath).toString().replace(/{{domain}}/g, process.env.DOMAIN)
