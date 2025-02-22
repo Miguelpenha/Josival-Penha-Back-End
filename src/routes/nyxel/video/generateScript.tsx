@@ -26,6 +26,7 @@ function generateScript(company: ICompany, urlVideo: string) {
     .replace('{{videoURL}}', urlVideo)
     .replace('{{styleElement}}', styleElement)
     .replace('{{contactURL}}', company.cta.url)
+    .replace('{{scale}}', String(company.scale))
     .replace('{{videoElement}}', videoElementRendered)
     
     return script

@@ -77,6 +77,7 @@ function openVideo() {
     })
 
     gsap.to('#nyxel', {
+        scale: 1,
         top: '0%',
         left: '0%',
         delay: 0.3,
@@ -164,10 +165,11 @@ function closeVideo() {
     })
 
     gsap.to('#nyxel #cta', {
+        delay: 1,
         opacity: 0,
         duration: 0.1,
         display: 'none',
-        transform: 'translateY(50px)'
+        transform: 'translateY(50px)',
     })
 
     gsap.to('#nyxel #caption', {
@@ -207,6 +209,7 @@ function closeVideo() {
         width: '96px',
         height: '96px',
         borderRadius: '50%',
+        scale: Number('{{scale}}'),
         backgroundColor: '{{color}}'
     })
 }
