@@ -7,10 +7,9 @@ import fs from 'fs'
 const videoRouter = express.Router()
 
 videoRouter.get('/', (req, res) => {
-    const hostURL = req.get('Origin') || req.get('Referer')
-    const company = companies.find(company => company.hostURL.includes(hostURL) && company)
+    const hostURL = new URL(req.get('Origin') || req.get('Referer'))
+    const company = companies.find(company => company.hostURL.includes(hostURL.pathname) && company)
 
-    console.log(hostURL)
     if (company) {
         const scriptPath = path.resolve(__dirname, '..', '..', '..', '..', 'scripts', 'domain.js')
         const script = fs.readFileSync(scriptPath).toString().replace(/{{domain}}/g, process.env.DOMAIN)
