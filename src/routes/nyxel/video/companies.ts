@@ -63,7 +63,7 @@ const companies: ICompany[] = [
         color: '#000000',
         name: 'Fity Hotel',
         actionText: 'Saber mais 👆',
-        hostURL: 'https://blog.fityhotel.com.br/',
+        hostURL: 'https://blog.fityhotel.com.br',
         folderURL: 'fity-hotel-64e5e779-47b8-4d3f-90d1-6d04bdb5da47',
         cta: {
             type: 'reservation',
