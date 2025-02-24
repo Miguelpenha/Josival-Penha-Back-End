@@ -69,7 +69,7 @@ const companies: ICompany[] = [
         cta: {
             type: 'reservation',
             text: 'Reserve agora',
-            url: 'https://hbook.hsystem.com.br/booking?companyId=5abd1f9ec19a3b520cfc66a8'
+            url: 'https://hbook.hsystem.com.br/booking?companyId=5abd1f9ec19a3b520cfc66a8&utm_source=nyxel&utm_medium=video&utm_campaign=blog-nyxel'
         },
         routes: [
             {
