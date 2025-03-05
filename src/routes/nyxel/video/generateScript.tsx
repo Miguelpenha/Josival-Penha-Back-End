@@ -17,17 +17,17 @@ function generateScript(company: ICompany, urlVideo: string) {
             </ThemeProvider>
         )
     )
-    const styleElement = sheet.getStyleTags().replace(/\n/g, '')
+    const styleElement = sheet.getStyleTags().replaceAll('\n', '')
 
     const scriptPath = path.resolve(__dirname, '..', '..', '..', '..', 'scripts', 'video.js')
     const scriptRaw = fs.readFileSync(scriptPath).toString()
     const script = scriptRaw
-    .replace('{{color}}', theme.color)
-    .replace('{{videoURL}}', urlVideo)
-    .replace('{{styleElement}}', styleElement)
-    .replace('{{contactURL}}', company.cta.url)
-    .replace('{{scale}}', String(company.scale || 1))
-    .replace('{{videoElement}}', videoElementRendered)
+    .replaceAll('{{color}}', theme.color)
+    .replaceAll('{{videoURL}}', urlVideo)
+    .replaceAll('{{styleElement}}', styleElement)
+    .replaceAll('{{contactURL}}', company.cta.url)
+    .replaceAll('{{scale}}', String(company.scale || 1))
+    .replaceAll('{{videoElement}}', videoElementRendered)
     
     return script
 }

@@ -12,7 +12,7 @@ videoRouter.get('/', (req, res) => {
 
     if (company) {
         const scriptPath = path.resolve(__dirname, '..', '..', '..', '..', 'scripts', 'domain.js')
-        const script = fs.readFileSync(scriptPath).toString().replace(/{{domain}}/g, process.env.DOMAIN)
+        const script = fs.readFileSync(scriptPath).toString().replaceAll('{{domain}}', process.env.DOMAIN)
 
         res.contentType('application/javascript')
         res.send(script)
@@ -22,13 +22,24 @@ videoRouter.get('/', (req, res) => {
     }
 })
 
-videoRouter.get('/page/:page?', async (req, res) => {
+videoRouter.get('/page/:page(.+)?', async (req, res) => {
     const hostURL = req.get('Origin') || req.get('Referer')
     const company = companies.find(company => company.hostURL.includes(hostURL) && company)
     
     if (company) {
-        const { page: routeURL } = req.params
-        const route = company.routes.find(route => route.url === ('/'+(routeURL || '')) && route)
+        const { page: routeURLRaw } = req.params
+
+        const route = company.routes.find(route => {
+            const routeURL = ('/'+(routeURLRaw || ''))
+
+            if (route.url.endsWith('/*')) {
+                if (routeURL.startsWith(route.url.replace('/*', ''))) {
+                    return route
+                }
+            } else if (route.url === routeURL) {
+                return route
+            }
+        })
 
         if (route) {
             const urlVideo = `${process.env.AWS_BASE_URL}/videos/${company.folderURL}/${route.videoURL}`

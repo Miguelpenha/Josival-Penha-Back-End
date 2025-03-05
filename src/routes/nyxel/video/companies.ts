@@ -73,7 +73,7 @@ const companies: ICompany[] = [
         },
         routes: [
             {
-                url: '/',
+                url: '/*',
                 videoURL: 'video-ac3485c7-9fee-4389-be69-59bfe5504330.mp4'
             }
         ]
