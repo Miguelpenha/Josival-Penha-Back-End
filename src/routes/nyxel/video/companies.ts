@@ -79,10 +79,9 @@ const companies: ICompany[] = [
         ]
     },
     {
-        scale: 0.8,
         color: '#8b5642',
         name: 'Rustic Home Decor',
-        actionText: 'Saber mais 👆',
+        actionText: 'Conheça a Rustic',
         hostURL: 'https://www.rustichomedecor.com.br',
         folderURL: 'rustic-home-decor-0050c16c-77ea-4b91-9c23-ad7f2a94efe4',
         cta: {
