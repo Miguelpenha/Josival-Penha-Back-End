@@ -3,6 +3,7 @@ import ICompany from '../company'
 import { Container, Message, MessageText, ContainerVideo, Brand, IconClose, IconShare, Caption, Gradient, Video } from './style'
 import ButtonWhatsApp from './ButtonWhatsApp'
 import ButtonReservation from './ButtonReservation'
+import ButtonProduct from './ButtonProduct'
 
 interface IProps {
     urlVideo: string
@@ -25,7 +26,7 @@ const VideoElement: FC<IProps> = ({ company, urlVideo }) => {
                     <path d="M0 0h24v24H0z" fill="none"/>
                     <path d="M10 9V5l-7 7 7 7v-4.1c5 0 8.5 1.6 11 5.1-1-5-4-10-11-11z"/>
                 </IconShare>
-                {company.cta.type === 'whatsapp' ? <ButtonWhatsApp cta={company.cta}/> : company.cta.type === 'reservation' && <ButtonReservation cta={company.cta}/>}
+                {company.cta.type === 'whatsapp' ? <ButtonWhatsApp cta={company.cta}/> : company.cta.type === 'reservation' ? <ButtonReservation cta={company.cta}/> : company.cta.type === 'product' && <ButtonProduct cta={company.cta}/>}
                 {company.caption && <Caption id="caption">{company.caption}</Caption>}
                 <Gradient id="gradient"/>
                 <Video id="video" loop muted autoPlay playsInline disablePictureInPicture preload="metadata">
