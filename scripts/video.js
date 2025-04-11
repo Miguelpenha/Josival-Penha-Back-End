@@ -252,7 +252,7 @@ function makeVideo() {
 
         addParameterToURL('contact_click', 'true')
 
-        window.open('{{contactURL}}')
+        window.open('{{contactURL}}', '{{ctaRedirect}}')
     }
 
     video.onclick = () => {

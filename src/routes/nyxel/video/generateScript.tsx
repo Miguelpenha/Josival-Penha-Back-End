@@ -28,6 +28,7 @@ function generateScript(company: ICompany, urlVideo: string) {
     .replaceAll('{{contactURL}}', company.cta.url)
     .replaceAll('{{scale}}', String(company.scale || 1))
     .replaceAll('{{videoElement}}', videoElementRendered)
+    .replaceAll('{{ctaRedirect}}', company.cta.internal ? '_self' : '_blank')
     
     return script
 }
