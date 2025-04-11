@@ -12,12 +12,13 @@ interface ICompany {
     hostURL: string
     caption?: string
     routes: IRoute[]
-    folderURL: string
+    folderURL: String
     actionText: string
     cta: {
         url: string
         text: string
         type: ICTAType
+        internal?: boolean
     }
 }
 

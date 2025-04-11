@@ -8,7 +8,7 @@ interface IProps {
 
 const ButtonReservation: FC<IProps> = ({ cta }) => {
     return (
-        <Button id="cta" href={cta.url}>
+        <Button id="cta" href={cta.url} target={cta.internal ? '_self' : '_blank'}>
             <svg className="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                 <g>
                     <rect fill="none" height="24" width="24"/>
