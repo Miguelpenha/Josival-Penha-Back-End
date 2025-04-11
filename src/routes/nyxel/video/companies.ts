@@ -86,7 +86,7 @@ const companies: ICompany[] = [
         hostURL: 'https://www.rustichomedecor.com.br/',
         folderURL: 'rustic-home-decor-0050c16c-77ea-4b91-9c23-ad7f2a94efe4',
         cta: {
-            type: 'reservation',
+            type: 'product',
             text: 'Ver produtos',
             url: 'https://www.rustichomedecor.com.br/categoria-produto/decoracao/'
         },

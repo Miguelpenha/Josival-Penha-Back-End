@@ -3,7 +3,7 @@ interface IRoute {
     videoURL: string
 }
 
-type ICTAType = 'whatsapp' | 'reservation'
+type ICTAType = 'whatsapp' | 'reservation' | 'product'
 
 interface ICompany {
     name: string
