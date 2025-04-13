@@ -202,10 +202,13 @@ function closeVideo() {
         position: 'block'
     })
 
+    const bottom = `${window.innerWidth >= 900 ? '{{bottomDesktop}}' : '{{bottomMobile}}'}%`
+    const top = `calc(${window.innerWidth >= 900 ? (100-Number('{{bottomDesktop}}')) : (100-Number('{{bottomMobile}}'))}% - 18dvh)`
+
     gsap.to('#nyxel', {
+        top,
+        bottom,
         left: '2%',
-        top: '38dvh',
-        bottom: '2%',
         width: '96px',
         height: '96px',
         borderRadius: '50%',
@@ -246,6 +249,24 @@ function makeVideo() {
 
     iconShare.onclick = () => navigator.share({
         url: window.location.href
+    })
+
+    window.addEventListener('resize', () => {
+        if (video.muted) {
+            const bottom = `${window.innerWidth >= 900 ? '{{bottomDesktop}}' : '{{bottomMobile}}'}%`
+            const top = `calc(${window.innerWidth >= 900 ? (100-Number('{{bottomDesktop}}')) : (100-Number('{{bottomMobile}}'))}% - 18dvh)`
+
+            gsap.to('#nyxel', {
+                top,
+                bottom,
+                left: '2%',
+                width: '96px',
+                height: '96px',
+                borderRadius: '50%',
+                scale: Number('{{scale}}'),
+                backgroundColor: '{{color}}'
+            })
+        }
     })
 
     buttonCTA.onclick = ev => {

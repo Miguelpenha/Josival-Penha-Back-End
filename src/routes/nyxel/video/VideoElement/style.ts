@@ -23,9 +23,11 @@ export const Container = styled.div<IContainer>`
     background-color: ${props => props.theme.color};
     box-shadow: 5px 8px 15px 2px rgba(0, 0, 0, 0.4);
     bottom: ${props => props?.$bottom?.desktop || 45}%;
+    top: calc(${props => props?.$bottom?.desktop || 45} - 18dvh);
 
     @media screen and (max-width: 900px) {
         bottom: ${props => props?.$bottom?.mobile || 45}%;
+        top: calc(${props => props?.$bottom?.mobile || 45} - 18dvh);
     }
 `
 
