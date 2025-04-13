@@ -116,7 +116,8 @@ function openVideo() {
 
             setTimeout(() => {
                 if (!video.muted) {
-                    gsap.to('#nyxel #cta', {
+                    console.log(tlCTA)
+                    tlCTA.to('#nyxel #cta', {
                         opacity: 1,
                         duration: 1.5,
                         display: 'flex',
@@ -129,8 +130,9 @@ function openVideo() {
                         display: 'flex'
                     })
 
-                    gsap.to('#nyxel #gradient', {
+                    tlGradient.to('#nyxel #gradient', {
                         duration: 1,
+                        display: 'block',
                         background: 'linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%)'
                     })
                 }
@@ -149,7 +151,12 @@ function closeVideo() {
         overflow: 'auto'
     })
 
-    gsap.to('#nyxel #cta', {
+    tlCTA.clear()
+    tlCTA.play()
+    tlGradient.clear()
+    tlGradient.play()
+
+    tlCTA.to('#nyxel #cta', {
         opacity: 0,
         duration: 0.1,
         display: 'none',
@@ -192,7 +199,8 @@ function closeVideo() {
         zIndex: '1000000001 !important'
     })
 
-    gsap.to('#nyxel #gradient', {
+    tlGradient.to('#nyxel #gradient', {
+        display: 'none',
         background: 'none'
     })
 
@@ -226,6 +234,8 @@ function makeVideo() {
     const iconShare = document.querySelector('#nyxel #icon-share')
     const buttonCTA = document.querySelector('#nyxel #cta')
     const video = document.querySelector('#nyxel #video')
+    tlCTA = gsap.timeline()
+    tlGradient = gsap.timeline()
 
     setTimeout(initialLoadVideo, 200)
 

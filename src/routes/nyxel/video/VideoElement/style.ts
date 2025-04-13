@@ -122,6 +122,7 @@ export const Gradient = styled.div`
     bottom: 0%;
     width: 100%;
     height: 30%;
+    display: none;
     background: none;
     position: absolute;
     border-radius: 0 0 15px 15px;
