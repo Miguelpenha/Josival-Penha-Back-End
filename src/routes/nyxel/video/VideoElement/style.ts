@@ -3,12 +3,15 @@ import BrandRaw from './Brand'
 
 interface IContainer {
     $scale: number
+    $bottom?: {
+        mobile?: number
+        desktop?: number
+    }
 }
 
 export const Container = styled.div<IContainer>`
     left: 2%;
     width: 6em;
-    bottom: 45%;
     height: 6em;
     position: fixed;
     cursor: pointer;
@@ -19,17 +22,23 @@ export const Container = styled.div<IContainer>`
     transform: scale(${props => props.$scale});
     background-color: ${props => props.theme.color};
     box-shadow: 5px 8px 15px 2px rgba(0, 0, 0, 0.4);
+    bottom: ${props => props?.$bottom?.desktop || 45}%;
+
+    @media screen and (max-width: 900px) {
+        bottom: ${props => props?.$bottom?.mobile || 45}%;
+    }
 `
 
 export const Message = styled.div`
     top: 50%;
-    width: 0;
     left: 95%;
     opacity: 0;
-    padding: 0.2em;
+    padding: 0.3em;
+    width: fit-content;
     position: absolute;
-    transform: translateY(-50%);
+    transform-origin: 0% 50%;
     border-radius: 0 20px 20px 0;
+    transform: translateY(-50%) scaleX(0);
     background-color: ${props => props.theme.color};
 `
 

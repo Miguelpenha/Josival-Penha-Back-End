@@ -36,8 +36,8 @@ function initialLoadVideo() {
 
             gsap.to('#nyxel>.message', {
                 delay: 0.2,
-                width: '9.5em',
                 duration: 0.8,
+                scaleX: '100%',
                 onComplete() {
                     gsap.to('#nyxel>.message>.text', {
                         opacity: 1
@@ -114,26 +114,27 @@ function openVideo() {
                 transform: 'scale(1)'
             })
 
-            gsap.to('#nyxel #cta', {
-                delay: 3,
-                opacity: 1,
-                duration: 1.5,
-                display: 'flex',
-                transform: 'translateY(0px)'
-            })
+            setTimeout(() => {
+                if (!video.muted) {
+                    gsap.to('#nyxel #cta', {
+                        opacity: 1,
+                        duration: 1.5,
+                        display: 'flex',
+                        transform: 'translateY(0px)'
+                    })
+    
+                    gsap.to('#nyxel #caption', {
+                        opacity: 1,
+                        duration: 1,
+                        display: 'flex'
+                    })
 
-            gsap.to('#nyxel #caption', {
-                delay: 3,
-                opacity: 1,
-                duration: 1,
-                display: 'flex'
-            })
-
-            gsap.to('#nyxel #gradient', {
-                delay: 3,
-                duration: 1,
-                background: 'linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%)'
-            })
+                    gsap.to('#nyxel #gradient', {
+                        duration: 1,
+                        background: 'linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%)'
+                    })
+                }
+            }, 3000)
         }
     })
 }

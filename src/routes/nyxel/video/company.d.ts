@@ -14,6 +14,10 @@ interface ICompany {
     routes: IRoute[]
     folderURL: String
     actionText: string
+    bottom?: {
+        mobile?: number
+        desktop?: number
+    }
     cta: {
         url: string
         text: string
