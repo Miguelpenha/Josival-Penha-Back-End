@@ -68,7 +68,7 @@ export const ProgressBar = styled.span`
     width: 10%;
     z-index: 1;
     display: none;
-    height: 0.7em;
+    height: 0.3em;
     position: absolute;
     transition-duration: 0.2s;
     border-radius: 0px 50px 50px 0px;
