@@ -63,6 +63,19 @@ export const ContainerVideo = styled.div`
     transform: translate(-50%, -50%);
 `
 
+export const ProgressBar = styled.span`
+    top: 0%;
+    width: 10%;
+    z-index: 1;
+    display: none;
+    height: 0.7em;
+    position: absolute;
+    transition-duration: 0.2s;
+    border-radius: 0px 50px 50px 0px;
+    transition-timing-function: linear;
+    background-color: ${props => props.theme.color};
+`
+
 export const Brand = styled(BrandRaw)`
     top: 5%;
     left: 3%;

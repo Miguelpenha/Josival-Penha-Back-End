@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import ICompany from '../company'
-import { Container, Message, MessageText, ContainerVideo, Brand, IconClose, IconShare, Caption, Gradient, Video } from './style'
+import { Container, Message, MessageText, ContainerVideo, ProgressBar, Brand, IconClose, IconShare, Caption, Gradient, Video } from './style'
 import ButtonWhatsApp from './ButtonWhatsApp'
 import ButtonReservation from './ButtonReservation'
 import ButtonProduct from './ButtonProduct'
@@ -17,6 +17,7 @@ const VideoElement: FC<IProps> = ({ company, urlVideo }) => {
                 <MessageText className="text">{company.actionText}</MessageText>
             </Message>
             <ContainerVideo className="container-video">
+                <ProgressBar className="progress-bar"/>
                 <Brand/>
                 <IconClose id="icon-close" className="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <path d="M0 0h24v24H0z" fill="none"/>

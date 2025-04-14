@@ -94,14 +94,17 @@ function openVideo() {
         top: '50%',
         width: 'auto',
         height: '85%',
-        borderRadius: '0'
+        borderRadius: '20px'
+    })
+    
+    gsap.to('#nyxel .progress-bar', {
+        display: 'block'
     })
 
     gsap.to('#nyxel #video', {
         delay: 0.1,
         left: '50%',
         height: '100%',
-        borderRadius: '20px',
         zIndex: '1000000001 !important',
         onComplete() {
             gsap.to('#nyxel #brand', {
@@ -116,7 +119,6 @@ function openVideo() {
 
             setTimeout(() => {
                 if (!video.muted) {
-                    console.log(tlCTA)
                     tlCTA.to('#nyxel #cta', {
                         opacity: 1,
                         duration: 1.5,
@@ -165,6 +167,10 @@ function closeVideo() {
 
     gsap.to('#nyxel>.message', {
         opacity: 1
+    })
+
+    gsap.to('#nyxel .progress-bar', {
+        display: 'none'
     })
 
     gsap.to('#nyxel #brand', {
@@ -234,8 +240,18 @@ function makeVideo() {
     const iconShare = document.querySelector('#nyxel #icon-share')
     const buttonCTA = document.querySelector('#nyxel #cta')
     const video = document.querySelector('#nyxel #video')
+    const progressBar = document.querySelector('#nyxel .progress-bar')
+    
     tlCTA = gsap.timeline()
     tlGradient = gsap.timeline()
+
+    video.addEventListener('timeupdate', () => {
+        if (!video.muted) {
+            const percentage = (video.currentTime / video.duration) * 100
+
+            progressBar.style.width = percentage + '%'
+        }
+    })
 
     setTimeout(initialLoadVideo, 200)
 
