@@ -103,7 +103,7 @@ const companies: ICompany[] = [
     {
         color: '#FF5418',
         name: 'Voicecorp',
-        actionText: 'Saiba mais 👆',
+        actionText: 'Saiba mais',
         hostURL: 'https://www.voicecorp.com.br',
         folderURL: 'voicecorp-b29e93f6-9400-4bcc-b427-1bf9139b34fa',
         cta: {
