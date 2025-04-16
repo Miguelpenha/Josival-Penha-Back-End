@@ -106,6 +106,10 @@ const companies: ICompany[] = [
         actionText: 'Saiba mais',
         hostURL: 'https://www.voicecorp.com.br',
         folderURL: 'voicecorp-b29e93f6-9400-4bcc-b427-1bf9139b34fa',
+        bottom: {
+            mobile: 10,
+            desktop: 10
+        },
         cta: {
             internal: true,
             type: 'product',
@@ -118,7 +122,7 @@ const companies: ICompany[] = [
                 videoURL: 'video-04029179-705b-4903-84dc-5abb927cdb29.mp4'
             }
         ]
-    },
+    }
 ]
 
 export default companies
