@@ -4,7 +4,7 @@ export const Button = styled.a`
     left: 3%;
     opacity: 0;
     bottom: 10%;
-    width: 11em;
+    width: 13em;
     height: 2.8em;
     display: none;
     padding: 0.5em;
