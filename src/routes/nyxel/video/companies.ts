@@ -99,7 +99,26 @@ const companies: ICompany[] = [
                 videoURL: 'video-58774a2e-716f-46d4-a665-ad2538c9336e.mov'
             }
         ]
-    }
+    },
+    {
+        color: '#FF5418',
+        name: 'Voicecorp',
+        actionText: 'Saiba mais 👆',
+        hostURL: 'https://www.voicecorp.com.br',
+        folderURL: 'voicecorp-b29e93f6-9400-4bcc-b427-1bf9139b34fa',
+        cta: {
+            internal: true,
+            type: 'product',
+            text: 'Veja as soluções',
+            url: 'https://www.voicecorp.com.br/solucoes/'
+        },
+        routes: [
+            {
+                url: '/',
+                videoURL: 'video-04029179-705b-4903-84dc-5abb927cdb29.mp4'
+            }
+        ]
+    },
 ]
 
 export default companies
