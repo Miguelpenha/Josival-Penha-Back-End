@@ -30,7 +30,7 @@ const VideoElement: FC<IProps> = ({ company, urlVideo }) => {
                 {company.cta.type === 'whatsapp' ? <ButtonWhatsApp cta={company.cta}/> : company.cta.type === 'reservation' ? <ButtonReservation cta={company.cta}/> : company.cta.type === 'product' && <ButtonProduct cta={company.cta}/>}
                 {company.caption && <Caption id="caption">{company.caption}</Caption>}
                 <Gradient id="gradient"/>
-                <Video id="video" loop muted autoPlay playsInline disablePictureInPicture preload="metadata">
+                <Video id="video" loop muted autoPlay playsInline disablePictureInPicture disableRemotePlayback preload="metadata">
                     <source src={urlVideo+'#t=0.1'} type="video/mp4"/>
                 </Video>
             </ContainerVideo>
