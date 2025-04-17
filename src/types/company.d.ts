@@ -1,12 +1,5 @@
 import ICreated from './created'
 
-export interface IRoute {
-    _id: string
-    url: string
-    videoURL: string
-    created: ICreated
-}
-
 type ICTAType = 'whatsapp' | 'reservation' | 'product'
 
 export interface ICTA {
@@ -16,7 +9,15 @@ export interface ICTA {
     internal?: boolean
 }
 
+export interface IRoute {
+    _id: string
+    url: string
+    videoURL: string
+    created: ICreated
+}
+
 interface ICompany {
+    cta: ICTA
     _id: string
     name: string
     color: string
@@ -31,7 +32,6 @@ interface ICompany {
         mobile?: number
         desktop?: number
     }
-    cta: ICTA
 }
 
 export default ICompany
