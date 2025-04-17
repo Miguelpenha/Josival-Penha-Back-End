@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import ICompany from '../../company'
+import ICompany from '../../../../../types/company'
 import { Button } from './style'
 
 interface IProps {

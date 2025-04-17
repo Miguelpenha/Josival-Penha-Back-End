@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import ICompany from '../company'
+import ICompany from '../../../../types/company'
 import { Container, Message, MessageText, ContainerVideo, ProgressBar, Brand, IconClose, IconShare, Caption, Gradient, Video } from './style'
 import ButtonWhatsApp from './ButtonWhatsApp'
 import ButtonReservation from './ButtonReservation'

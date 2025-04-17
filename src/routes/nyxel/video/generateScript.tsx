@@ -1,4 +1,4 @@
-import ICompany from './company'
+import ICompany from '../../../types/company'
 import { ServerStyleSheet, ThemeProvider } from 'styled-components'
 import { renderToString } from 'react-dom/server'
 import React from 'react'
@@ -9,7 +9,7 @@ import path from 'path'
 
 function generateScript(company: ICompany, urlVideo: string) {
     const sheet = new ServerStyleSheet()
-    const theme = useTheme(company.name)
+    const theme = useTheme(company)
     const videoElementRendered = renderToString(
         sheet.collectStyles(
             <ThemeProvider theme={theme}>

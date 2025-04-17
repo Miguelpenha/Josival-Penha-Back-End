@@ -1,9 +1,7 @@
-import companies from '../companies'
+import ICompany from '../../../../types/company'
 import ITheme from './theme'
 
-function useTheme(companyName: string) {
-    const company = companies.find(company=> company.name === companyName)
-
+function useTheme(company: ICompany) {
     const theme: ITheme = {
         color: company.color
     }
