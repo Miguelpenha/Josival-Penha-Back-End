@@ -122,6 +122,25 @@ const companies: ICompany[] = [
                 videoURL: 'video-04029179-705b-4903-84dc-5abb927cdb29.mp4'
             }
         ]
+    },
+    {
+        color: '#BF4804',
+        name: 'Sertão do Luar',
+        actionText: 'Veja aqui',
+        hostURL: 'https://www.sertaodoluar.com.br',
+        folderURL: 'sertao-do-luar-e9c96e52-f5b3-4a15-a6ab-2bae49c293d2',
+        cta: {
+            internal: true,
+            type: 'reservation',
+            text: 'Reserve agora',
+            url: 'https://www.sertaodoluar.com.br/search'
+        },
+        routes: [
+            {
+                url: '/',
+                videoURL: 'video-9fb5b92d-753a-4d3d-8e20-463b8935710c.mp4'
+            }
+        ]
     }
 ]
 
