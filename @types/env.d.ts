@@ -22,6 +22,9 @@ declare global {
         AWS_BASE_URL: string
         RESEND_API_KEY: string
         API_SEARCH_URL: string
+        // # AWS
+        AWS_ACCESS_KEY_ID: string
+        AWS_SECRET_ACCESS_KEY: string
         // # Google
         GOOGLE_SCOPES: string
         GEMINI_API_KEY: string
