@@ -65,18 +65,17 @@ nyxelRouter.get('/companies', async (req, res) => {
 })
 
 nyxelRouter.get('/companies/:companyFolderURL', async (req, res) => {
-    const { companyFolderURL } = req.params
-
-    const company = await companiesModel.findOne({ companyFolderURL })
+    const { companyFolderURL: folderURL } = req.params
+    const company = await companiesModel.findOne({ folderURL })
 
     res.json(company)
 })
 
 nyxelRouter.post('/companies/:companyFolderURL/route', upload.single('video'), async (req: Request<{ companyFolderURL: string }, {}, { url: string }>, res) => {
-    const { companyFolderURL } = req.params
+    const { companyFolderURL: folderURL } = req.params
     const { url } = req.body
 
-    const company = await companiesModel.findOne({ companyFolderURL })
+    const company = await companiesModel.findOne({ folderURL })
 
     const videoName = `video-${uuidv4()}`
     const key = `videos/${company.folderURL}/${videoName}`
