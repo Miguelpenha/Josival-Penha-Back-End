@@ -81,6 +81,12 @@ nyxelRouter.post('/companies/:companyFolderURL/route', upload.single('video'), a
     const videoName = `video-${uuidv4()}`
     const key = `videos/${company.folderURL}/${videoName}`
 
+    company.routes.push({ url, videoURL: videoName } as any)
+
+    await company.save()
+
+    res.json({ created: true })
+
     const command = new PutObjectCommand({
         Key: key,
         Bucket: 'nyxel',
@@ -90,16 +96,6 @@ nyxelRouter.post('/companies/:companyFolderURL/route', upload.single('video'), a
     })
 
     await client.send(command)
-
-    try {
-        company.routes.push({ url, videoURL: videoName } as any)
-
-        await company.save()
-    
-        res.json({ created: true })
-    } catch (error) {
-        res.json({ error, created: false })
-    }
 })
 
 export default nyxelRouter
