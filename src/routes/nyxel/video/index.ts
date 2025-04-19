@@ -32,38 +32,41 @@ videoRouter.get('/', async (req, res) => {
 
 videoRouter.get('/page/:page(.+)?', async (req, res) => {
     const hostURL = req.get('Origin') || req.get('Referer')
-    const company = await companiesModel.findOne({
-        hostURL: { $regex: hostURL, $options: 'i' }
-    })
     
-    if (company) {
-        const { page: routeURLRaw } = req.params
-
-        const route = company.routes.find(route => {
-            const routeURL = ('/'+(routeURLRaw || ''))
-
-            if (route.url.endsWith('/*')) {
-                if (routeURL.startsWith(route.url.replace('/*', ''))) {
+    if (typeof hostURL === 'string') {
+        const company = await companiesModel.findOne({
+            hostURL: { $regex: hostURL, $options: 'i' }
+        })
+        
+        if (company) {
+            const { page: routeURLRaw } = req.params
+    
+            const route = company.routes.find(route => {
+                const routeURL = ('/'+(routeURLRaw || ''))
+    
+                if (route.url.endsWith('/*')) {
+                    if (routeURL.startsWith(route.url.replace('/*', ''))) {
+                        return route
+                    }
+                } else if (route.url === routeURL) {
                     return route
                 }
-            } else if (route.url === routeURL) {
-                return route
-            }
-        })
-
-        if (route) {
-            const urlVideo = `${process.env.AWS_BASE_URL}/videos/${company.folderURL}/${route.videoURL}`
-            const script = generateScript(company, urlVideo)
+            })
     
-            res.contentType('application/javascript')
-            res.send(script)
+            if (route) {
+                const urlVideo = `${process.env.AWS_BASE_URL}/videos/${company.folderURL}/${route.videoURL}`
+                const script = generateScript(company, urlVideo)
+        
+                res.contentType('application/javascript')
+                res.send(script)
+            } else {
+                res.contentType('application/javascript')
+                res.send('')
+            }
         } else {
-            res.contentType('application/javascript')
-            res.send('')
+            res.status(404)
+            res.json({ message: 'Company not found' })
         }
-    } else {
-        res.status(404)
-        res.json({ message: 'Company not found' })
     }
 })
 
