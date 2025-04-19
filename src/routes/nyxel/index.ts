@@ -1,15 +1,10 @@
 import express, { Request } from 'express'
 import videoRouter from './video'
-import { S3Client } from '@aws-sdk/client-s3'
-import { Upload } from '@aws-sdk/lib-storage'
+import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3'
 import multer from 'multer'
-import ffmpeg from 'fluent-ffmpeg'
-import ffmpegInstaller from '@ffmpeg-installer/ffmpeg'
 import ICompany from '../../types/company'
 import companiesModel from '../../models/company'
 import { v4 as uuidv4 } from 'uuid'
-import intoStream from 'into-stream'
-import { PassThrough } from 'stream'
 
 const nyxelRouter = express.Router()
 
@@ -21,8 +16,6 @@ const client = new S3Client({
 })
 
 const upload = multer({ storage: multer.memoryStorage() })
-
-ffmpeg.setFfmpegPath(ffmpegInstaller.path)
 
 type IRequestRegisterCompany = Omit<ICompany, '_id' | 'routes' | 'created'>
 
@@ -86,33 +79,15 @@ nyxelRouter.post('/companies/:IDCompany/route', upload.single('video'), async (r
 
     res.json({ created: true })
 
-    const pass = new PassThrough()
-    const uploadTask = new Upload({
-        client,
-        params: {
-            Key: key,
-            Body: pass,
-            Bucket: 'nyxel',
-            ACL: 'public-read',
-            ContentType: req.file.mimetype,
-        }
+    const command = new PutObjectCommand({
+        Key: key,
+        Bucket: 'nyxel',
+        ACL: 'public-read',
+        Body: req.file.buffer,
+        ContentType: req.file.mimetype
     })
 
-    ffmpeg(intoStream(req.file.buffer))
-        .outputOptions([
-            '-c copy',
-            '-map 0',
-            '-movflags',
-            '+frag_keyframe+empty_moov+default_base_moof+faststart'
-        ])
-        .format('mp4')
-        .on('error', err => {
-            console.log(err)
-            pass.destroy(err)
-        })
-        .pipe(pass)
-
-    uploadTask.done().then(() => {
+    client.send(command).then(() => {
         company.routes.map((route, index) => {
             if (route.url === url) {
                 company.routes[index].loading = false
