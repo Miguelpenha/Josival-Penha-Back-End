@@ -3,6 +3,7 @@ import ICompany, { IRoute, ICTA } from '../types/company'
 import createdSchema from './schemasPatterns/created'
 
 const routeSchema = new mongoose.Schema<IRoute>({
+    loading: Boolean,
     created: createdSchema,
     url: {
         type: String,

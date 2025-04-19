@@ -1,18 +1,28 @@
 import express, { Request } from 'express'
 import videoRouter from './video'
-import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3'
+import { S3Client } from '@aws-sdk/client-s3'
+import { Upload } from '@aws-sdk/lib-storage'
 import multer from 'multer'
+import ffmpeg from 'fluent-ffmpeg'
+import ffmpegInstaller from '@ffmpeg-installer/ffmpeg'
 import ICompany from '../../types/company'
 import companiesModel from '../../models/company'
 import { v4 as uuidv4 } from 'uuid'
+import intoStream from 'into-stream'
+import { PassThrough } from 'stream'
 
 const nyxelRouter = express.Router()
 
 nyxelRouter.use('/video', videoRouter)
 
-const client = new S3Client({ region: 'sa-east-1' })
+const client = new S3Client({
+    region: 'sa-east-1',
+    requestChecksumCalculation: 'WHEN_REQUIRED'
+})
 
 const upload = multer({ storage: multer.memoryStorage() })
+
+ffmpeg.setFfmpegPath(ffmpegInstaller.path)
 
 type IRequestRegisterCompany = Omit<ICompany, '_id' | 'routes' | 'created'>
 
@@ -20,16 +30,6 @@ nyxelRouter.post('/companies', async (req: Request<{}, {}, IRequestRegisterCompa
     const company = req.body
 
     const folderName = `${company.name}-${uuidv4()}`
-    const folderURL = `videos/${folderName}/`
-
-    const command = new PutObjectCommand({
-        Body: '',
-        Key: folderURL,
-        Bucket: 'nyxel',
-        ContentLength: 0
-    })
-
-    await client.send(command)
 
     try {
         await companiesModel.create({
@@ -64,37 +64,63 @@ nyxelRouter.get('/companies', async (req, res) => {
     res.json(companies)
 })
 
-nyxelRouter.get('/companies/:companyFolderURL', async (req, res) => {
-    const { companyFolderURL: folderURL } = req.params
-    const company = await companiesModel.findOne({ folderURL })
+nyxelRouter.get('/companies/:IDCompany', async (req, res) => {
+    const { IDCompany } = req.params
+    const company = await companiesModel.findOne({ _id: IDCompany })
 
     res.json(company)
 })
 
-nyxelRouter.post('/companies/:companyFolderURL/route', upload.single('video'), async (req: Request<{ companyFolderURL: string }, {}, { url: string }>, res) => {
-    const { companyFolderURL: folderURL } = req.params
+nyxelRouter.post('/companies/:IDCompany/route', upload.single('video'), async (req: Request<{ IDCompany: string }, {}, { url: string }>, res) => {
+    const { IDCompany } = req.params
     const { url } = req.body
 
-    const company = await companiesModel.findOne({ folderURL })
+    const company = await companiesModel.findOne({ _id: IDCompany })
 
     const videoName = `video-${uuidv4()}`
     const key = `videos/${company.folderURL}/${videoName}`
 
-    company.routes.push({ url, videoURL: videoName } as any)
+    company.routes.push({ url, videoURL: videoName, loading: true } as any)
 
     await company.save()
 
     res.json({ created: true })
 
-    const command = new PutObjectCommand({
-        Key: key,
-        Bucket: 'nyxel',
-        ACL: 'public-read',
-        Body: req.file.buffer,
-        ContentType: req.file.mimetype
+    const pass = new PassThrough()
+    const uploadTask = new Upload({
+        client,
+        params: {
+            Key: key,
+            Body: pass,
+            Bucket: 'nyxel',
+            ACL: 'public-read',
+            ContentType: req.file.mimetype,
+        }
     })
 
-    await client.send(command)
+    ffmpeg(intoStream(req.file.buffer))
+        .outputOptions([
+            '-c copy',
+            '-map 0',
+            '-movflags',
+            '+frag_keyframe+empty_moov+default_base_moof+faststart'
+        ])
+        .format('mp4')
+        .on('error', err => {
+            console.log(err)
+            pass.destroy(err)
+        })
+        .pipe(pass)
+
+    uploadTask.done().then(() => {
+        company.routes.map((route, index) => {
+            if (route.url === url) {
+                company.routes[index].loading = false
+            }
+        })
+    
+        company.save().then()
+    })
 })
 
 export default nyxelRouter

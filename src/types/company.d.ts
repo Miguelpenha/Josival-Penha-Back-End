@@ -13,6 +13,7 @@ export interface IRoute {
     _id: string
     url: string
     videoURL: string
+    loading?: boolean
     created: ICreated
 }
 
