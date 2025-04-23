@@ -34,8 +34,6 @@ kommoRouter.post('/:companyID', async (req: Request<{ companyID: string }, {}, I
 				console.log(info('>> Kommo'))
 	
 				await sendToMeta(company, user)
-			} else {
-				res.json({ message: 'Phone is required' })
 			}
 		}
 	} catch (error) {
