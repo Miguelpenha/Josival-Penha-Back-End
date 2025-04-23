@@ -24,15 +24,19 @@ kommoRouter.post('/:companyID', async (req: Request<{ companyID: string }, {}, I
 		if (status) {
 			const dataBoldAPI = await BoldAPI(company.id, lead)
 
-			let user: IUser = {
-				status,
-				price: Number(lead.price),
-				phone: formatPhone(dataBoldAPI.contact.fields.Phone)
+			if (dataBoldAPI?.contact?.fields?.Phone) {
+				let user: IUser = {
+					status,
+					price: Number(lead.price),
+					phone: formatPhone(dataBoldAPI.contact.fields.Phone)
+				}
+	
+				console.log(info('>> Kommo'))
+	
+				await sendToMeta(company, user)
+			} else {
+				res.json({ message: 'Phone is required' })
 			}
-
-			console.log(info('>> Kommo'))
-
-			await sendToMeta(company, user)
 		}
 	} catch (error) {
 		console.log(error)
