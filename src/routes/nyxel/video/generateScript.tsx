@@ -25,12 +25,12 @@ function generateScript(company: ICompany, urlVideo: string) {
     .replaceAll('{{color}}', theme.color)
     .replaceAll('{{videoURL}}', urlVideo)
     .replaceAll('{{styleElement}}', styleElement)
-    .replaceAll('{{contactURL}}', company.cta.url)
     .replaceAll('{{scale}}', String(company.scale || 1))
     .replaceAll('{{videoElement}}', videoElementRendered)
+    .replaceAll('{{contactURL}}', company.cta ? company.cta.url : '')
     .replaceAll('{{bottomMobile}}', String(company?.bottom?.mobile || 45))
     .replaceAll('{{bottomDesktop}}', String(company?.bottom?.desktop || 45))
-    .replaceAll('{{ctaRedirect}}', company.cta.internal ? '_self' : '_blank')
+    .replaceAll('{{ctaRedirect}}', company.cta ? (company.cta.internal ? '_self' : '_blank') : '')
     
     return script
 }
