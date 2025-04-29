@@ -13,9 +13,11 @@ interface IProps {
 const VideoElement: FC<IProps> = ({ company, urlVideo }) => {
     return (
         <Container id="nyxel" $bottom={company?.bottom} $scale={company.scale || 1}>
-            <Message className="message">
-                <MessageText className="text">{company.actionText}</MessageText>
-            </Message>
+            {company.actionText && (
+                <Message className="message">
+                    <MessageText className="text">{company.actionText}</MessageText>
+                </Message>
+            )}
             <ContainerVideo className="container-video">
                 <ProgressBar className="progress-bar"/>
                 <Brand/>

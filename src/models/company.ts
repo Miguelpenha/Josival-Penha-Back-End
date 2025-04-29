@@ -53,7 +53,7 @@ const schema = new mongoose.Schema<ICompany>({
     },
     actionText: {
         type: String,
-        required: true
+        required: false
     },
     created: createdSchema,
     bottom: {
