@@ -23,6 +23,7 @@ declare global {
         RESEND_API_KEY: string
         API_SEARCH_URL: string
         // # AWS
+        AWS_ENDPOINT: string
         AWS_ACCESS_KEY_ID: string
         AWS_SECRET_ACCESS_KEY: string
         // # Google

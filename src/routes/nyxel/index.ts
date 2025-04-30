@@ -16,7 +16,8 @@ const nyxelRouter = express.Router()
 nyxelRouter.use('/video', videoRouter)
 
 const client = new S3Client({
-    region: 'sa-east-1',
+    region: 'auto',
+    endpoint: process.env.AWS_ENDPOINT,
     requestChecksumCalculation: 'WHEN_REQUIRED'
 })
 
