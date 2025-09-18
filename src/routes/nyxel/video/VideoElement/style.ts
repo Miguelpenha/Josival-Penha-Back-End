@@ -145,5 +145,6 @@ export const Gradient = styled.div`
 export const Video = styled.video`
     width: 100%;
     height: auto;
+    max-width: none !important;
     /* box-shadow: 0px 15px 50px 0px rgba(0, 0, 0, 0.5); */
 `
