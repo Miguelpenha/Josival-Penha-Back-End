@@ -58,8 +58,8 @@ function addParameterToURL(key, value) {
     }
 }
 
-async function sendEventOpen() {
-    await fetch('{{domain}}/nyxel/video/events/open', {
+async function sendEvent(event) {
+    await fetch(`{{domain}}/nyxel/video/events/${event}`, {
         method: 'POST',
         body: {
             page: window.location.pathname
@@ -151,7 +151,7 @@ function openVideo() {
         }
     })
 
-    sendEventOpen().then()
+    sendEvent('open').then()
 }
 
 function closeVideo() {
@@ -240,6 +240,8 @@ function closeVideo() {
         scale: Number('{{scale}}'),
         backgroundColor: '{{color}}'
     })
+
+    sendEvent('close').then()
 }
 
 function makeVideo() {
@@ -307,6 +309,8 @@ function makeVideo() {
     })
 
     buttonCTA.onclick = ev => {
+        sendEvent('cta-click').then()
+
         ev.preventDefault()
 
         addParameterToURL('contact_click', 'true')
