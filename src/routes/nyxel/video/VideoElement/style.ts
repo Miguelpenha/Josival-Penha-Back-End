@@ -1,5 +1,10 @@
 import styled from 'styled-components'
+import ITheme from './theme'
 import BrandRaw from './Brand'
+
+declare module 'styled-components' {
+    export interface DefaultTheme extends ITheme {}
+}
 
 interface IContainer {
     $scale: number

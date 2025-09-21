@@ -17,6 +17,9 @@ declare global {
         SECRET_KEY_CRYPTO: string
         API_KEYS_AUTHORIZED: string
         // Services
+        // # Posthog
+        POSTHOG_KEY: string
+        POSTHOG_HOST: string
         // # General
         MONGO_URL: string
         AWS_BASE_URL: string

@@ -5,9 +5,9 @@ function decrypt(data: string) {
         try {
             const iv = Buffer.from(data.split(':')[1], 'hex')
             const tag = Buffer.from(data.split(':')[2], 'hex')
-            const decipher = crypto.createDecipheriv('aes-256-gcm', process.env.SECRET_KEY_CRYPTO, iv)
+            const decipher = crypto.createDecipheriv('aes-256-gcm', process.env.SECRET_KEY_CRYPTO, iv as any)
 
-            decipher.setAuthTag(tag)
+            decipher.setAuthTag(tag as any)
 
             let dec = decipher.update(data.split(':')[0], 'hex', 'utf8')
             

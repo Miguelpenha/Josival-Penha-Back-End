@@ -3,6 +3,7 @@ import companiesModel from '../../../models/company'
 import path from 'path'
 import fs from 'fs'
 import generateScript from './generateScript'
+import PostHogClient from '../../../lib/posthog'
 
 const videoRouter = express.Router()
 
@@ -59,6 +60,25 @@ videoRouter.get('/page/:page(.+)?', async (req, res) => {
         
                 res.contentType('application/javascript')
                 res.send(script)
+
+                const postHog = PostHogClient()
+
+                postHog.capture({
+                    event: 'Video requested',
+                    distinctId: company._id.toString(),
+                    properties: {
+                        videoURl: urlVideo,
+                        routeURL: route.url,
+                        videoID: route.videoURL,
+                        routeID: route._id.toString(),
+                        $set: {
+                            name: company.name,
+                            hostURL: company.hostURL
+                        }
+                    }
+                })
+
+                await postHog.shutdown()
             } else {
                 res.contentType('application/javascript')
                 res.send('')

@@ -4,7 +4,7 @@ function encrypt(data: string) {
     if (data) {
         try {
             const iv = crypto.randomBytes(12)
-            const cipher = crypto.createCipheriv('aes-256-gcm', Buffer.from(process.env.SECRET_KEY_CRYPTO), iv)
+            const cipher = crypto.createCipheriv('aes-256-gcm', Buffer.from(process.env.SECRET_KEY_CRYPTO) as any, iv as any)
             let crip = cipher.update(data, 'utf8', 'hex')
 
             crip += cipher.final('hex')
