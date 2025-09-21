@@ -58,6 +58,15 @@ function addParameterToURL(key, value) {
     }
 }
 
+async function sendEventOpen() {
+    await fetch('{{domain}}/nyxel/video/events/open', {
+        method: 'POST',
+        body: {
+            page: window.location.pathname
+        }
+    })
+}
+
 function openVideo() {
     video.loop = false
     video.muted = false
@@ -141,6 +150,8 @@ function openVideo() {
             }, 3000)
         }
     })
+
+    sendEventOpen().then()
 }
 
 function closeVideo() {

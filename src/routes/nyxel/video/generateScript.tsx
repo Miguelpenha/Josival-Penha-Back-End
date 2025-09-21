@@ -31,6 +31,7 @@ function generateScript(company: ICompany, urlVideo: string) {
     .replaceAll('{{bottomMobile}}', String(company?.bottom?.mobile || 45))
     .replaceAll('{{bottomDesktop}}', String(company?.bottom?.desktop || 45))
     .replaceAll('{{ctaRedirect}}', company.cta ? (company.cta.internal ? '_self' : '_blank') : '')
+    .replaceAll('{{domain}}', process.env.DOMAIN)
     
     return script
 }
