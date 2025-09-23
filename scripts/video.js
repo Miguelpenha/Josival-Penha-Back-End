@@ -24,6 +24,38 @@ function verifyGSAP() {
     }
 }
 
+function getUserID() {
+    const cookies = document.cookie.split('; ')
+
+    const cookie = cookies.find(cookie => {
+        const [name] = cookie.split('=')
+
+        if (name === 'nyxel_id') {
+            return true
+        }
+    })
+
+    return cookie.split('=')[1]
+}
+
+async function sendEvent(event) {
+    const userID = getUserID()
+
+    const urlRaw = window.location.pathname
+
+    await fetch(`{{domain}}/nyxel/video/events/${event}`, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            userID,
+            page: urlRaw != '/'
+        })
+    })
+}
+
 function initialLoadVideo() {
     gsap.to('#nyxel>.container-video', {
         width: '90%',
@@ -46,6 +78,8 @@ function initialLoadVideo() {
             })
         }
     })
+
+    sendEvent('load').then()
 }
 
 function addParameterToURL(key, value) {
@@ -56,15 +90,6 @@ function addParameterToURL(key, value) {
 
         history.pushState(null, null, url.href)
     }
-}
-
-async function sendEvent(event) {
-    await fetch(`{{domain}}/nyxel/video/events/${event}`, {
-        method: 'POST',
-        body: {
-            page: window.location.pathname
-        }
-    })
 }
 
 function openVideo() {

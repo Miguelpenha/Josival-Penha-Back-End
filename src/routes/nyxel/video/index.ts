@@ -1,5 +1,6 @@
 import express from 'express'
 import companiesModel from '../../../models/company'
+import { v4 } from 'uuid'
 import path from 'path'
 import fs from 'fs'
 import generateScript from './generateScript'
@@ -17,8 +18,10 @@ videoRouter.get('/', async (req, res) => {
         })
 
         if (company) {
+            const userID = v4().toString()
+
             const scriptPath = path.resolve(__dirname, '..', '..', '..', '..', 'scripts', 'domain.js')
-            const script = fs.readFileSync(scriptPath).toString().replaceAll('{{domain}}', process.env.DOMAIN)
+            const script = fs.readFileSync(scriptPath).toString().replaceAll('{{domain}}', process.env.DOMAIN).replaceAll('{{userID}}', userID)
 
             res.contentType('application/javascript')
             res.send(script)
@@ -60,13 +63,52 @@ videoRouter.get('/page/:page(.+)?', async (req, res) => {
         
                 res.contentType('application/javascript')
                 res.send(script)
+            } else {
+                res.contentType('application/javascript')
+                res.send('')
+            }
+        } else {
+            res.status(404)
+            res.json({ message: 'Company not found' })
+        }
+    }
+})
+
+videoRouter.post('/events/load', async (req, res) => {
+    const hostURL = req.get('Origin') || req.get('Referer')
+    
+    if (typeof hostURL === 'string') {
+        const company = await companiesModel.findOne({
+            hostURL: { $regex: hostURL, $options: 'i' }
+        })
+        
+        if (company) {
+            const { page: routeURLRaw, userID } = req.body
+    
+            const route = company.routes.find(route => {
+                const routeURL = ('/'+(routeURLRaw || ''))
+    
+                if (route.url.endsWith('/*')) {
+                    if (routeURL.startsWith(route.url.replace('/*', ''))) {
+                        return route
+                    }
+                } else if (route.url === routeURL) {
+                    return route
+                }
+            })
+    
+            if (route) {
+                res.json({ captured: true })
 
                 const postHog = PostHogClient()
+
+                const urlVideo = `${process.env.AWS_BASE_URL}/videos/${company.folderURL}/${route.videoURL}`
 
                 postHog.capture({
                     event: 'Video loaded',
                     distinctId: company._id.toString(),
                     properties: {
+                        userID,
                         videoURL: urlVideo,
                         routeURL: route.url,
                         videoID: route.videoURL,
@@ -80,8 +122,8 @@ videoRouter.get('/page/:page(.+)?', async (req, res) => {
 
                 await postHog.shutdown()
             } else {
-                res.contentType('application/javascript')
-                res.send('')
+                res.status(404)
+                res.json({ message: 'Route not found' })
             }
         } else {
             res.status(404)
@@ -99,7 +141,7 @@ videoRouter.post('/events/open', async (req, res) => {
         })
         
         if (company) {
-            const { page: routeURLRaw } = req.body
+            const { page: routeURLRaw, userID } = req.body
     
             const route = company.routes.find(route => {
                 const routeURL = ('/'+(routeURLRaw || ''))
@@ -124,6 +166,7 @@ videoRouter.post('/events/open', async (req, res) => {
                     event: 'Video open',
                     distinctId: company._id.toString(),
                     properties: {
+                        userID,
                         videoURL: urlVideo,
                         routeURL: route.url,
                         videoID: route.videoURL,
@@ -156,7 +199,7 @@ videoRouter.post('/events/cta-click', async (req, res) => {
         })
         
         if (company) {
-            const { page: routeURLRaw } = req.body
+            const { page: routeURLRaw, userID } = req.body
     
             const route = company.routes.find(route => {
                 const routeURL = ('/'+(routeURLRaw || ''))
@@ -181,6 +224,7 @@ videoRouter.post('/events/cta-click', async (req, res) => {
                     event: 'Video CTA click',
                     distinctId: company._id.toString(),
                     properties: {
+                        userID,
                         videoURL: urlVideo,
                         routeURL: route.url,
                         videoID: route.videoURL,
@@ -216,7 +260,7 @@ videoRouter.post('/events/close', async (req, res) => {
         })
         
         if (company) {
-            const { page: routeURLRaw } = req.body
+            const { page: routeURLRaw, userID } = req.body
     
             const route = company.routes.find(route => {
                 const routeURL = ('/'+(routeURLRaw || ''))
@@ -241,6 +285,7 @@ videoRouter.post('/events/close', async (req, res) => {
                     event: 'Video close',
                     distinctId: company._id.toString(),
                     properties: {
+                        userID,
                         videoURL: urlVideo,
                         routeURL: route.url,
                         videoID: route.videoURL,

@@ -9,6 +9,22 @@ setTimeout(() => {
 
     let oldDomain = window.document.location.pathname
 
+    const cookies = document.cookie.split('; ')
+
+    const userID = cookies.find(cookie => {
+        const [name, value] = cookie.split('=')
+
+        if (name === 'nyxel_id') {
+            return value
+        }
+    })
+
+    if (!userID) {
+        const userIDBackup = '{{userID}}'
+        const maxAge = 1000 * 60 * 60 * 24 * 365 // 1 year
+        document.cookie = `nyxel_id=${userIDBackup}; Path=/; Max-Age=${maxAge}; SameSite=Lax`
+    }
+
     setInterval(() => {
         if (oldDomain != window.document.location.pathname) {
             document.body.removeChild(scriptVideo)
