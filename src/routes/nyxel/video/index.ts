@@ -21,7 +21,7 @@ videoRouter.get('/', async (req, res) => {
             const scriptPath = path.resolve(__dirname, '..', '..', '..', '..', 'scripts', 'domain.js')
             const script = fs.readFileSync(scriptPath).toString().replaceAll('{{domain}}', process.env.DOMAIN)
 
-            const userID = req.cookies.nyxel_id || v4().toString()
+            const userID = req.cookies?.nyxel_id || v4().toString()
 
             console.log(userID)
 
