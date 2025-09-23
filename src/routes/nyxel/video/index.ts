@@ -4,6 +4,7 @@ import path from 'path'
 import fs from 'fs'
 import generateScript from './generateScript'
 import PostHogClient from '../../../lib/posthog'
+import { v4 } from 'uuid'
 
 const videoRouter = express.Router()
 
@@ -19,6 +20,18 @@ videoRouter.get('/', async (req, res) => {
         if (company) {
             const scriptPath = path.resolve(__dirname, '..', '..', '..', '..', 'scripts', 'domain.js')
             const script = fs.readFileSync(scriptPath).toString().replaceAll('{{domain}}', process.env.DOMAIN)
+
+            const userID = req.cookies.nyxel_id || v4().toString()
+
+            console.log(userID)
+
+            res.cookie('nyxel_id', userID, {
+                path: '/',
+                secure: false,
+                httpOnly: false,
+                sameSite: 'none',
+                maxAge: 1000 * 60 * 60 * 24 * 365 // 1 year
+            })
 
             res.contentType('application/javascript')
             res.send(script)
