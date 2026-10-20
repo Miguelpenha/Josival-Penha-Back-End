@@ -126,7 +126,7 @@ export const IconShare = styled.svg`
 export const Caption = styled.div`
     left: 3%;
     opacity: 0;
-    bottom: 5%;
+    bottom: 0%;
     width: 11em;
     height: 2.8em;
     display: none;
