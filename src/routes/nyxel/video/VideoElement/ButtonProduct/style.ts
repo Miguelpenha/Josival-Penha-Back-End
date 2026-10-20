@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const Button = styled.a`
     left: 3%;
     opacity: 0;
-    bottom: 10%;
+    bottom: 5%;
     width: 13em;
     height: 2.8em;
     display: none;
@@ -27,5 +27,6 @@ export const Button = styled.a`
         color: #FFFFFF;
         margin-left: 1em;
         font-weight: bold;
+        font-family: sans-serif;
     }
 `
